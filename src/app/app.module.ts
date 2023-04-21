@@ -12,6 +12,7 @@ import { FooterComponent } from './frontOffice/footer/footer.component';
 import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-template-user.component';
 import { BodyComponent } from './frontOffice/body/body.component';
 import { HeaderComponent } from './frontOffice/header/header.component';
+import { LoginComponent } from './frontOffice/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HeaderComponent } from './frontOffice/header/header.component';
     AllTemplateUserComponent,
     BodyComponent,
     HeaderComponent,
+    LoginComponent,
     
   ],
   imports: [
