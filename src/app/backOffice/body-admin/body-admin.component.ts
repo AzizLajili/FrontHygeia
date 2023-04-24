@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-body-admin',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyAdminComponent implements OnInit {
 
-  constructor() { }
+  id!:number;
+
+  constructor(private actR:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.actR.paramMap.subscribe(data => this.id=Number(data.get('param')))
+    const id= localStorage.getItem("session")
   }
 
 }

@@ -81,7 +81,7 @@ signInButton?.addEventListener('click', () =>
     //  const token = response['access_token']; // Replace 'token' with the actual name of the property that holds the login token in your response object
     //this.cookieService.set('Authorization', token, { sameSite: 'strict' });
     },(error: HttpErrorResponse) => {
-      console.log(error.error.text); // affiche la réponse brute sous forme de chaîne de caractères
+      console.log(error.error.text); 
     });
     this.router.navigate(['/'])
   }

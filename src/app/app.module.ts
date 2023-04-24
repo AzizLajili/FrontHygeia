@@ -13,6 +13,9 @@ import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-te
 import { BodyComponent } from './frontOffice/body/body.component';
 import { HeaderComponent } from './frontOffice/header/header.component';
 import { LoginComponent } from './frontOffice/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,14 @@ import { LoginComponent } from './frontOffice/login/login.component';
     BodyComponent,
     HeaderComponent,
     LoginComponent,
+    ListUsersComponent,
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

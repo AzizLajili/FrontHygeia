@@ -19,8 +19,7 @@ export class HygeiaService {
  }
 
  public getUsers(): Observable<any> {
-   
-   return this.http.get<any>('http://localhost:8090/allusers', this.options)
+   return this.http.get<any>('http://localhost:8090/allusers', { withCredentials: true })
  }
  public getUser(cin : any): Observable<any> {
    return this.http.get<any>(`http://localhost:8090/user/${cin}`, { withCredentials: true })

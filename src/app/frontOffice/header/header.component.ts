@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private router: Router){}
+  redirectToProfilePage(): void {
+    const userId = localStorage.getItem('userId');
+    this.router.navigate(['/profile', userId]);
+  }
 }
