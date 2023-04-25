@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HygeiaService } from 'src/app/hygeia.service';
 
 @Component({
   selector: 'app-body-admin',
@@ -9,12 +11,27 @@ import { ActivatedRoute } from '@angular/router';
 export class BodyAdminComponent implements OnInit {
 
   id!:number;
-
-  constructor(private actR:ActivatedRoute) { }
+  user:any
+  constructor(private hygeiaService:HygeiaService,private actR:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.actR.paramMap.subscribe(data => this.id=Number(data.get('param')))
-    const id= localStorage.getItem("session")
+
+    this.actR.params.subscribe(params => {
+      const id = params['param'];
+
+      this.hygeiaService.getUser(id).subscribe(
+        (response: any) => {
+          this.user = response;
+          console.log(response)
+        },
+        (error:HttpErrorResponse)=>{
+          alert(error.message)
+        }
+      )
+
+    });
   }
+
 
 }

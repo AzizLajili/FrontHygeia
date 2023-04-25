@@ -15,7 +15,7 @@ export class HygeiaService {
  }
 
  public Logout(): Observable<any> {
-   return this.http.get<any>('http://localhost:8090/logout')
+   return this.http.get('http://localhost:8090/logout')
  }
 
  public getUsers(): Observable<any> {
@@ -43,5 +43,7 @@ export class HygeiaService {
  public deleteRole(): Observable<any> {
    return this.http.get<any>('http://localhost:8090/allusers')
  }
+
+
 
 }

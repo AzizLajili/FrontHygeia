@@ -6,16 +6,13 @@ import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-te
 import { LoginComponent } from './frontOffice/login/login.component';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { BodyComponent } from './frontOffice/body/body.component';
+import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
 
 const routes: Routes = [{
   path:'admin',  component:AllTemplateAdminComponent,
   children:[{
     path:'admin',component:BodyAdminComponent
-  },
-  {
-    path:':param',component:BodyAdminComponent
   }
-
 ]},
 {  path:'login',  component:LoginComponent,},
 {  path:'', component:AllTemplateUserComponent,},
@@ -25,8 +22,20 @@ const routes: Routes = [{
       path:'listusers',
       component:ListUsersComponent
     }]},
-
-   
+    {
+      path:'profile',  component:AllTemplateAdminComponent,
+      children:[{
+          path:':param',
+          component:BodyAdminComponent
+        }]
+      },
+      {
+        path:'',  component:AllTemplateUserComponent,
+        children:[{
+            path:'register',
+            component:FullRegisterComponent
+          }]
+        }
 
 
 ];

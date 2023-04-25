@@ -16,6 +16,7 @@ import { LoginComponent } from './frontOffice/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
+import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ListUsersComponent } from './backOffice/list-users/list-users.component
     HeaderComponent,
     LoginComponent,
     ListUsersComponent,
+    FullRegisterComponent,
     
   ],
   imports: [
