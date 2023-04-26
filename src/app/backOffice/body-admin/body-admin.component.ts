@@ -12,6 +12,7 @@ export class BodyAdminComponent implements OnInit {
 
   id!:number;
   user:any
+  listUsers:any
   constructor(private hygeiaService:HygeiaService,private actR:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -29,8 +30,14 @@ export class BodyAdminComponent implements OnInit {
           alert(error.message)
         }
       )
+      this.hygeiaService.getUsers().subscribe(data => {
+        this.listUsers = data;
+        console.log(this.listUsers)
+      })
 
     });
+
+
   }
 
 

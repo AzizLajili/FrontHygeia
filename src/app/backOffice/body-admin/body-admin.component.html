@@ -21,7 +21,7 @@
 							<section class="card">
 								<div class="card-body">
 									<div class="thumb-info mb-3">
-										<img src="/assets/BackOffice/img/%21logged-user.jpg" class="rounded img-fluid" alt="John Doe">
+										<img src="http://localhost/img/{{user.image}}.jpg" class="rounded img-fluid" alt="John Doe">
 										<div class="thumb-info-title">
 											<span class="thumb-info-inner">{{user.prenom}} {{user.nom}}</span>
 											<span class="thumb-info-type">CEO</span>
@@ -215,10 +215,10 @@
 											<div class="timeline timeline-simple mt-3 mb-3">
 												<div class="tm-body">
 													<div class="tm-title">
-														<h5 class="m-0 pt-2 pb-2 text-dark font-weight-semibold text-uppercase">November 2021</h5>
+														<h5 class="m-0 pt-2 pb-2 text-dark font-weight-semibold text-uppercase">{{user.nom}}</h5>
 													</div>
 													<ol class="tm-items">
-														<li>
+														<li *ngFor="let u of listUsers">
 															<div class="tm-box">
 																<p class="text-muted mb-0">7 months ago.</p>
 																<p>
@@ -226,14 +226,7 @@
 																</p>
 															</div>
 														</li>
-														<li>
-															<div class="tm-box">
-																<p class="text-muted mb-0">7 months ago.</p>
-																<p>
-																	What is your biggest developer pain point?
-																</p>
-															</div>
-														</li>
+														
 														<li>
 															<div class="tm-box">
 																<p class="text-muted mb-0">7 months ago.</p>
