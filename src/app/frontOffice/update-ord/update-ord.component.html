@@ -1,0 +1,73 @@
+<nav class="navbar">
+  <div class="logo">Hygeiaa</div>
+
+  <!-- NAVIGATION MENU -->
+  <ul class="nav-links">
+
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a href="/">Home</a></li>
+      <li >
+        <a href="/uploadimgOrd">Upload/download img</a>
+      </li>
+      <li><a href="/getordonnances">Gérer Ordonnances</a></li>
+      <li><a href="/updateordonnance">Update Ordonnance</a></li>
+    </div>
+  </ul>
+</nav>
+<form (ngSubmit)="onSubmit()" #ordonnanceForm="ngForm" class="form-container">
+  <div class="upload-container">
+    <label for="idOrdonnance">Select Ordonnance to Update</label>
+    <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}" >
+      <option value="">-- Select an Ordonnance --</option>
+      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="dateOrd">Date</label>
+    <input type="date" id="dateOrd" name="dateOrd" placeholder="jj/mm/yyyy" [(ngModel)]="ordonnance.dateOrd"  [max]="getTodayDate()" required>
+  </div>
+  <div class="form-field">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" [(ngModel)]="ordonnance.description" required
+              #descriptionField="ngModel"></textarea>
+    <div *ngIf="descriptionField.invalid && (descriptionField.touched || descriptionField.dirty)"
+         class="alert alert-danger">
+      Please enter a description.
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="ordonnancepatient.cin">Patient ID</label>
+    <input type="text" id="ordonnancepatient.cin" name="ordonnancepatient.cin" [(ngModel)]="ordonnance.ordonnancepatient.cin" pattern="[0-9]+"
+           required #patientIdField="ngModel">
+    <div *ngIf="patientIdField.errors && patientIdField.errors['required']"
+         class="alert alert-danger">
+      Please enter a patient ID.
+    </div>
+    <div *ngIf="patientIdField.errors && !patientIdField.errors['required'] && patientIdField.errors['pattern']"
+         class="alert alert-danger">
+      Please enter a valid patient ID (numbers only).
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="ordonnancemed.cin">Medecin ID</label>
+    <input type="text" id="ordonnancemed.cin" name="ordonnancemed.cin" [(ngModel)]="ordonnance.ordonnancemed.cin" pattern="[0-9]+"
+           required #medecinIdField="ngModel">
+    <div *ngIf="medecinIdField.errors && medecinIdField.errors['required']"
+         class="alert alert-danger">
+      Please enter a medecin ID.
+    </div>
+    <div *ngIf="medecinIdField.errors && !medecinIdField.errors['required'] && medecinIdField.errors['pattern']"
+         class="alert alert-danger">
+      Please enter a valid medecin ID (numbers only).
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="medicamentList">Medicaments</label>
+    <select id="medicamentList" name="medicamentList" [(ngModel)]="ordonnance.medicamentList" multiple required>
+      <option *ngFor="let medicament of medicaments" [value]="medicament">{{medicament.name}}</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="!ordonnanceForm.valid" class="submit-btn">updateOrd</button>
+</form>
+

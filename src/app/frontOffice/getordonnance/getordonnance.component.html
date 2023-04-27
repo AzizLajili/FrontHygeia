@@ -1,0 +1,61 @@
+<nav class="navbar">
+  <div class="logo">Hygeiaa</div>
+
+  <!-- NAVIGATION MENU -->
+  <ul class="nav-links">
+
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="/uploadimgOrd">Upload/download img</a>
+      </li>
+      <li><a href="/getordonnances">Gérer Ordonnances</a></li>
+      <li><a href="/updateordonnance">Update Ordonnance</a></li>
+
+    </div>
+
+  </ul>
+</nav>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Medicaments</th>
+    <th>Patient</th>
+    <th>Medecin</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ordonnance of ordonnances">
+    <td>{{ordonnance.id}}</td>
+    <td>{{ordonnance.dateOrd}}</td>
+    <td>{{ordonnance.description}}</td>
+    <td>
+      <ul>
+        <li *ngFor="let medicament of ordonnance.medicamentList">
+          {{medicament.nom}} ({{medicament.dosage}})
+        </li>
+      </ul>
+    </td>
+    <td>{{ordonnance.ordonnancepatient.nom}}{{ordonnance.ordonnancepatient.prenom}}</td>
+    <td>{{ordonnance.ordonnancemed.nom}}{{ordonnance.ordonnancemed.prenom}}</td>
+    <td><button type="button" class="btn btn-danger" (click)="deleteOrdonnance(ordonnance) ">Delete Ord</button>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td> <button type="button" class="submit-btn" (click)="navigatetouploadpage()">Upload/Download OrdImg</button></td>
+    <td>
+    </td>
+    <td>    <button type="button" class="submit-btn" (click)="navigatetoupdatepage()">Update Ord</button>
+    </td>
+    <td><button type="button" class="submit-btn" (click)="navigatetoaddpage()">Add Ordonnance</button> </td>
+  </tr>
+
+  </tbody>
+</table>
+

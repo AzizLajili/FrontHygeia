@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <div class="logo">Hygeiaa</div>
+
+  <!-- NAVIGATION MENU -->
+  <ul class="nav-links">
+
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a href="/">Home</a></li>
+      <li >
+        <a href="/uploadimgOrd">Upload/download img</a>
+      </li>
+      <li><a href="/getordonnances">Gérer Ordonnances</a></li>
+    </div>
+
+  </ul>
+</nav>
+<div class="upload-container">
+  <label for="idOrdonnance">Select Ordonnance to Update</label>
+  <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}" >
+    <option value="">-- Select an Ordonnance --</option>
+    <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>
+  </select>
+  <label for="file-upload">Select image to upload:</label>
+  <input type="file" id="file-upload" name="file-upload" (change)="uploadfile($event)"  style="display: block" >
+  <button type="submit" class="upload-button" (click)="sendFile()" >Upload Image</button>
+  <button type="submit" class="upload-button" (click)="downloadFile()" >download Image</button>
+</div>

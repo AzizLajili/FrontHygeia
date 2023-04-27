@@ -1,0 +1,192 @@
+
+<nav class="navbar">
+  <div class="logo">Hygeiaa</div>
+
+  <!-- NAVIGATION MENU -->
+  <ul class="nav-links">
+
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a href="/">Home</a></li>
+      <li >
+        <a href="/commande/getcommands">Add Commande</a>
+      </li>
+      <li><a href="/commande/getcommands">Gérer Commandes</a></li>
+<!--      <li><a href="/updatecommand">Update Commande</a></li>-->
+    </div>
+
+  </ul>
+</nav>
+
+<!--<div class="card mb-4">-->
+<!--  <div class="card-body">-->
+<!--    <div class="row">-->
+<!--      <div class="col">-->
+<!--        <form class="contact-form form-with-icons" (ngSubmit)="onSubmit()" #commandeForm="ngForm" novalidate="novalidate">-->
+<!--          <div class="contact-form-success alert alert-success d-none mt-4">-->
+<!--                <label for="orderDate">Date</label>-->
+<!--                <input type="date" id="orderDate" name="dateOrd" placeholder="jj/mm/yyyy" [(ngModel)]="commande.orderDate"  [max]="getTodayDate()" required>-->
+<!--          </div>-->
+<!--          <div class="contact-form-error alert alert-danger d-none mt-4">-->
+<!--            <strong>Error!</strong> There was an error sending your message.-->
+<!--            <span class="mail-error-message text-1 d-block"></span>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="form-group col-lg-6">-->
+<!--              <label for="orderDate">Date</label>-->
+<!--              <div class="position-relative">-->
+<!--                <i class="icons icon-user text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>-->
+<!--                <input type="date"  data-msg-required="Please enter a date." maxlength="100" class="form-control text-3 h-auto py-2" name="dateOrd"[(ngModel)]="commande.orderDate"  [max]="getTodayDate()" required>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group col-lg-6">-->
+<!--              <label for="commandepatient.cin">Patient ID</label>-->
+<!--              <div class="position-relative">-->
+<!--                <i class="icons icon-user text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>-->
+<!--                <input type="text" id="commandepatient.cin" name="ordonnancepatient.cin" data-msg-required="Please enter your ID." data-msg-email="Please enter a valid ID." [(ngModel)]="commande.commandepatient" pattern="[0-9]+" maxlength="100" class="form-control text-3 h-auto py-2" #patientIdField="ngModel" required >-->
+<!--                <div *ngIf="patientIdField.errors && patientIdField.errors['required']"-->
+<!--                     class="alert alert-danger">-->
+<!--                  Please enter a patient ID.-->
+<!--                </div>-->
+<!--                <div *ngIf="patientIdField.errors && !patientIdField.errors['required'] && patientIdField.errors['pattern']"-->
+<!--                     class="alert alert-danger">-->
+<!--                  Please enter a valid patient ID (numbers only).-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              &lt;!&ndash;    <label for="commandepatient.cin">Patient ID</label>&ndash;&gt;-->
+<!--              &lt;!&ndash;    <input type="text" id="commandepatient.cin" name="ordonnancepatient.cin" [(ngModel)]="commande.commandepatient" pattern="[0-9]+"&ndash;&gt;-->
+<!--              &lt;!&ndash;           required #patientIdField="ngModel">&ndash;&gt;-->
+<!--              &lt;!&ndash;    <div *ngIf="patientIdField.errors && patientIdField.errors['required']"&ndash;&gt;-->
+<!--              &lt;!&ndash;         class="alert alert-danger">&ndash;&gt;-->
+<!--              &lt;!&ndash;      Please enter a patient ID.&ndash;&gt;-->
+<!--              &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--              &lt;!&ndash;    <div *ngIf="patientIdField.errors && !patientIdField.errors['required'] && patientIdField.errors['pattern']"&ndash;&gt;-->
+<!--              &lt;!&ndash;         class="alert alert-danger">&ndash;&gt;-->
+<!--              &lt;!&ndash;      Please enter a valid patient ID (numbers only).&ndash;&gt;-->
+<!--              &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--              &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="form-group col">-->
+<!--              <label class="form-label" for="medicamentList">Medicaments</label>-->
+<!--              <div class="position-relative">-->
+<!--                <div class="custom-select-1">-->
+<!--                  <i class="icons icon-location-pin text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>-->
+<!--                  <select id="medicamentList" name="medicamentList"    data-msg-required="Please select a medicament."  required>-->
+<!--                    <option value=""> Choose your medicament</option>-->
+<!--                    <option *ngFor="let medicament of medicaments" [value]="medicament" (click)="addmedicament(medicament)">{{medicament.name}}</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="form-group col">-->
+<!--              <label class="form-label" for="ordonnanceList">Ordonnances</label>-->
+<!--              <div class="position-relative">-->
+<!--                <div class="custom-select-1">-->
+<!--                  <i class="icons icon-location-pin text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50 z-index-1"></i>-->
+<!--                  <select id="ordonnanceList" name="ordonnanceList"    data-msg-required="Please select an ordonnance."  required>-->
+<!--                    <option value=""> Choose your ordonnanceces you want to add</option>-->
+<!--                    <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance" (click)="addordonnance(ordonnance)">{{ordonnance.id}}</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--            <div *ngIf="commande.ordonnances.length>0">-->
+<!--              <ng-container *ngFor="let ordonnance of displayedOrdonnances">-->
+<!--                medicaments for ordonnance Id : {{ordonnance.id}}-->
+<!--                <ul *ngFor="let medicaments of ordonnance.medicamentList">-->
+<!--                    <li>-->
+<!--                      {{medicaments.nom}}-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--              </ng-container>-->
+<!--            </div>-->
+<!--          &lt;!&ndash;  <div *ngIf="commande.ordonnances.length>0">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <ng-container *ngFor="let ordonnance of displayedOrdonnances">&ndash;&gt;-->
+<!--          &lt;!&ndash;      medicaments for ordonnance Id : {{ordonnance.id}}&ndash;&gt;-->
+<!--          &lt;!&ndash;      <ul *ngFor="let medicaments of ordonnance.medicamentList">&ndash;&gt;-->
+<!--          &lt;!&ndash;          <li>&ndash;&gt;-->
+<!--          &lt;!&ndash;            {{medicaments.nom}}&ndash;&gt;-->
+<!--          &lt;!&ndash;          </li>&ndash;&gt;-->
+<!--          &lt;!&ndash;      </ul>&ndash;&gt;-->
+<!--          &lt;!&ndash;    </ng-container>&ndash;&gt;-->
+<!--          &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--          &lt;!&ndash;  <div class="form-field">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <label for="ordonnanceList">Ordonnances</label>&ndash;&gt;-->
+<!--          &lt;!&ndash;    <select id="ordonnanceList" name="ordonnanceList"  multiple required>&ndash;&gt;-->
+<!--          &lt;!&ndash;      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance"(click)="addordonnance(ordonnance)">{{ordonnance.id}}</option>&ndash;&gt;-->
+<!--          &lt;!&ndash;    </select>&ndash;&gt;-->
+<!--          &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--          &lt;!&ndash;  <div class="form-field">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <label for="medicamentList">Medicaments</label>&ndash;&gt;-->
+<!--          &lt;!&ndash;    <select id="medicamentList" name="medicamentList"  multiple required>&ndash;&gt;-->
+<!--          &lt;!&ndash;      <option *ngFor="let medicament of medicaments" [value]="medicament" (click)="addmedicament(medicament)">{{medicament.name}}</option>&ndash;&gt;-->
+<!--          &lt;!&ndash;    </select>&ndash;&gt;-->
+<!--          &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--          <div class="row">-->
+<!--            <div class="form-group col">-->
+<!--              <div *ngIf="commande.ordonnances.length>0">-->
+<!--                <ng-container *ngFor="let ordonnance of displayedOrdonnances">-->
+<!--                  medicaments for ordonnance Id : {{ordonnance.id}}-->
+<!--                  <ul *ngFor="let medicaments of ordonnance.medicamentList">-->
+<!--                    <li>-->
+<!--                      {{medicaments.nom}}-->
+<!--                    </li>-->
+<!--                  </ul>-->
+<!--                </ng-container>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <button type="submit" [disabled]="!commandeForm.valid" class="submit-btn">Add Commande</button>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<form (ngSubmit)="onSubmit()" #commandeForm="ngForm" class="form-container">
+  <div class="form-field">
+    <label for="orderDate">Date</label>
+    <input type="date" id="orderDate" name="dateOrd" placeholder="jj/mm/yyyy" [(ngModel)]="commande.orderDate"  [max]="getTodayDate()" required>
+  </div>
+  <div class="form-field">
+    <label for="commandepatient.cin">Patient ID</label>
+    <input type="text" id="commandepatient.cin" name="ordonnancepatient.cin" [(ngModel)]="commande.commandepatient" pattern="[0-9]+"
+           required #patientIdField="ngModel">
+    <div *ngIf="patientIdField.errors && patientIdField.errors['required']"
+         class="alert alert-danger">
+      Please enter a patient ID.
+    </div>
+    <div *ngIf="patientIdField.errors && !patientIdField.errors['required'] && patientIdField.errors['pattern']"
+         class="alert alert-danger">
+      Please enter a valid patient ID (numbers only).
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="medicamentList">Medicaments</label>
+    <select id="medicamentList" name="medicamentList"  multiple required>
+      <option *ngFor="let medicament of medicaments" [value]="medicament" (click)="addmedicament(medicament)">{{medicament.name}}</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="ordonnanceList">Ordonnances</label>
+    <select id="ordonnanceList" name="ordonnanceList"  multiple required>
+      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance"(click)="addordonnance(ordonnance)">{{ordonnance.id}}</option>
+    </select>
+  </div>
+  <div *ngIf="commande.ordonnances.length>0">
+    <ng-container *ngFor="let ordonnance of displayedOrdonnances">
+      medicaments for ordonnance Id : {{ordonnance.id}}
+      <ul *ngFor="let medicaments of ordonnance.medicamentList">
+          <li>
+            {{medicaments.nom}}
+          </li>
+      </ul>
+    </ng-container>
+  </div>
+
+  <button type="submit" [disabled]="!commandeForm.valid" class="submit-btn">Add Commande</button>
+</form>
