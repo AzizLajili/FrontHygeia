@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,8 +9,13 @@ import { Observable } from 'rxjs';
 export class HygeiaService {
 
   
-  constructor(private http:HttpClient ) { }
+  constructor(private http:HttpClient ,private route: ActivatedRoute) { }
   options = { withCredentials: true };
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  }
  public Login(data : any): Observable<any> {
    return this.http.post<any>('http://localhost:8090/login', data)
  }
@@ -44,6 +50,47 @@ export class HygeiaService {
    return this.http.get<any>('http://localhost:8090/allusers')
  }
 
+ getAllPublications(): Observable<any> {
+  return this.http.get<any>("http://localhost:8090/SpringMVC/servlet/GetAllPublication");
+}
 
+getNbrLikeByPublication(id:number)  {
+  return this.http.get<number>("http://localhost:8090/SpringMVC/servlet/getNbrJaimeByIdPublication/"+id);
+}
+getNbrDislikeByPublication(id:number)  {
+  return this.http.get<any>("http://localhost:8090/SpringMVC/servlet/getNbrDislikeByIdPublication/"+id);
+}
+
+
+getPublicationById(id: any): Observable<any> {
+  return this.http.get<any>("http://localhost:8090/SpringMVC/servlet/Publications/"+`${id}`);
+}
+
+
+addPublication(publication:any){
+  return this.http.post<any>("http://localhost:8090/SpringMVC/servlet/addPublication",publication);
+    }
+
+getCommentaireByIdPublication(id:any):Observable<any> {
+  return this.http.get<any>("http://localhost:8090/SpringMVC/servlet/getCommentaireByPublication/"+`${id}`);
+}
+
+addCommentaire(commentaire:any,id:any){
+  return this.http.post<any>("http://localhost:8090/SpringMVC/servlet/addCommentaire/"+`${id}`,commentaire,this.httpOptions);
+    }
+
+  DeleteCommentaire(id:any):Observable<any> {
+    return this.http.delete<any>("http://localhost:8090/SpringMVC/servlet/deleteCommentaire/"+`${id}`);
+  }
+ModifeCommentaire(commentaire:any,id:any){
+    return this.http.put<any>("http://localhost:8090/SpringMVC/servlet/updateCommentaire/"+`${id}`,commentaire,this.httpOptions);
+      }
+addInteraction(interaction:any,id:any){
+      return this.http.post<any>("http://localhost:8090/SpringMVC/servlet/addInteraction/"+`${id}`,interaction,this.httpOptions);
+        }
+
+      getNbrCommentByPublication(id:any)  {
+        return this.http.get<any>("http://localhost:8090/SpringMVC/servlet/getNbrCommentaireByPublication/"+`${id}`);
+      }
 
 }

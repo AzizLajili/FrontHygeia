@@ -7,6 +7,8 @@ import { LoginComponent } from './frontOffice/login/login.component';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { BodyComponent } from './frontOffice/body/body.component';
 import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
+import { PublicationsComponent } from './frontOffice/publications/publications.component';
+import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
 
 const routes: Routes = [{
   path:'admin',  component:AllTemplateAdminComponent,
@@ -27,14 +29,23 @@ const routes: Routes = [{
       children:[{
           path:':param',
           component:BodyAdminComponent
-        }]
+        },]
       },
       {
         path:'',  component:AllTemplateUserComponent,
         children:[{
             path:'register',
             component:FullRegisterComponent
-          }]
+          },
+          {
+            path:'publications',
+            component: PublicationsComponent
+          },
+          {
+            path:'publications/:id',
+            component: PublicationbyidComponent
+          }
+        ]
         }
 
 
