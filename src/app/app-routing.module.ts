@@ -37,20 +37,23 @@ const routes: Routes = [{
   //    path:'getcommands', component:GerercommandeComponent
   // }]},
 
-
   {
     path: 'commande',
     component: AllTemplateUserComponent,
-    children: [{
-      path: 'getcommands', component: GerercommandeComponent
-    }]
+    children: [
+      {path: 'Commande', component: AddcommandeComponent},
+      {path: 'getcommands', component: GerercommandeComponent}]
   },
   {
-    path: 'commande',
+    path: 'ordonnance',
     component: AllTemplateUserComponent,
-    children: [{
-      path: 'Commande', component: AddcommandeComponent
-    }]
+    children: [
+
+      { path:'ordonnance', component:OrdonnanceComponent},
+      {path:'delordonnance',component:DelordonnanceComponent},
+      {path:'getordonnances',component:GetordonnanceComponent},
+      {path:'uploadimgOrd',component:UploadimgOrdComponent},
+      {path:'updateordonnance',component:UpdateOrdComponent}]
   }
   ]
 

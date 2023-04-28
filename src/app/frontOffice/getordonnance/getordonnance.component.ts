@@ -45,13 +45,13 @@ export class GetordonnanceComponent {
   }
 
 navigatetoaddpage(){
-  this.router.navigate(['/ordonnance']);
+  this.router.navigate(['/ordonnance/ordonnance']);
 }
   navigatetoupdatepage(){
-this.router.navigate(['/updateordonnance'])
+this.router.navigate(['/ordonnance/updateordonnance'])
   }
   navigatetouploadpage(){
-    this.router.navigate(['/uploadimgOrd'])
+    this.router.navigate(['/ordonnance/uploadimgOrd'])
 
   }
 }

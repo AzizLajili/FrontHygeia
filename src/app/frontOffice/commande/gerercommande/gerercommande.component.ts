@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2"
 @Component({
   selector: 'app-gerercommande',
   templateUrl: './gerercommande.component.html',
@@ -37,13 +38,16 @@ export class GerercommandeComponent {
     axios.delete(`/api/Hygeiaa/Commande/delete/${commande.id}`)
       .then(response => {
         console.log(response);
-        alert('Commande Deleted Successfully');
+        // alert('Commande Deleted Successfully');
+        Swal.fire('Deleted ','Commande deleted succesfully','error');
+        this.getCommandes()
       })
       .catch(error => {
         console.log(error);
         alert('Failed to Delete Commande');
       });
   }
+
   getprice(commande:any){
     console.log('Selected ID:', commande.id);
     axios.get(`/api/Hygeiaa/Commande/commandes/${commande.id}/prixtotal`)
@@ -62,7 +66,7 @@ export class GerercommandeComponent {
     axios.put(`/api/Hygeiaa/Commande/updatestatus/${commande.id}`)
       .then(response => {
         console.log(response);
-        alert("check your phone")
+        Swal.fire('Approved!! ','check your phone','success');
         this.getCommandes()
         return axios.get(`/api/Hygeiaa/Commande/sendSMS/${commande.id}`)
       })
