@@ -6,19 +6,27 @@ import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-te
 import { LoginComponent } from './frontOffice/login/login.component';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { BodyComponent } from './frontOffice/body/body.component';
+import { MedicamentListComponent } from './frontOffice/medicament-list/medicament-list.component';
 
 const routes: Routes = [{
   path:'admin',  component:AllTemplateAdminComponent,
   children:[{
-    path:'admin',component:BodyAdminComponent
+    path:'admin',component:BodyAdminComponent,
+  
   },
   {
     path:':param',component:BodyAdminComponent
-  }
-
+  },
+{path:'medicament',component:MedicamentListComponent,}
 ]},
 {  path:'login',  component:LoginComponent,},
+
 {  path:'', component:AllTemplateUserComponent,},
+{ path:'user',  component:AllTemplateUserComponent,
+children:[{
+  path:'med',component:MedicamentListComponent,
+}]
+},
 {
   path:'admin',  component:AllTemplateAdminComponent,
   children:[{

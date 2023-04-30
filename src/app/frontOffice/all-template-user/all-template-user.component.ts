@@ -12,10 +12,18 @@ export class AllTemplateUserComponent {
 
   ngOnInit(): void {
 
+    this.loadScript('/assets/FrontOffice/vendor/modernizr/modernizr.min.js');
     this.loadScriptsInOrder([
-    '/assets/BackOffice/js/theme.js',
-    '/assets/BackOffice/js/custom.js',
-    '/assets/BackOffice/js/theme.init.js'
+    
+    '/assets/FrontOffice/vendor/plugins/js/plugins.min.js',
+    '/assets/FrontOffice/vendor/bootstrap-star-rating/js/star-rating.min.js',
+    '/assets/FrontOffice/vendor/bootstrap-star-rating/themes/krajee-fas/theme.min.js',
+    '/assets/FrontOffice/vendor/jquery.countdown/jquery.countdown.min.js',
+    '/assets/FrontOffice/js/views/view.shop.js',
+    '/assets/FrontOffice/js/views/view.contact.js',
+    '/assets/FrontOffice/js/theme.js',
+    '/assets/FrontOffice/js/theme.init.js',
+
 
     ],
      () => {
@@ -41,5 +49,11 @@ export class AllTemplateUserComponent {
     } else {
       callback();
     }
+  }
+  public loadScript(url: string): void {
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    document.head.appendChild(script);
   }
 }
