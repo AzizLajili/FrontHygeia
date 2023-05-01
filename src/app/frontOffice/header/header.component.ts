@@ -11,10 +11,17 @@ export class HeaderComponent implements OnInit{
 
   id!:number
   iduser!:number
+  Connected : any
 
-
-  constructor(private router: Router){}
+  constructor(private router: Router,){}
   ngOnInit(): void {
+    
+    if (localStorage.getItem('session') == null){
+      this.Connected = false;
+    }else{
+      this.Connected = true;
+    }
+
     const userId = localStorage.getItem('session');
     if (userId != null){
       this.id= Number(userId);
@@ -28,4 +35,5 @@ export class HeaderComponent implements OnInit{
 
     }
   }
+  
 }

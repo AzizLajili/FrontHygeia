@@ -11,14 +11,22 @@ import { HygeiaService } from 'src/app/hygeia.service';
 export class ListUsersComponent implements OnInit {
 
   listUsers:any
+  roless:any
   constructor(private router:Router, private service:HygeiaService,private http: HttpClient){}
   ngOnInit(): void {
 
     this.service.getUsers().subscribe(data => {
       this.listUsers = data;
+      
       console.log(this.listUsers)
+      
     })
+
 
   }
 
+  delete(cin:any){
+    this.service.deleteUser(cin).subscribe()
+    window.location.reload();
+  }
 }

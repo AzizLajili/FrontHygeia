@@ -19,7 +19,7 @@ const routes: Routes = [{
 {  path:'login',  component:LoginComponent,},
 {  path:'', component:AllTemplateUserComponent,},
 {
-  path:'admin',  component:AllTemplateAdminComponent,
+  path:'profile',  component:AllTemplateAdminComponent,
   children:[{
       path:'listusers',
       component:ListUsersComponent
