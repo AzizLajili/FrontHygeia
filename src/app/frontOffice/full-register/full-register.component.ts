@@ -21,12 +21,13 @@ export class FullRegisterComponent implements OnInit{
   dob:any
   password:any
   genre:any
+  role:any
 
-
-  constructor(private http: HttpClient,private hygServ: HygeiaService) {}
+  constructor(private http: HttpClient,private hygServ: HygeiaService,) {}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.email = this.hygServ.emailReg
+    this.role = this.role =this.hygServ.roleReg
   }
 
   

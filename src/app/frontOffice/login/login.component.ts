@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
   }
   username!: string;
   password!: string;
+  emailReg:any
+  roleReg:any
   users!: any[];
   roles!: any[];
   access_token!: string;
@@ -81,9 +83,15 @@ signInButton?.addEventListener('click', () =>
     },(error: HttpErrorResponse) => {
       console.log(error.error.text); 
     });
-    this.router.navigate(['/'])
+    if (localStorage.getItem("token") !=null){
+    this.router.navigate(['/'])}
   }
+  onSubmitReg(form:any){
+    this.hygeiaService.emailReg = this.emailReg,
+    this.hygeiaService.roleReg = this.roleReg,
+    this.router.navigate(['/register'])
 
+  }
   
   
   

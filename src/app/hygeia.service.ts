@@ -10,6 +10,8 @@ export class HygeiaService {
   
   constructor(private http:HttpClient ) { }
   options = { withCredentials: true };
+  emailReg:any
+  roleReg:any
  public Login(data : any): Observable<any> {
    return this.http.post<any>('http://localhost:8090/login', data)
  }
@@ -40,8 +42,8 @@ export class HygeiaService {
   return this.http.post<any>('http://localhost:8090/addUser/', formData, { withCredentials: true });
 
  }
- public deleteUser(): Observable<any> {
-   return this.http.get<any>('http://localhost:8090/allusers')
+ public deleteUser(cin:any): Observable<any> {
+   return this.http.delete<any>('http://localhost:8090/deluser/'+`${cin}`, { withCredentials: true })
  }
  public getRoles(): Observable<any[]> {
    return this.http.get<any[]>('http://localhost:8090/allroles')

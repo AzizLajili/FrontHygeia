@@ -30,13 +30,15 @@ export class BodyAdminComponent implements OnInit {
           alert(error.message)
         }
       )
-      this.hygeiaService.getUsers().subscribe(data => {
-        this.listUsers = data;
-        console.log(this.listUsers)
-      })
+    
+
 
     });
-
+    this.hygeiaService.getUsers().subscribe(data => {
+      this.listUsers = data;
+      console.log(this.listUsers)
+    })
+   
 
   }
 
