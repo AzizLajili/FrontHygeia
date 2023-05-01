@@ -96,12 +96,15 @@ a {
   border-radius: 90px;
   box-shadow: 30px 14px 28px rgba(0, 0, 5, .2), 0 10px 10px rgba(0, 0, 0, .2);
   position: relative;
+  margin: auto;
+  margin-top: 200px;
   overflow: hidden;
   opacity: 85%;
   width: 768px;
   max-width: 100%;
   min-height: 480px;
   transition: 333ms;
+  
 }
 
 
@@ -149,7 +152,14 @@ a {
 .form-container input:hover {
   transform: scale(101%);
 }
-
+.form-container select {
+  background: #eee;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
 button {
   border-radius: 50px;
   box-shadow: 0 1px 1px ;
@@ -276,5 +286,3 @@ button.ghost {
   transform: translateY(20%);
 }
 
-/* https://Github.com/YasinDehfuli
- https://Codepen.io/YasinDehfuli */

@@ -26,10 +26,12 @@
                                         <label class="ws-nowrap me-3 mb-0">Filter By:</label>
                                         <select class="form-control select-style-1 filter-by" name="filter-by">
                                             <option value="all" selected>All</option>
-                                            <option value="1">ID</option>
-                                            <option value="2">Company Name</option>
-                                            <option value="3">Slug</option>
-                                            <option value="4">Parent Category</option>
+                                            <option value="1">CIN</option>
+                                            <option value="2">Name</option>
+                                            <option value="3">Email</option>
+                                            <option value="4">Adresse</option>
+                                            <option value="4">Role</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -57,22 +59,31 @@
                         <table class="table table-ecommerce-simple table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 1400px;">
                             <thead>
                                 <tr>
-                                    <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
-                                    <th width="8%">ID</th>
-                                    <th width="28%">Name</th>
-                                    <th width="23%">Slug</th>
-                                    <th width="38%">Parent Category</th>
+                                    <th width="30">Image</th>
+                                    <th width="15">ID</th>
+                                    <th width="20%">Name</th>
+                                    <th width="23%">Email</th>
+                                    <th width="23%">Adresse</th>
+                                    <th width="23%">Roles</th>
+                                    <th width="15%">Gerer</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let user of listUsers ">
-                                    <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                    <td><a href="ecommerce-category-form.html"><strong>{{user.cin}}</strong></a></td>
-                                    <td><a href="ecommerce-category-form.html"><strong>{{user.prenom}}  {{user.nom}}</strong></a></td>
+                                    <td width="30"><img style="max-width: 50px; max-height: 50px;" src="http://localhost/img/{{user.image}}.jpg" alt="Joseph Doe" data-lock-picture="/assets/BackOffice/img/%21logged-user.jpg" class="rounded-circle"></td>
+                                    <td width="15"><a href="ecommerce-category-form.html"><strong>{{user.cin}}</strong></a></td>
+                                    <td><a [routerLink]="['/profile/',user.cin]"><strong style="margin: 50px;color: black;">{{user.prenom}}  {{user.nom}}</strong></a></td>
                                     <td>{{user.email}}</td>
-                                    <td>{{user.email}}</td>
-                               
+                                    <td>{{user.adresse}}</td>
+                                    <td>
+                                    <li *ngFor="let roless of user.roles"> {{roless.role}}</li>
+                                    </td>
+
+                                    <td>
+                                        <button type="button" class="mb-1 mt-1 me-1 btn btn-default">Update</button>
+                                        <button (click)="delete(user.cin)" type="button" class="mb-1 mt-1 me-1 btn btn-danger">Delete</button>                                        
+                                    </td>
                             </tbody>
                         </table>
                         <hr class="solid mt-5 opacity-4">
