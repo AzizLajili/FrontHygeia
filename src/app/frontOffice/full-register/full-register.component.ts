@@ -28,6 +28,7 @@ export class FullRegisterComponent implements OnInit{
   ngOnInit(): void {
     this.email = this.hygServ.emailReg
     this.role = this.role =this.hygServ.roleReg
+    
   }
 
   
