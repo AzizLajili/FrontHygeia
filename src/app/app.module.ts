@@ -19,7 +19,7 @@ import { ListUsersComponent } from './backOffice/list-users/list-users.component
 import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
 import { PublicationsComponent } from './frontOffice/publications/publications.component';
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
-
+import { DatePipe } from '@angular/common'
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,7 @@ import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicat
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,6 +26,7 @@ export class PublicationbyidComponent implements OnInit {
   idComm!:any;
   nbrjaime!:any;
   nbrdislike!:any;
+  nbrcommentaire!:any
   
   description!:String;
   httpOptions = {
@@ -43,6 +44,8 @@ export class PublicationbyidComponent implements OnInit {
 
     this._service.getNbrLikeByPublication(this.idpub).subscribe(res => this.nbrjaime=res)
     this._service.getNbrDislikeByPublication(this.idpub).subscribe(res => this.nbrdislike=res)
+    this._service.getNbrCommentByPublication(this.idpub).subscribe(res=>this.nbrcommentaire=res)
+
    }
 
    getPublicationById(id: any): void {
@@ -71,11 +74,12 @@ export class PublicationbyidComponent implements OnInit {
       dateini:dateTime,
       description: form.value.description
     }
-  this._service.addCommentaire(body,this.idpub).subscribe(res =>{
+  this._service.addCommentaire(body,this.idpub,1).subscribe(res =>{
     console.log(res)
 
   })
   form.reset();
+  window.location.reload( )
   }
   Delete(id:any){
     this._service.DeleteCommentaire(id).subscribe(res => console.log(res))
@@ -103,7 +107,9 @@ console.log(this.idComm)
       dislike:false,
       jaime:true
     }
-    this._service.addInteraction(body,this.idpub).subscribe(res =>console.log(res))
+    this._service.addInteraction(body,this.idpub,1).subscribe(res =>console.log(res))
+
+    window.location.reload()
 
   }
   addDislike(){
@@ -111,7 +117,8 @@ console.log(this.idComm)
       dislike:true,
       jaime:false
     }
-    this._service.addInteraction(body,this.idpub).subscribe(res =>console.log(res))
+    this._service.addInteraction(body,this.idpub,1).subscribe(res =>console.log(res))
+    window.location.reload()
 
   }
 

@@ -7,7 +7,7 @@
                 <article class="post post-large blog-single-post border-0 m-0 p-0">
                     <div class="post-image ms-0">
                         <a href="blog-post.html">
-                            <img src="img/blog/wide/blog-11.jpg"
+                            <img src="http://localhost/img/{{publication.image}}.jpg" style="height: 500px;width: 500px;"
                                 class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
                         </a>
                     </div>
@@ -25,10 +25,10 @@
                             <span><i class="far fa-user"></i> By <a href="#">John Doe</a> </span>
                             <span><i class="far fa-folder"></i> <a href="#">Lifestyle</a>, <a href="#">Design</a>
                             </span>
-                            <span><i class="far fa-comments"></i> <a href="#">12 Comments</a></span>
+                            <span><i class="far fa-comments"></i> <a href="#">{{nbrcommentaire}} Comments</a></span>
                         </div>
 
-                        <p>{{publication.description}}</p>
+          
 
                         <div class="d-inline-flex">
                             <button type="button" class="btn btn-danger" (click)="addDislike()">
@@ -49,21 +49,25 @@
                         </div>
 
                         <div class="post-block mt-4 pt-2 post-author">
-                            <h4 class="mb-3">Author</h4>
-                            <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
-                                <a href="blog-post.html">
-                                    <img src="img/avatars/avatar.jpg" alt="">
-                                </a>
-                            </div>
-                            <p><strong class="name"><a href="#" class="text-4 pb-2 pt-2 d-block">John Doe</a></strong>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
-                                gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et,
-                                interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare
-                                nisi, vitae mattis nulla ante id dui. </p>
+                            <div class="owl-item active" style="width:1110px;"><div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-primary">
+                                        <blockquote>
+                                            <p class="mb-0">{{publication.description}}.</p>
+                                        </blockquote>
+                                        <div class="testimonial-arrow-down"></div>
+                                        <div class="testimonial-author">
+                                            <div class="testimonial-author-thumbnail">
+                                                <img src="img/clients/client-1.jpg" class="rounded-circle" alt="">
+                                            </div>
+                                            <p><strong>John Doe</strong><span>Okler</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
                         </div>
                         <div id="comments" class="post-block mt-5 post-comments">
-                            <h4 class="mb-3">Comments (3)</h4>
+                            <h4 class="mb-3">Comments ({{nbrcommentaire}} )</h4>
 
                             <ul class="comments">
                                 <li *ngFor="let comm of commentaires">
@@ -94,7 +98,7 @@
                             <h4 class="mb-3">Leave a comment</h4>
 
                             <form class="contact-form p-4 rounded bg-color-grey" #form="ngForm"
-                                (ngSubmit)="ModifComment(form)">
+                                (ngSubmit)="Submit(form)">
                                 <div class="p-2">
 
                                     <div class="row">
@@ -126,3 +130,20 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+
+<div class="card mt-3">
+    <div class="row g-0">
+        <div class="col-lg-8">
+            <div class="card-body">
+                <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                <p class="card-text mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi </p>
+                <a href="https://www.okler.net/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <img src="img/blog/medium/blog-42.jpg" class="img-fluid p-relative left-1 rounded-end" alt="...">
+        </div>
+    </div>
+</div>
+
