@@ -31,17 +31,25 @@ export class GetordonnanceComponent {
         alert('Failed to retrieve Ordonnances');
       });
   }
+  getOrdonnanceImage(ordonnance:any): string {
+    return `data:image/jpeg;base64,${ordonnance.data}`;
+  }
   deleteOrdonnance(ordonnance:any){
     console.log('Selected ID:', ordonnance.id);
     axios.delete(`/api/Hygeiaa/Ordonnance/delete/${ordonnance.id}`)
       .then(response => {
         console.log(response);
         alert('Ordonnance Deleted Successfully');
+        this.getOrdonnances();
       })
       .catch(error => {
         console.log(error);
         alert('Failed to Delete Ordonnance');
       });
+  }
+  updateOrdonnance(ordonnance:any){
+    console.log('Selected ID:', ordonnance.id);
+
   }
 
 navigatetoaddpage(){
@@ -52,6 +60,6 @@ this.router.navigate(['/ordonnance/updateordonnance'])
   }
   navigatetouploadpage(){
     this.router.navigate(['/ordonnance/uploadimgOrd'])
-
   }
+
 }

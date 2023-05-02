@@ -189,12 +189,12 @@
   <div class="form-field">
     <label for="ordonnanceList">Ordonnances</label>
     <select id="ordonnanceList" name="ordonnanceList"  multiple required>
-      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance"(click)="addordonnance(ordonnance)">{{ordonnance.id}}</option>
+      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance"(click)="addordonnance(ordonnance)">{{ordonnance.id}}émeOrdonnance</option>
     </select>
   </div>
   <div *ngIf="commande.ordonnances.length>0">
     <ng-container *ngFor="let ordonnance of displayedOrdonnances">
-      medicaments for ordonnance Id : {{ordonnance.id}}
+      medicaments for ordonnance : {{ordonnance.id}}
       <ul *ngFor="let medicaments of ordonnance.medicamentList">
           <li>
             {{medicaments.nom}}
@@ -202,6 +202,7 @@
       </ul>
     </ng-container>
   </div>
+
 
   <button type="submit" [disabled]="!commandeForm.valid" class="submit-btn">Add Commande</button>
 </form>

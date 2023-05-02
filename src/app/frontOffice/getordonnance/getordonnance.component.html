@@ -88,8 +88,15 @@
                 <td class="product-name">
                   {{ordonnance.ordonnancemed.nom}}{{ordonnance.ordonnancemed.prenom}}
                 </td>
+                <td class="product-name">
+                  <img [src]="getOrdonnanceImage(ordonnance)" alt="{{ordonnance.data}}" >
+                </td>
+
                 <td class="product-subtotal text-end">
                   <button type="button" class="btn btn-danger"  (click)="deleteOrdonnance(ordonnance)" >Delete Ordonnance</button>
+                </td>
+                <td class="product-subtotal text-end">
+                  <button type="button" class="btn submit-btn"  (click)="navigatetoupdatepage()" >Update Ordonnance</button>
                 </td>
               </tr>
               <tr>

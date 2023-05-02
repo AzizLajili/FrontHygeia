@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {DatePipe} from "@angular/common";
 import axios from 'axios';
+import {GetordonnanceComponent} from "../getordonnance/getordonnance.component";
 
 interface Medicament {
   id: number;
@@ -57,6 +58,22 @@ export class UpdateOrdComponent {
         alert('Failed to retrieve Ordonnances');
       });
   }
+  // onSubmit(){
+  //   if (this.selectedOrdonnanceId) {
+  //     const ordonnaceMappedRequest: any = this.ordonnance
+  //     ordonnaceMappedRequest.dateOrd=this.datePipe.transform(new Date(ordonnaceMappedRequest.dateOrd), 'dd/MM/yyyy');
+  //     console.log(ordonnaceMappedRequest)
+  //     axios.put(`/api/Hygeiaa/Ordonnance/update/${this.selectedOrdonnanceId}`,ordonnaceMappedRequest)
+  //       .then(response => {
+  //         console.log(response.data);
+  //         alert('Ordonnance updated successfully!');
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //         alert('An error occurred while updating the ordonnance.');
+  //       });
+  //   }
+  // }
   onSubmit(){
     if (this.selectedOrdonnanceId) {
       const ordonnaceMappedRequest: any = this.ordonnance
