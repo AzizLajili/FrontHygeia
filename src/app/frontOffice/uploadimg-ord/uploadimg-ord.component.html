@@ -16,11 +16,11 @@
   </ul>
 </nav>
 <div class="upload-container">
-  <label for="idOrdonnance">Select Ordonnance to Update</label>
-  <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}"  >
-    <option value="">-- Select an Ordonnance --</option>
-    <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>
-  </select>
+<!--  <label for="idOrdonnance">Select Ordonnance to Update</label>-->
+<!--  <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}"  >-->
+<!--    <option value="">&#45;&#45; Select an Ordonnance &#45;&#45;</option>-->
+<!--    <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>-->
+<!--  </select>-->
   <label for="file-upload">Select image to upload:</label>
   <input type="file" id="file-upload" name="file-upload" (change)="uploadfile($event)"  style="display: block" >
   <button type="submit" class="upload-button" (click)="sendFile()" >Upload Image</button>

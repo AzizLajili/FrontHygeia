@@ -17,11 +17,11 @@
 </nav>
 <form (ngSubmit)="onSubmit()" #ordonnanceForm="ngForm" class="form-container">
   <div class="upload-container">
-    <label for="idOrdonnance">Select Ordonnance to Update</label>
-    <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}" >
-      <option value="">-- Select an Ordonnance --</option>
-      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>
-    </select>
+<!--    <label for="idOrdonnance">Select Ordonnance to Update</label>-->
+<!--    <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}" >-->
+<!--      <option value="">&#45;&#45; Select an Ordonnance &#45;&#45;</option>-->
+<!--      <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>-->
+<!--    </select>-->
   </div>
   <div class="form-field">
     <label for="dateOrd">Date</label>
