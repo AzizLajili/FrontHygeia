@@ -1,0 +1,38 @@
+<!--
+<div *ngFor="let element of data">
+  <div>{{element.id}}</div>
+  <div>{{element.dosage}}</div>
+  <div>{{element.frequence}}</div>
+  <div>{{element.dateDeb|date:'dd/MM/yyyy'}}</div>
+  <div>{{element.dateFin|date:'dd/MM/yyyy'}}</div>
+  <div>{{element.status}}</div>
+  <div>{{element.pillcount}}</div>
+
+</div>
+-->
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Dosage</th>
+    <th>Frequence</th>
+    <th>Date Debut</th>
+    <th>Date Fin</th>
+    <th>Status</th>
+    <th>Pill Count</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let element of data">
+    <td>{{ element.id }}</td>
+    <td>{{ element.dosage }}</td>
+    <td>{{ element.frequence }}</td>
+    <td>{{ element.dateDeb|date:'dd/MM/yyyy' }}</td>
+    <td>{{ element.dateFin|date:'dd/MM/yyyy' }}</td>
+    <td>{{ element.status }}</td>
+    <td>{{ element.pillcount }}</td>
+    <td><button (click)="deleteTreatment(element)">delete</button></td>
+  </tr>
+  </tbody>
+</table>
+<input type="text" [ngModel]="medicament">
