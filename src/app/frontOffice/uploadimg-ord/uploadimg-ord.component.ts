@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import axios from 'axios';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-uploadimg-ord',
   templateUrl: './uploadimg-ord.component.html',
   styleUrls: ['./uploadimg-ord.component.css']
 })
-export class UploadimgOrdComponent {
+export class UploadimgOrdComponent implements OnInit{
   headers: any = {
     'Access-Control-Allow-Origin': 'http://localhost:8080/*',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -15,10 +16,13 @@ export class UploadimgOrdComponent {
   config = {
     headers: this.headers
   }
-  constructor() {
-    this.selectedOrdonnanceId = null;
+  constructor(private route:ActivatedRoute) {
     this.getOrdonnances();
   }
+
+  ngOnInit(): void {
+    this.selectedOrdonnanceId=+this.route.snapshot.params['idord'];
+    }
   // @ts-ignore
   fileInput: File ;
   uploadfile(event:any){
@@ -26,7 +30,7 @@ export class UploadimgOrdComponent {
     this.fileInput=event.target.files[0];
   }
   ordonnances: any[] = [];
-  selectedOrdonnanceId: any;
+  selectedOrdonnanceId!: number;
   getOrdonnances() {
     axios.get('/api/Hygeiaa/Ordonnance/retrieveAll')
       .then(response => {

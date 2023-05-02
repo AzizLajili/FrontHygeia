@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DatePipe} from "@angular/common";
 import axios from 'axios';
 import {GetordonnanceComponent} from "../getordonnance/getordonnance.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 interface Medicament {
   id: number;
@@ -19,11 +20,16 @@ interface Ordonnance {
   templateUrl: './update-ord.component.html',
   styleUrls: ['./update-ord.component.css']
 })
-export class UpdateOrdComponent {
-  constructor(private datePipe: DatePipe) {
+export class UpdateOrdComponent implements OnInit{
+  constructor(private datePipe: DatePipe,private route:ActivatedRoute) {
     this.selectedOrdonnanceId = null;
     this.getOrdonnances();
   }
+
+  ngOnInit(): void {
+    this.selectedOrdonnanceId=+this.route.snapshot.params['id'];
+    }
+
   ordonnances: any[] = [];
   selectedOrdonnanceId: any;
   headers :any = {

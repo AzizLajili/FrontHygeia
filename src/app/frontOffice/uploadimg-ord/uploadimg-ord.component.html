@@ -17,7 +17,7 @@
 </nav>
 <div class="upload-container">
   <label for="idOrdonnance">Select Ordonnance to Update</label>
-  <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}" >
+  <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}"  >
     <option value="">-- Select an Ordonnance --</option>
     <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>
   </select>

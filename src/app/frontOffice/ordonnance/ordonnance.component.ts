@@ -11,6 +11,7 @@ interface Medicament {
   name: String;
 }
 interface Ordonnance {
+  id:number;
   dateOrd: String;
   description: string;
   ordonnancemed: { cin: number };
@@ -33,6 +34,7 @@ export class OrdonnanceComponent {
     headers:this.headers
   }
   ordonnance: Ordonnance = {
+    id:0,
     dateOrd: '',
     description: '',
     ordonnancemed: { cin: 0 },
@@ -52,21 +54,25 @@ export class OrdonnanceComponent {
       .then(response => {
         // console.log('Ordonnance ajoutée avec succès', response);
         // Reset the form
-        this.ordonnance = {
-          dateOrd: '',
-          description: '',
-          ordonnancemed: { cin: 0 },
-          ordonnancepatient: { cin: 0 },
-          medicamentList: []
-        };
+        this.ordonnance =response.data
+        //   {
+        //   id:0,
+        //     dateOrd: '',
+        //     description: '',
+        //     ordonnancemed: { cin: 0 },
+        //   ordonnancepatient: { cin: 0 },
+        //   medicamentList: []
+        // };
+        // console.log(this.ordonnance.id)
         console.log(response.data.id)
+        console.log(response.data)
         // Swal.fire('Add an image to this Ord '  ,response.data.id,'error');
         Swal.fire({
           icon: 'error',
           title: 'Add an image to this Ord',
           text: `with the ID  ${response.data.id}`
         });
-        this.router.navigate(['/ordonnance/uploadimgOrd'])
+        this.router.navigate(['/ordonnance/uploadimgOrd',this.ordonnance.id])
       })
       .catch(error => {
         console.error('Erreur lors de l\'ajout de l\'ordonnance', error);

@@ -52,8 +52,8 @@ const routes: Routes = [{
       { path:'ordonnance', component:OrdonnanceComponent},
       {path:'delordonnance',component:DelordonnanceComponent},
       {path:'getordonnances',component:GetordonnanceComponent},
-      {path:'uploadimgOrd',component:UploadimgOrdComponent},
-      {path:'updateordonnance',component:UpdateOrdComponent}]
+      {path:'uploadimgOrd/:idord',component:UploadimgOrdComponent},
+      {path:'updateordonnance/:id',component:UpdateOrdComponent}]
   }
   ]
 
