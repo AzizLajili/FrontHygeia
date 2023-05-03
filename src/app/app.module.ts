@@ -19,6 +19,8 @@ import { ListUsersComponent } from './backOffice/list-users/list-users.component
 import { MedicamentListComponent } from './frontOffice/medicament-list/medicament-list.component';
 import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
 import { PharamciedetailComponent } from './pharamciedetail/pharamciedetail.component';
+import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
+import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { PharamciedetailComponent } from './pharamciedetail/pharamciedetail.comp
     MedicamentListComponent,
     PharmacieListComponent,
     PharamciedetailComponent,
+    MedicamentFormComponent,
+    PharmacieFormComponent,
     
   ],
   imports: [

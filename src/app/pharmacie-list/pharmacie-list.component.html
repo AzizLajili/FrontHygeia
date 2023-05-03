@@ -1,1 +1,44 @@
-<p>pharmacie-list works!</p>
+<section class="section section-no-border bg-color-light m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="font-weight-bold text-color-dark mb-3">Nos Pharamcies</h2>
+            </div>
+        </div>
+     
+        <div class="row">
+       
+            <div class="col-lg-6" *ngFor="let phar of pharmacies">
+                <article class="custom-post-event bg-color-light">
+                    <div class="post-event-date bg-color-primary text-center">
+                        <span class="month text-uppercase custom-secondary-font text-color-light">Details </span>
+                        <span class="day font-weight-bold text-color-light"></span>
+                        <span class="year text-color-light"></span>
+                    </div>
+                    <div class="post-event-content custom-margin-1">
+                        <span class="custom-event-infos">
+                            <ul>
+                                <li>
+                                    <i class="far fa-clock"></i>
+                                    {{phar.dateOuverture}}
+                                    {{phar.dateFermeture}}
+                                   
+                                </li>
+                                <li class="text-uppercase">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{phar.adresse}}
+                                </li>
+                            </ul>
+                        </span>
+                        <h4 class="font-weight-bold text-color-dark">
+                            <a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">
+                               {{phar.pharmacienResp}}
+                            </a>
+                        </h4>
+                        <p></p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

@@ -21,9 +21,9 @@ export class MediacamentService  {
   addMedicament(medicament: Medicament, file: File): Observable<Medicament> {
     const formData = new FormData();
     formData.append('medicament', JSON.stringify(medicament));
-    formData.append('imageFile', file);
+    formData.append('image', file,file.name);
 
-    return this.http.post<Medicament>(`http://localhost:8090/SpringMVC/medicaments/addMedicament`, formData);
+    return this.http.post<Medicament>(`http://localhost:8090/SpringMVC/addMedicament`, formData);
   }
 
   updateMedicament(nom: string, medicament: Medicament): Observable<any> {

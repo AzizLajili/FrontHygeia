@@ -1,6 +1,5 @@
-
 export class Pharmacie {
-    id!: number;
+  id!: number;
     pharmacienResp!: string;
     adresse!: string;
     status!: string;
@@ -8,4 +7,5 @@ export class Pharmacie {
     dateFermeture!: Date;
   // medicaments!: Medicament[];
   }
+
   

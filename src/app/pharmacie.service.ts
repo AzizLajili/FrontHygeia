@@ -8,13 +8,14 @@ import { Medicament } from './medicament';
   providedIn: 'root'
 })
 export class PharmacieService {
-  private baseUrl = 'http://localhost:8080/api/pharmacies';
+
+  private baseUrl = 'http://localhost:8090/SpringMVC';
 
   constructor(private http: HttpClient) { }
 
- // getAllPharmacies(): Observable<Pharmacie[]> {
-   // return this.http.get<Pharmacie[]>(`${this.baseUrl}/getAllPharmacies`);
- // }
+  getAllPharmacies(): Observable<Pharmacie[]> {
+    return this.http.get<Pharmacie[]>(`${this.baseUrl}/getAllPharmacies`);
+ }
 
   getPharmacieById(id: number): Observable<Pharmacie> {
     return this.http.get<Pharmacie>(`${this.baseUrl}/getPharmacieById/${id}`);

@@ -3,5 +3,7 @@ export class Medicament {
     nom!: string;
     type!: string;
     prix!: number;
-    quantité!: number;}
+    quantite!: number;
+    imageMedic!:string;
+}
  

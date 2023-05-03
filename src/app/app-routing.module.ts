@@ -7,34 +7,53 @@ import { LoginComponent } from './frontOffice/login/login.component';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { BodyComponent } from './frontOffice/body/body.component';
 import { MedicamentListComponent } from './frontOffice/medicament-list/medicament-list.component';
+import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
+import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
+import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
 
 const routes: Routes = [{
-  path:'admin',  component:AllTemplateAdminComponent,
-  children:[{
-    path:'admin',component:BodyAdminComponent,
-  
+  path: 'admin', component: AllTemplateAdminComponent,
+  children: [{
+    path: 'admin', component: BodyAdminComponent,
+
   },
   {
-    path:':param',component:BodyAdminComponent
+    path: ':param', component: BodyAdminComponent
   },
-{path:'medicament',component:MedicamentListComponent,}
-]},
-{  path:'login',  component:LoginComponent,},
+  { path: 'medicament', component: MedicamentListComponent, },
+  ]
+},
+{ path: 'login', component: LoginComponent, },
 
-{  path:'', component:AllTemplateUserComponent,},
-{ path:'user',  component:AllTemplateUserComponent,
-children:[{
-  path:'med',component:MedicamentListComponent,
-}]
+
+
+{
+  path: '', component: AllTemplateUserComponent,
+  children: [{
+    path: 'pharamcie',
+    component: PharmacieListComponent
+  },
+  {
+    path: 'addmedic',
+    component: MedicamentFormComponent
+  },
+  {
+    path: 'addpharm',
+    component: PharmacieFormComponent
+  }
+]
 },
 {
-  path:'admin',  component:AllTemplateAdminComponent,
-  children:[{
-      path:'listusers',
-      component:ListUsersComponent
-    }]},
+  path: 'admin', component: AllTemplateAdminComponent,
+  children: [{
+    path: 'listusers',
+    component: ListUsersComponent
+  }]
+},
 
-   
+{ path: '', component: AllTemplateUserComponent},
+
+
 
 
 ];
