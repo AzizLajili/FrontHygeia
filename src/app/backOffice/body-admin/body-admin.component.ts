@@ -30,6 +30,8 @@ export class BodyAdminComponent implements OnInit {
   password:any
   genre:any
   role:any
+  publications:any
+
 
   body:any
   newPasswordd: string ='test';
@@ -96,17 +98,25 @@ export class BodyAdminComponent implements OnInit {
           alert(error.message)
         }
       )
-    
 
 
     });
+
+    
+    this.hygeiaService.getAllPublications().subscribe(data => {
+      this.publications = data;
+      console.log(this.publications)
+    })
     this.hygeiaService.getUsers().subscribe(data => {
       this.listUsers = data;
       console.log(this.listUsers)
     })
-   
+    
 
-  }
+
+    }
+    
+  
   onSubmit (form: any){
     let body={
     "cin" : this.id,
@@ -128,11 +138,12 @@ export class BodyAdminComponent implements OnInit {
     }
     this.hygeiaService.updateUser(body).subscribe( res =>console.log(res) )
     window.location.reload();
+  }
 
-}
 
 
-onSubmitPW() {
+
+ onSubmitPW() {
   console.log(this.resetPasswordForm);
   console.log(this.resetPasswordForm.value.newPassword);
   console.log(this.resetPasswordForm.value.confirmPassword);
@@ -149,4 +160,7 @@ onSubmitPW() {
 
   this.hygeiaService.updatePassword(PWForm,localStorage.getItem("session")).subscribe();
 }
-}
+  }
+
+
+

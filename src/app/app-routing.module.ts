@@ -9,6 +9,8 @@ import { BodyComponent } from './frontOffice/body/body.component';
 import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
 import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
 import { HomeComponent } from './frontOffice/home/home.component';
+import { PublicationsComponent } from './frontOffice/publications/publications.component';
+import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
 
 const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
   children:[{path:'admin',component:BodyAdminComponent}
@@ -22,6 +24,37 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
 {  path:'',  component:AllTemplateUserComponent,children:[{ path:'register', component:FullRegisterComponent},{ path:'', component:BodyComponent}]},
 {  path:'**',  component:AllTemplateUserComponent, children:[{ path:'', component:NotFoundComponent}]
     },
+
+{  path:'', component:AllTemplateUserComponent,},
+{
+  path:'profile',  component:AllTemplateAdminComponent,
+  children:[{
+      path:'listusers',
+      component:ListUsersComponent
+    }]},
+    {
+      path:'profile',  component:AllTemplateAdminComponent,
+      children:[{
+          path:':param',
+          component:BodyAdminComponent
+        },]
+      },
+      {
+        path:'',  component:AllTemplateUserComponent,
+        children:[{
+            path:'register',
+            component:FullRegisterComponent
+          },
+          {
+            path:'publications',
+            component: PublicationsComponent
+          },
+          {
+            path:'publications/:id',
+            component: PublicationbyidComponent
+          }
+        ]
+        }
 
 
 
