@@ -12,7 +12,8 @@ export class FullRegisterComponent implements OnInit{
   user:any
   previewImage:any
   uploadImage:any
-
+  nomEtablissement:any
+  numLicence:any
   cin:any
   nom:any
   email:any
@@ -28,7 +29,7 @@ export class FullRegisterComponent implements OnInit{
   ngOnInit(): void {
     this.email = this.hygServ.emailReg
     this.role = this.role =this.hygServ.roleReg
-    
+    console.log(this.role)
   }
 
   
@@ -42,7 +43,7 @@ export class FullRegisterComponent implements OnInit{
     onSubmit(Form:any) {
       const user = Form.value;
       console.log(Form.value)
-
+      
       console.log(user)
       const image = this.previewImage;
       this.hygServ.addUser(user, image).subscribe(

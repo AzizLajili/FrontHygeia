@@ -28,7 +28,7 @@ export class HeaderAdminComponent implements OnInit {
     const cookies: string[] = Object.keys(this.cookieService.getAll());
     cookies.forEach((cookie: string) => {
       console.log(cookie)
-      this.cookieService.delete(cookie);
+      this.cookieService.deleteAll;
     });
 
     // clear local storage
