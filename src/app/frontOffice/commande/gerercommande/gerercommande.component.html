@@ -23,15 +23,12 @@
               <thead>
               <tr class="text-color-dark">
                 <th class="product-thumbnail" width="15%">
-                  ID
-                </th>
-                <th class="product-name text-uppercase" width="30%">
                   orderDate
                 </th>
-                <th class="product-price text-uppercase" width="15%">
+                <th class="product-name text-uppercase" width="30%">
                   status
                 </th>
-                <th class="product-quantity text-uppercase" width="20%">
+                <th class="product-price text-uppercase" width="15%">
                   Medicaments
                 </th>
                 <th class="product-quantity text-uppercase" width="20%">
@@ -40,6 +37,9 @@
                 <th class="product-quantity text-uppercase" width="20%">
                   Patient
                 </th>
+                <th class="product-quantity text-uppercase" width="20%">
+                  Subtotal
+                </th>
                 <th class="product-subtotal text-uppercase text-end" width="20%">
                   Subtotal
                 </th>
@@ -47,9 +47,9 @@
               </thead>
               <tbody>
               <tr class="cart_table_item" *ngFor="let commande of commande" >
-                <td class="product-thumbnail">
-                  {{commande.id}}
-                </td>
+<!--                <td class="product-thumbnail">-->
+<!--                  {{commande.id}}-->
+<!--                </td>-->
                 <td class="product-name">
                   {{commande.orderDate}}
                 </td>
