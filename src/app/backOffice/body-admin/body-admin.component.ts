@@ -13,9 +13,7 @@ export class BodyAdminComponent implements OnInit {
   id!:number;
   user:any
   listUsers:any
-
-  publications:any
-
+  listpubs!:any
   constructor(private hygeiaService:HygeiaService,private actR:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -33,16 +31,6 @@ export class BodyAdminComponent implements OnInit {
           alert(error.message)
         }
       )
-
-
-    });
-
-    
-    this.hygeiaService.getAllPublications().subscribe(data => {
-      this.publications = data;
-      console.log(this.publications)
-    })
-
     
 
 
@@ -51,9 +39,15 @@ export class BodyAdminComponent implements OnInit {
       this.listUsers = data;
       console.log(this.listUsers)
     })
-   
+    this.hygeiaService.getmypub(this.id).subscribe(res=>{
+      this.listpubs=res
+      console.log(this.listpubs)
+    })
 
-
+  }
+  deletePub(id:any){
+    this.hygeiaService.deletePub(id).subscribe(res=>console.log(res))
+    window.location.reload()
   }
 
 

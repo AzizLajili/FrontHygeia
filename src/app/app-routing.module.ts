@@ -11,11 +11,13 @@ import { PublicationsComponent } from './frontOffice/publications/publications.c
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
 
 const routes: Routes = [{
+  
   path:'admin',  component:AllTemplateAdminComponent,
   children:[{
     path:'admin',component:BodyAdminComponent
   }
 ]},
+
 {  path:'login',  component:LoginComponent,},
 {  path:'', component:AllTemplateUserComponent,},
 {
@@ -29,7 +31,12 @@ const routes: Routes = [{
       children:[{
           path:':param',
           component:BodyAdminComponent
-        },]
+        },
+        {
+          path:':param/modifpublication/:id',
+          component:BodyAdminComponent
+        },
+      ]
       },
       {
         path:'',  component:AllTemplateUserComponent,
