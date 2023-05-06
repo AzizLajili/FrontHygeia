@@ -13,10 +13,12 @@ import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-te
 import { BodyComponent } from './frontOffice/body/body.component';
 import { HeaderComponent } from './frontOffice/header/header.component';
 import { LoginComponent } from './frontOffice/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
+import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
+import { HomeComponent } from './frontOffice/home/home.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { FullRegisterComponent } from './frontOffice/full-register/full-register
     LoginComponent,
     ListUsersComponent,
     FullRegisterComponent,
+    NotFoundComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -40,6 +44,7 @@ import { FullRegisterComponent } from './frontOffice/full-register/full-register
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

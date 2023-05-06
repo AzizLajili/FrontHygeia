@@ -613,13 +613,14 @@
                                     </form>
                                 </div>
                             </div>
-                            <!--routerLink="/admin"-->
+                            <a *ngIf="!Connected" [routerLink]="['/login']"> login </a>
                             <div class="header-nav-feature d-inline-flex ms-2">
                                 
                                 <a *ngIf="Connected" [routerLink]="['profile',id]" class="header-nav-features-toggle" aria-label="">
                                     <img src="/assets/FrontOffice/img/icons/icon-user.svg" width="14" alt="" class="header-nav-top-icon-img">
                                     
                                 </a>
+                                
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="feature-cursor-effect.html">Cursor Effect</a></li>
                                     <li><a class="dropdown-item" href="feature-grid-system.html">Grid System</a></li>

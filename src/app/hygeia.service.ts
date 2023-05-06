@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class HygeiaService {
   emailReg:any
   roleReg:any
  public Login(data : any): Observable<any> {
-   return this.http.post<any>('http://localhost:8090/login', data)
+   return this.http.post<any>('http://localhost:8090/login', data,{ withCredentials: true })
  }
 
  public Logout(): Observable<any> {
@@ -28,7 +28,8 @@ export class HygeiaService {
    return this.http.get<any>(`http://localhost:8090/user/${cin}`, { withCredentials: true })
  }
  public updateUser(user :any): Observable<any> {
-   return this.http.post<any>(`http://localhost:8090/addUser/`,user )
+  console.log(user)
+   return this.http.put<any>(`http://localhost:8090/updateUser`,user )
  }
  public addUser(user :any,image: File): Observable<any> {
   const formData = new FormData();
@@ -58,5 +59,13 @@ export class HygeiaService {
   return this.http.post<string>('http://localhost:8090/uploadimage', formData);
 }
 
+public updatePassword(form:any,cin:any){
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Headers" :"*"
+  });
+  const options = { headers: headers, withCredentials: true };
+  return this.http.put<any>('http://localhost:8090/updatePassword/'+`${cin}`,form, {withCredentials : true})
+}
 
 }
