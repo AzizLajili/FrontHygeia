@@ -12,9 +12,19 @@ import { HomeComponent } from './frontOffice/home/home.component';
 import { PublicationsComponent } from './frontOffice/publications/publications.component';
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
 
+
+const routes: Routes = [{
+  
+  path:'admin',  component:AllTemplateAdminComponent,
+  children:[{
+    path:'admin',component:BodyAdminComponent
+  }
+
 const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
   children:[{path:'admin',component:BodyAdminComponent}
+
 ]},
+
 {  path:'login',  component:LoginComponent,},
 {  path:'', component:AllTemplateUserComponent,children:[{path:'home',component:HomeComponent},{path:'',component:HomeComponent}]},
 {  path:'profile',  component:AllTemplateAdminComponent,
@@ -37,7 +47,12 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
       children:[{
           path:':param',
           component:BodyAdminComponent
-        },]
+        },
+        {
+          path:':param/modifpublication/:id',
+          component:BodyAdminComponent
+        },
+      ]
       },
       {
         path:'',  component:AllTemplateUserComponent,

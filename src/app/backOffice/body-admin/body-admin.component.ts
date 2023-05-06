@@ -15,6 +15,9 @@ export class BodyAdminComponent implements OnInit {
   id!:number;
   user:any
   listUsers:any
+
+  listpubs!:any
+
   constructor(private hygeiaService:HygeiaService,private actR:ActivatedRoute,private formBuilder: FormBuilder) { }
   
   previewImage:any
@@ -31,6 +34,7 @@ export class BodyAdminComponent implements OnInit {
   genre:any
   role:any
   publications:any
+
 
 
   body:any
@@ -100,6 +104,7 @@ export class BodyAdminComponent implements OnInit {
       )
 
 
+
     });
 
     
@@ -107,11 +112,16 @@ export class BodyAdminComponent implements OnInit {
       this.publications = data;
       console.log(this.publications)
     })
+
     this.hygeiaService.getUsers().subscribe(data => {
       this.listUsers = data;
       console.log(this.listUsers)
     })
-    
+
+    this.hygeiaService.getmypub(this.id).subscribe(res=>{
+      this.listpubs=res
+      console.log(this.listpubs)
+    })
 
 
     }
@@ -138,6 +148,10 @@ export class BodyAdminComponent implements OnInit {
     }
     this.hygeiaService.updateUser(body).subscribe( res =>console.log(res) )
     window.location.reload();
+  }
+  deletePub(id:any){
+    this.hygeiaService.deletePub(id).subscribe(res=>console.log(res))
+    window.location.reload()
   }
 
 

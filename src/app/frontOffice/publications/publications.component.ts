@@ -10,7 +10,7 @@ import { HygeiaService } from 'src/app/hygeia.service';
 })
 export class PublicationsComponent implements OnInit {
 
- 
+ id:any=localStorage.getItem('session');
   publications!: any[];
   nbrjaim! : number ;
   nbrdislike! : number ;
@@ -25,9 +25,13 @@ export class PublicationsComponent implements OnInit {
   categ!:any
   previewImage:any
   toppublications!: any[];
+  p: number = 1;
+  currentuser!:any
+  user!:any
   constructor(private _service:HygeiaService,private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
+    this._service.getUser(this.id).subscribe(res=>this.currentuser=res)
   this._service.getAllPublications().subscribe(res => {
     this.publications=res
     console.log(res)});
@@ -35,7 +39,7 @@ export class PublicationsComponent implements OnInit {
       console.log(res)
       this.toppublications=res});
 
-    
+    console.log(this.id)
   }
 
   showPublicationDetails(id: number): void {
@@ -68,7 +72,12 @@ export class PublicationsComponent implements OnInit {
       toggle2() {
      
         return (this.element = false);
+        
     
+        }
+        getuser(id:any){
+          this._service.getUsersBypub(id).subscribe(res=>this.user=res)
+          return this.user;
         }
 
         onFileSelected(event:any) {

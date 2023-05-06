@@ -22,7 +22,9 @@ import { HomeComponent } from './frontOffice/home/home.component';
 
 import { PublicationsComponent } from './frontOffice/publications/publications.component';
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { UpdatePublicationComponent } from './backOffice/update-publication/update-publication.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { DatePipe } from '@angular/common'
     HomeComponent,
     PublicationsComponent,
     PublicationbyidComponent,
+    UpdatePublicationComponent
     
   ],
   imports: [
@@ -49,7 +52,11 @@ import { DatePipe } from '@angular/common'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
+    NgxPaginationModule
+
     ReactiveFormsModule,
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -1,0 +1,51 @@
+<div>
+
+    <h2 class="font-weight-bold text-7 mt-2 mb-0">Add Publication</h2>
+
+    <form id="contactFormAdvanced" #fr="ngForm" 
+        enctype="multipart/form-data" novalidate="novalidate">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label class="form-label mb-1 text-2">Titre</label>
+                <input type="text" data-msg-required="Please enter your name." [(ngModel)]="nom"
+                    class="form-control text-3 h-auto py-2" name="nom" id="name" required
+                    pattern="^[a-zA-Z0-9]*$">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="form-label mb-1 text-2">Type </label>
+                <select data-msg-required="Please enter the subject." [(ngModel)]="type"
+                    class="form-control text-3 h-auto py-2" name="type" id="subject" required>
+                    <option>...</option>
+                    <option>offre</option>
+                    <option>demande</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-12 mb-4">
+                <label class="form-label mb-1 text-2">Description</label>
+                <textarea data-msg-required="Please enter your message." [(ngModel)]="description"
+                    rows="6" class="form-control text-3 h-auto py-2" name="description" id="message"
+                    required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="form-label mb-1 text-2">Image</label>
+                <input class="form-control d-block" type="file" name="image" id="attachment"
+                    >
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12 mb-5">
+                <input type="submit" id="contactFormSubmit" value="Send Message"
+                    [disabled]="fr.invalid" class="btn btn-primary btn-modern pull-right"
+                    data-loading-text="Loading...">
+            </div>
+        </div>
+    </form>
+</div>

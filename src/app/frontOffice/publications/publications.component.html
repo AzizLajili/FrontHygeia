@@ -124,8 +124,10 @@
 
                         <div class="col-3" style="margin-left: 500px;margin-top: -40px;">
 
-                            <select data-msg-required="Please enter the subject." [(ngModel)]="categ" style="border-color: red;height: 50px;width: 200px;"
-                                class="form-control text-3 h-auto py-2" name="type" id="subject" required="" (change)="getpubByType()" >
+                            <select data-msg-required="Please enter the subject." [(ngModel)]="categ"
+                                style="border-color: red;height: 50px;width: 200px;"
+                                class="form-control text-3 h-auto py-2" name="type" id="subject" required=""
+                                (change)="getpubByType()">
                                 <option>all</option>
                                 <option>offre</option>
                                 <option>demande</option>
@@ -146,7 +148,8 @@
                                 <div class="form-group col-md-6">
                                     <label class="form-label mb-1 text-2">Titre</label>
                                     <input type="text" data-msg-required="Please enter your name." [(ngModel)]="nom"
-                                        class="form-control text-3 h-auto py-2" name="nom" id="name" required="">
+                                        class="form-control text-3 h-auto py-2" name="nom" id="name" required
+                                        pattern="^[a-zA-Z0-9]*$">
                                 </div>
 
                             </div>
@@ -154,7 +157,7 @@
                                 <div class="form-group col-md-12">
                                     <label class="form-label mb-1 text-2">Type </label>
                                     <select data-msg-required="Please enter the subject." [(ngModel)]="type"
-                                        class="form-control text-3 h-auto py-2" name="type" id="subject" required="">
+                                        class="form-control text-3 h-auto py-2" name="type" id="subject" required>
                                         <option>...</option>
                                         <option>offre</option>
                                         <option>demande</option>
@@ -165,9 +168,9 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
                                     <label class="form-label mb-1 text-2">Description</label>
-                                    <textarea maxlength="5000" data-msg-required="Please enter your message."
-                                        [(ngModel)]="description" rows="6" class="form-control text-3 h-auto py-2"
-                                        name="description" id="message" required=""></textarea>
+                                    <textarea data-msg-required="Please enter your message." [(ngModel)]="description"
+                                        rows="6" class="form-control text-3 h-auto py-2" name="description" id="message"
+                                        required></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -180,14 +183,16 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-5">
                                     <input type="submit" id="contactFormSubmit" value="Send Message"
-                                        class="btn btn-primary btn-modern pull-right" data-loading-text="Loading...">
+                                        [disabled]="fr.invalid" class="btn btn-primary btn-modern pull-right"
+                                        data-loading-text="Loading...">
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                <article class="post post-medium" *ngFor="let pub of publications">
+                <article class="post post-medium"
+                    *ngFor="let pub of publications | paginate: { itemsPerPage: 3, currentPage: p }">
                     <div class="row mb-3">
                         <div class="col-lg-5">
                             <div class="post-image">
@@ -200,7 +205,9 @@
                         <div class="col-lg-7">
                             <div class="post-content">
                                 <h2 class="font-weight-semibold pt-4 pt-lg-0 text-5 line-height-4 mb-2">
-                                    <a>{{pub.titre}}</a></h2>
+                                    <a>{{pub.titre}}</a>
+                                </h2>
+                                <br>Sujet :
                                 <p class="mb-0">{{pub.description}}</p>
                             </div>
                         </div>
@@ -209,28 +216,24 @@
                         <div class="col">
                             <div class="post-meta">
                                 <span><i class="far fa-calendar-alt"></i> {{pub.dateIni | date}}</span>
-                                <span><i class="far fa-user"></i> By <a href="#">John Doe</a> </span>
                                 <span><i class="far fa-folder"></i> <a href="#">{{pub.type}}</a> </span>
-                                <span><i class="far fa-comments"></i> <a href="#">12Comments</a></span>
+                                <span><i class="far fa-comments"></i> <a [routerLink]="['/publications', pub.id]">commenter</a></span>
                                 <span class="d-block d-sm-inline-block float-sm-end mt-3 mt-sm-0"><button
                                         [routerLink]="['/publications', pub.id]"
                                         class="btn btn-xs btn-light text-1 text-uppercase">Read More</button></span>
                             </div>
                         </div>
                     </div>
+
+
                 </article>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
 
 
 
-                <ul class="pagination float-end">
-                    <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-                </ul>
+
 
             </div>
         </div>

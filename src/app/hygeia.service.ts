@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -66,19 +66,23 @@ export class HygeiaService {
  }
  
  getAllPublications(): Observable<any> {
-  return this.http.get<any>("http://localhost:8090/GetAllPublication");
+  return this.http.get<any>("http://localhost:8090/GetAllPublication", { withCredentials: true });
+}
+
+getmypub(id:any): Observable<any> {
+  return this.http.get<any>("http://localhost:8090/getMypublication/"+`${id}`, { withCredentials: true });
 }
 
 getNbrLikeByPublication(id:number)  {
-  return this.http.get<number>("http://localhost:8090/getNbrJaimeByIdPublication/"+id);
+  return this.http.get<number>("http://localhost:8090/getNbrJaimeByIdPublication/"+id, { withCredentials: true });
 }
 getNbrDislikeByPublication(id:number)  {
-  return this.http.get<any>("http://localhost:8090/getNbrDislikeByIdPublication/"+id);
+  return this.http.get<any>("http://localhost:8090/getNbrDislikeByIdPublication/"+id, { withCredentials: true });
 }
 
 
 getPublicationById(id: any): Observable<any> {
-  return this.http.get<any>("http://localhost:8090/Publications/"+`${id}`);
+  return this.http.get<any>("http://localhost:8090/Publications/"+`${id}`, { withCredentials: true });
 }
 
 
@@ -88,46 +92,48 @@ addPublication(pub:any,id:any,image:File){
   console.log(pub)
   formData.append('publication', JSON.stringify(pub));
   formData.append('image', image, image.name);
-  return this.http.post<any>("http://localhost:8090/addPublication/"+`${id}`,formData);
+  return this.http.post<any>("http://localhost:8090/addPublication/"+`${id}`,formData, { withCredentials: true });
     }
 
 getCommentaireByIdPublication(id:any):Observable<any> {
-  return this.http.get<any>("http://localhost:8090/getCommentaireByPublication/"+`${id}`);
+  return this.http.get<any>("http://localhost:8090/getCommentaireByPublication/"+`${id}`, { withCredentials: true });
 }
 
 addCommentaire(commentaire:any,id:any,iduser:any){
-  return this.http.post<any>("http://localhost:8090/addCommentaire/"+`${id}`+"/"+`${iduser}`,commentaire,this.httpOptions);
+  const formData = new FormData();
+  formData.append('com', JSON.stringify(commentaire));
+  return this.http.post<any>("http://localhost:8090/addCommentaire/"+`${id}`+"/"+`${iduser}`,formData, { withCredentials: true });
     }
 
   DeleteCommentaire(id:any):Observable<any> {
-    return this.http.delete<any>("http://localhost:8090/deleteCommentaire/"+`${id}`);
+    return this.http.delete<any>("http://localhost:8090/deleteCommentaire/"+`${id}`, { withCredentials: true });
   }
 ModifeCommentaire(commentaire:any,id:any){
-    return this.http.put<any>("http://localhost:8090/updateCommentaire/"+`${id}`,commentaire,this.httpOptions);
+    return this.http.put<any>("http://localhost:8090/updateCommentaire/"+`${id}`,commentaire, { withCredentials: true });
       }
 addInteraction(interaction:any,id:any,iduser:any){
-      return this.http.post<any>("http://localhost:8090/addInteraction/"+`${id}`+"/"+`${iduser}`,interaction,this.httpOptions);
+      return this.http.post<any>("http://localhost:8090/addInteraction/"+`${id}`+"/"+`${iduser}`,interaction, { withCredentials: true });
         }
 
       getNbrCommentByPublication(id:any)  {
-        return this.http.get<any>("http://localhost:8090/getNbrCommentaireByPublication/"+`${id}`);
+        return this.http.get<any>("http://localhost:8090/getNbrCommentaireByPublication/"+`${id}`, { withCredentials: true });
       }
       getTopPublications(): Observable<any> {
-        return this.http.get<any>("http://localhost:8090/GetTopPublication");
+        return this.http.get<any>("http://localhost:8090/GetTopPublication", { withCredentials: true });
       }
 
 
       recherchePublications(nom:any): Observable<any> {
-        return this.http.get<any>("http://localhost:8090/recherchepublication/"+`${nom}`);
+        return this.http.get<any>("http://localhost:8090/recherchepublication/"+`${nom}`, { withCredentials: true });
       }
 
       triPublications(): Observable<any> {
-        return this.http.get<any>("http://localhost:8090/triPublication");
+        return this.http.get<any>("http://localhost:8090/triPublication", { withCredentials: true });
       }
 
 
  public uploadImage(formData: FormData): Observable<string> {
-  return this.http.post<string>('http://localhost:8090/uploadimage', formData);
+  return this.http.post<string>('http://localhost:8090/uploadimage', formData, { withCredentials: true });
 }
 
 public updatePassword(form:any,cin:any){
@@ -140,9 +146,31 @@ public updatePassword(form:any,cin:any){
 }
 
       getpubBytype(type:any):Observable<any> {
-        return this.http.get<any>("http://localhost:8090/getPublicationByType/"+`${type}`);
+        return this.http.get<any>("http://localhost:8090/getPublicationByType/"+`${type}`, { withCredentials: true });
       }
 
+      addlike(interaction:any,id:any,iduser:any){
+        const params = new HttpParams()
+    .set('like', JSON.stringify(interaction))
+    .set('id', id)
+    .set('cin', iduser);
+        return this.http.post<any>("http://localhost:8090/addlike",params, { withCredentials: true });
+          }
+
+        adddislike(interaction:any,id:any,iduser:any){
+          const params = new HttpParams()
+          .set('dislike', JSON.stringify(interaction))
+          .set('id', id)
+          .set('cin', iduser);
+          return this.http.post<any>("http://localhost:8090/adddislike",params, { withCredentials: true });
+            }
+
      
-      
+          public getUsersBypub(id:any): Observable<any> {
+            return this.http.get<any>('http://localhost:8090/userByPUB/'+`${id}`, { withCredentials: true })
+          }
+
+          public deletePub(id:any): Observable<any> {
+            return this.http.delete<any>('http://localhost:8090/deletePublication/'+`${id}`, { withCredentials: true })
+          }
 }
