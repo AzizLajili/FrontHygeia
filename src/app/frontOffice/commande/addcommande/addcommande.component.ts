@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import axios from 'axios';
 import {config} from "rxjs";
 import { DatePipe } from '@angular/common';
+import Swal from "sweetalert2";
 interface Medicament {
   id: number;
   name: String;
@@ -86,7 +87,12 @@ export class AddcommandeComponent implements OnInit {
     commandeMappedRequest.status="pas encore approuvé"
     axios.post('/api/Hygeiaa/Commande/add', commandeMappedRequest)
       .then(response => {
-        console.log('Commande ajoutée avec succès', response);
+        // console.log('Commande ajoutée avec succès', response);
+        Swal.fire({
+          icon: 'error',
+          title: 'Commande added successfully',
+          text: `with the ID  ${response.data.id}`
+        });
       })
       .catch(error => {
         console.error('Erreur lors de l\'ajout du commande', error);

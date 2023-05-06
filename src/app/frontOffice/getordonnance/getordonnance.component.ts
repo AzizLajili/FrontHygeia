@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-getordonnance',
@@ -39,8 +40,12 @@ export class GetordonnanceComponent {
     axios.delete(`/api/Hygeiaa/Ordonnance/delete/${ordonnance.id}`)
       .then(response => {
         console.log(response);
-        alert('Ordonnance Deleted Successfully');
-        this.getOrdonnances();
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Ord deleted successfully',
+          text: `with the ID  ${response.data.id}`
+        });        this.getOrdonnances();
       })
       .catch(error => {
         console.log(error);
