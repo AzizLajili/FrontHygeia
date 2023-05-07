@@ -25,12 +25,12 @@ interface Ordonnance {
 })
 export class OrdonnanceComponent {
   constructor(private datePipe: DatePipe, private router: Router) { }
-    headers :any = {
+  headers :any = {
     'Access-Control-Allow-Origin' : 'http://localhost:8080/*',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-      'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
   }
-   config = {
+  config = {
     headers:this.headers
   }
   ordonnance: Ordonnance = {
@@ -42,7 +42,7 @@ export class OrdonnanceComponent {
     medicamentList: []
   };
   medicaments: Medicament[] = [
-    { id: 1, name: 'panadol' },
+    { id: 1, name: 'panadol ' },
     { id: 2, name: 'adol' },
   ];
 
@@ -50,7 +50,7 @@ export class OrdonnanceComponent {
     console.log(this.ordonnance)
     const ordonnaceMappedRequest: any = this.ordonnance
     ordonnaceMappedRequest.dateOrd=this.datePipe.transform(new Date(ordonnaceMappedRequest.dateOrd), 'dd/MM/yyyy');
-    axios.post('/api/Hygeiaa/Ordonnance/add', ordonnaceMappedRequest)
+    axios.post('http://localhost:8080/Ordonnance/add', ordonnaceMappedRequest)
       .then(response => {
         // console.log('Ordonnance ajoutée avec succès', response);
         // Reset the form

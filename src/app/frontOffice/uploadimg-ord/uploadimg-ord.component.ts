@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import axios from 'axios';
 import {ActivatedRoute} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-uploadimg-ord',
@@ -32,7 +33,7 @@ export class UploadimgOrdComponent implements OnInit{
   ordonnances: any[] = [];
   selectedOrdonnanceId!: number;
   getOrdonnances() {
-    axios.get('/api/Hygeiaa/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -46,10 +47,13 @@ export class UploadimgOrdComponent implements OnInit{
       console.log(this.fileInput)
       let formData=new FormData();
       formData.append("file",this.fileInput)
-      axios.post(`/api/Hygeiaa/Ordonnance/upload/${this.selectedOrdonnanceId}`,formData)
+      axios.post(`http://localhost:8080/Ordonnance/upload/${this.selectedOrdonnanceId}`,formData)
         .then(response => {
-          alert("sucess")
-        })
+          Swal.fire({
+            icon: 'success',
+            title: 'Image uploaded successfully',
+            // text: `with the ID  ${response.data.id}`
+          });        })
         .catch(error => {
           console.log(error);
           alert('Failed to upload Ordonnance image');
@@ -61,7 +65,7 @@ export class UploadimgOrdComponent implements OnInit{
         alert('Please select an Ordonnance');
         return;
       }
-      axios.get(`/api/Hygeiaa/Ordonnance/download/${this.selectedOrdonnanceId}`, {
+      axios.get(`http://localhost:8080/Ordonnance/download/${this.selectedOrdonnanceId}`, {
         responseType: 'arraybuffer'
       })
         .then(response => {

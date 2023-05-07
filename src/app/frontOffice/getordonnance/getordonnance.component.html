@@ -45,7 +45,7 @@
                   orderDate
                 </th>
                 <th class="product-name text-uppercase" width="30%">
-                  status
+                  Description
                 </th>
                 <th class="product-price text-uppercase" width="15%">
                   Medicaments
@@ -57,7 +57,7 @@
                   Medecin
                 </th>
                 <th class="product-quantity text-uppercase" width="20%">
-                  Action
+                  OrdImg
                 </th>
                 <th class="product-subtotal text-uppercase text-end" width="20%">
                   Action
@@ -89,7 +89,8 @@
                   {{ordonnance.ordonnancemed.nom}}{{ordonnance.ordonnancemed.prenom}}
                 </td>
                 <td class="product-name">
-                  <img [src]="getOrdonnanceImage(ordonnance)" alt="{{ordonnance.data}}" >
+                  <img [src]="getOrdonnanceImage(ordonnance)" alt="{{ordonnance.data}}" style="
+    width: 200px ; ">
                 </td>
 
                 <td class="product-subtotal text-end">

@@ -63,7 +63,7 @@ export class AddcommandeComponent implements OnInit {
     console.log(this.displayedOrdonnances)
   }
   getOrdonnances() {
-    axios.get('/api/Hygeiaa/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -85,13 +85,13 @@ export class AddcommandeComponent implements OnInit {
     const commandeMappedRequest: any = this.commande
     commandeMappedRequest.orderDate = this.datePipe.transform(new Date(commandeMappedRequest.orderDate), 'dd/MM/yyyy');
     commandeMappedRequest.status="pas encore approuvé"
-    axios.post('/api/Hygeiaa/Commande/add', commandeMappedRequest)
+    axios.post('http://localhost:8080/Commande/add', commandeMappedRequest)
       .then(response => {
         // console.log('Commande ajoutée avec succès', response);
         Swal.fire({
-          icon: 'error',
+          icon: 'success',
           title: 'Commande added successfully',
-          text: `with the ID  ${response.data.id}`
+          // text: `with the ID  ${response.data.id}`
         });
       })
       .catch(error => {

@@ -22,7 +22,7 @@ export class DelordonnanceComponent {
     this.getOrdonnances();
   }
   getOrdonnances() {
-    axios.get('/api/Hygeiaa/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -33,7 +33,7 @@ export class DelordonnanceComponent {
   }
   deleteOrdonnance() {
     console.log('Selected ID:', this.selectedOrdonnanceId);
-    axios.delete(`/api/Hygeiaa/Ordonnance/delete/${this.selectedOrdonnanceId}`)
+    axios.delete(`http://localhost:8080/Ordonnance/delete/${this.selectedOrdonnanceId}`)
       .then(response => {
         console.log(response);
         Swal.fire({

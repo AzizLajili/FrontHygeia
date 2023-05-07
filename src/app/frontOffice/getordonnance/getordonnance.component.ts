@@ -23,7 +23,7 @@ export class GetordonnanceComponent {
     this.getOrdonnances();
   }
   getOrdonnances() {
-    axios.get('/api/Hygeiaa/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -37,7 +37,7 @@ export class GetordonnanceComponent {
   }
   deleteOrdonnance(ordonnance:any){
     console.log('Selected ID:', ordonnance.id);
-    axios.delete(`/api/Hygeiaa/Ordonnance/delete/${ordonnance.id}`)
+    axios.delete(`http://localhost:8080/Ordonnance/delete/${ordonnance.id}`)
       .then(response => {
         console.log(response);
 
@@ -57,11 +57,11 @@ export class GetordonnanceComponent {
 
   }
 
-navigatetoaddpage(){
-  this.router.navigate(['/ordonnance/ordonnance']);
-}
+  navigatetoaddpage(){
+    this.router.navigate(['/ordonnance/ordonnance']);
+  }
   navigatetoupdatepage(){
-this.router.navigate(['/ordonnance/updateordonnance'])
+    this.router.navigate(['/ordonnance/updateordonnance'])
   }
   navigatetouploadpage(){
     this.router.navigate(['/ordonnance/uploadimgOrd'])

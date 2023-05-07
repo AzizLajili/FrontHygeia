@@ -3,6 +3,7 @@ import {DatePipe} from "@angular/common";
 import axios from 'axios';
 import {GetordonnanceComponent} from "../getordonnance/getordonnance.component";
 import {ActivatedRoute, Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 interface Medicament {
   id: number;
@@ -28,7 +29,7 @@ export class UpdateOrdComponent implements OnInit{
 
   ngOnInit(): void {
     this.selectedOrdonnanceId=+this.route.snapshot.params['id'];
-    }
+  }
 
   ordonnances: any[] = [];
   selectedOrdonnanceId: any;
@@ -55,7 +56,7 @@ export class UpdateOrdComponent implements OnInit{
     return new Date().toISOString().split('T')[0];
   }
   getOrdonnances() {
-    axios.get('/api/Hygeiaa/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -85,10 +86,15 @@ export class UpdateOrdComponent implements OnInit{
       const ordonnaceMappedRequest: any = this.ordonnance
       ordonnaceMappedRequest.dateOrd=this.datePipe.transform(new Date(ordonnaceMappedRequest.dateOrd), 'dd/MM/yyyy');
       console.log(ordonnaceMappedRequest)
-      axios.put(`/api/Hygeiaa/Ordonnance/update/${this.selectedOrdonnanceId}`,ordonnaceMappedRequest)
+      axios.put(`http://localhost:8080/Ordonnance/update/${this.selectedOrdonnanceId}`,ordonnaceMappedRequest)
         .then(response => {
           console.log(response.data);
-          alert('Ordonnance updated successfully!');
+          // alert('Ordonnance updated successfully!');
+          Swal.fire({
+            icon: 'success',
+            title: 'Ordonnance updated successfully',
+            // text: `with the ID  ${response.data.id}`
+          });
         })
         .catch(error => {
           console.log(error);
