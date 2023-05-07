@@ -25,6 +25,7 @@ export class HeaderAdminComponent implements OnInit {
  
   logout(): void {
     // delete all cookies
+    this.cookieService.deleteAll;
     const cookies: string[] = Object.keys(this.cookieService.getAll());
     cookies.forEach((cookie: string) => {
       console.log(cookie)
@@ -33,5 +34,6 @@ export class HeaderAdminComponent implements OnInit {
 
     // clear local storage
     localStorage.clear();
+    this.router.navigate(['/home'])
   }
 }

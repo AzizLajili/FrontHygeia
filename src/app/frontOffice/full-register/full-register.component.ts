@@ -49,11 +49,21 @@ export class FullRegisterComponent implements OnInit{
       this.hygServ.addUser(user, image).subscribe(
         (response) => {
           console.log('User added:', response);
+          this.hygServ.roleToUser(this.email,this.role).subscribe(
+            (response) => {
+              console.log('Role Affected:', response);
+            },
+            (error) => {
+              console.error('Error affecting role:', error);
+            }
+          )
         },
         (error) => {
           console.error('Error adding user:', error);
         }
         );
+
+        
         }    
 }
 
