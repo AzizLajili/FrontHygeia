@@ -84,7 +84,7 @@ signInButton?.addEventListener('click', () =>
       console.log(error.error.text); 
     });
     if (localStorage.getItem("token") !=null){
-    this.router.navigate(['/'])}
+    this.router.navigate(['/home'])}
   }
   onSubmitReg(form:any){
     this.hygeiaService.emailReg = this.emailReg,

@@ -22,7 +22,7 @@ export class HygeiaService {
   roleReg:any
 
  public Login(data : any): Observable<any> {
-   return this.http.post<any>('http://localhost:8090/login', data)
+   return this.http.post<any>('http://localhost:8090/login', data,{ withCredentials: true })
  }
 
  public Logout(): Observable<any> {
@@ -37,7 +37,8 @@ export class HygeiaService {
    return this.http.get<any>(`http://localhost:8090/user/${cin}`, { withCredentials: true })
  }
  public updateUser(user :any): Observable<any> {
-   return this.http.post<any>(`http://localhost:8090/addUser/`,user )
+  console.log(user)
+   return this.http.put<any>(`http://localhost:8090/updateUser`,user )
  }
  public addUser(user :any,image: File): Observable<any> {
   const formData = new FormData();
@@ -135,6 +136,14 @@ addInteraction(interaction:any,id:any,iduser:any){
   return this.http.post<string>('http://localhost:8090/uploadimage', formData, { withCredentials: true });
 }
 
+public updatePassword(form:any,cin:any){
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Headers" :"*"
+  });
+  const options = { headers: headers, withCredentials: true };
+  return this.http.put<any>('http://localhost:8090/updatePassword/'+`${cin}`,form, {withCredentials : true})
+}
 
       getpubBytype(type:any):Observable<any> {
         return this.http.get<any>("http://localhost:8090/getPublicationByType/"+`${type}`, { withCredentials: true });
