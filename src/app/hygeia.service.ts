@@ -186,5 +186,11 @@ public updatePassword(form:any,cin:any){
             return this.http.delete<any>('http://localhost:8090/deletePublication/'+`${id}`, { withCredentials: true })
           }
 
+          updatePublication(pub:any,id:any):Observable<any>{
+            const formData = new FormData();
+            formData.append('pub', JSON.stringify(pub));
+          
+            return this.http.post("http://localhost:8090/updatePublication/"+`${id}`,formData, { withCredentials: true });
+              }
       
 }

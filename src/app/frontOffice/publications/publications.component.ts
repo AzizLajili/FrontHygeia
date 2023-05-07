@@ -28,6 +28,10 @@ export class PublicationsComponent implements OnInit {
   p: number = 1;
   currentuser!:any
   user!:any
+
+  test:boolean=false
+  test1:boolean=false
+  test2:boolean=false
   constructor(private _service:HygeiaService,private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
@@ -92,10 +96,11 @@ export class PublicationsComponent implements OnInit {
        
           const image = this.previewImage;
           
-          this._service.addPublication(form.value,1,image).subscribe(res=>console.log(res))
+          this._service.addPublication(form.value,1,image).subscribe(res=>{console.log(res)
+          this.publications.push(res)
+          })
 
           form.reset()
-          window.location.reload()
         }
     
         recherchPub(){
@@ -120,6 +125,31 @@ export class PublicationsComponent implements OnInit {
               this.publications=res});
           }
           
+        }
+
+        VerifTitre(){
+          const titre=document.getElementById("name");
+          if(/^[a-zA-Z0-9]+$/.test(this.nom) && titre !=null){
+            titre.style.borderColor = "green";
+            this.test1=true
+      
+            
+          }else if(titre !=null && !/^[a-zA-Z0-9]+$/.test(this.nom)){
+            titre.style.borderColor = "red";
+            this.test1=false
+          }
+        }
+      
+        VerifDesc(){
+          const des=document.getElementById("message");
+          if(/^[a-zA-Z0-9]+$/.test(this.description) && des !=null){
+            des.style.borderColor = "green";
+            this.test2=true
+            
+          }else if(des !=null && !/^[a-zA-Z0-9]+$/.test(this.description)){
+            des.style.borderColor = "red";
+            this.test2=false
+          }
         }
 
 }
