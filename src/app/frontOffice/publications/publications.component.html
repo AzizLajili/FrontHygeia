@@ -7,7 +7,7 @@
             <aside class="sidebar">
                 <form>
                     <div class="input-group mb-3 pb-1">
-                        <input class="form-control text-1" placeholder="Search..." name="name" id="s" type="text"
+                        <input class="form-control text-1" placeholder="Search..." name="name" id="s" type="text" (keyup)="recherchPub()"
                             [(ngModel)]="name">
                         <button type="submit" class="btn btn-dark text-1 p-2" (click)="recherchPub()"><i
                                 class="fas fa-search m-2"></i></button>
@@ -147,16 +147,20 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="form-label mb-1 text-2">Titre</label>
-                                    <input type="text" data-msg-required="Please enter your name." [(ngModel)]="nom"
-                                        class="form-control text-3 h-auto py-2" name="nom" id="name" required
+                                    <input type="text" data-msg-required="Please enter your name." [(ngModel)]="nom"   (keyup)="VerifTitre()"
+                                        class="form-control text-3 h-auto py-2" name="nom" id="name" required [class.is-invalid]="n.invalid && n.touched" #n="ngModel"
+                                       
                                         pattern="^[a-zA-Z0-9]*$">
+                                        <span style="color:red" *ngIf="t?.errors?.['required'] && t.touched"> Title is Required</span>
+                                        <span style="color:red" *ngIf="t?.errors?.['pattern'] && t.touched"> le titre doit contenir seulement des lettres et des chiffre</span>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label class="form-label mb-1 text-2">Type </label>
-                                    <select data-msg-required="Please enter the subject." [(ngModel)]="type"
+                                    <select data-msg-required="Please enter the subject." [(ngModel)]="type" [class.is-invalid]="t.invalid && t.touched" #t="ngModel"
+
                                         class="form-control text-3 h-auto py-2" name="type" id="subject" required>
                                         <option>...</option>
                                         <option>offre</option>
@@ -168,7 +172,8 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
                                     <label class="form-label mb-1 text-2">Description</label>
-                                    <textarea data-msg-required="Please enter your message." [(ngModel)]="description"
+                                    <textarea data-msg-required="Please enter your message." [(ngModel)]="description" [class.is-invalid]="q.invalid && q.touched" #q="ngModel"
+                                    (keyup)="VerifDesc()"
                                         rows="6" class="form-control text-3 h-auto py-2" name="description" id="message"
                                         required></textarea>
                                 </div>

@@ -1,49 +1,51 @@
-<div>
+<div style="margin-left: 10%;width: 200%;" >
 
-    <h2 class="font-weight-bold text-7 mt-2 mb-0">Add Publication</h2>
+    <h2 class="font-weight-bold text-7 mt-2 mb-0">Modifier Publication</h2>
 
-    <form id="contactFormAdvanced" #fr="ngForm" 
-        enctype="multipart/form-data" novalidate="novalidate">
+    <form id="contactFormAdvanced" #fr="ngForm" (ngSubmit)="modifpublication(fr)" novalidate="novalidate">
         <div class="row">
             <div class="form-group col-md-6">
                 <label class="form-label mb-1 text-2">Titre</label>
                 <input type="text" data-msg-required="Please enter your name." [(ngModel)]="nom"
-                    class="form-control text-3 h-auto py-2" name="nom" id="name" required
+                    class="form-control text-3 h-auto py-2" name="nom" id="name" required (keyup)="VerifTitre()"
+                    [class.is-invalid]="t.invalid && t.touched" #t="ngModel"
                     pattern="^[a-zA-Z0-9]*$">
+                    <span style="color:red" *ngIf="t?.errors?.['required'] && t.touched"> Title is Required</span>
+
             </div>
 
         </div>
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="form-label mb-1 text-2">Type </label>
-                <select data-msg-required="Please enter the subject." [(ngModel)]="type"
+                <select data-msg-required="Please enter the subject." [(ngModel)]="type" [class.is-invalid]="k.invalid && k.touched" #k="ngModel"
                     class="form-control text-3 h-auto py-2" name="type" id="subject" required>
                     <option>...</option>
                     <option>offre</option>
                     <option>demande</option>
                 </select>
+                <span style="color:red" *ngIf="k?.errors?.['required'] && k.touched"> this is Required</span>
+
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-12 mb-4">
                 <label class="form-label mb-1 text-2">Description</label>
-                <textarea data-msg-required="Please enter your message." [(ngModel)]="description"
+                <textarea data-msg-required="Please enter your message." [(ngModel)]="description" (keyup)="VerifDesc()"
+                [class.is-invalid]="d.invalid && d.touched" #d="ngModel"
                     rows="6" class="form-control text-3 h-auto py-2" name="description" id="message"
                     required></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="form-label mb-1 text-2">Image</label>
-                <input class="form-control d-block" type="file" name="image" id="attachment"
-                    >
+                    <span style="color:red" *ngIf="d?.errors?.['required'] && d.touched"> Description is Required</span>
+
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-12 mb-5">
                 <input type="submit" id="contactFormSubmit" value="Send Message"
-                    [disabled]="fr.invalid" class="btn btn-primary btn-modern pull-right"
+                [disabled]="fr.valid"
+                [disabled]="!test1"
+                [disabled]="!test2" class="btn btn-primary btn-modern pull-right"
                     data-loading-text="Loading...">
             </div>
         </div>
