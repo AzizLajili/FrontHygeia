@@ -52,11 +52,8 @@ import { UpdatePublicationComponent } from './backOffice/update-publication/upda
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
-    NgxPaginationModule
-
+    NgxPaginationModule,
     ReactiveFormsModule,
-
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

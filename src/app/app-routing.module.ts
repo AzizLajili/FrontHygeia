@@ -13,17 +13,12 @@ import { PublicationsComponent } from './frontOffice/publications/publications.c
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
 
 
-const routes: Routes = [{
-  
-  path:'admin',  component:AllTemplateAdminComponent,
-  children:[{
-    path:'admin',component:BodyAdminComponent
-  }
 
 const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
   children:[{path:'admin',component:BodyAdminComponent}
 
 ]},
+
 
 {  path:'login',  component:LoginComponent,},
 {  path:'', component:AllTemplateUserComponent,children:[{path:'home',component:HomeComponent},{path:'',component:HomeComponent}]},
@@ -32,8 +27,7 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
 {  path:'profile',  component:AllTemplateAdminComponent,
     children:[{ path:':param',component:BodyAdminComponent}]},
 {  path:'',  component:AllTemplateUserComponent,children:[{ path:'register', component:FullRegisterComponent},{ path:'', component:BodyComponent}]},
-{  path:'**',  component:AllTemplateUserComponent, children:[{ path:'', component:NotFoundComponent}]
-    },
+
 
 {  path:'', component:AllTemplateUserComponent,},
 {
@@ -69,7 +63,9 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
             component: PublicationbyidComponent
           }
         ]
-        }
+        },
+        {  path:'**',  component:AllTemplateUserComponent, children:[{ path:'', component:NotFoundComponent}]
+      },
 
 
 

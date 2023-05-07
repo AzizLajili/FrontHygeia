@@ -52,6 +52,17 @@ export class HygeiaService {
   return this.http.post<any>('http://localhost:8090/addUser/', formData, { withCredentials: true });
 
  }
+ roleToUser(email :any,role: any)  {
+  console.log(email)
+  console.log(role)
+  
+  const body ={
+    "username" : email,
+    "rolename" : role
+  }
+  console.log(body)
+  return this.http.post<any>("http://localhost:8090/roletouser",body, { withCredentials: true });
+}
  public deleteUser(cin:any): Observable<any> {
    return this.http.delete<any>('http://localhost:8090/deluser/'+`${cin}`, { withCredentials: true })
  }
@@ -84,6 +95,7 @@ getNbrDislikeByPublication(id:number)  {
 getPublicationById(id: any): Observable<any> {
   return this.http.get<any>("http://localhost:8090/Publications/"+`${id}`, { withCredentials: true });
 }
+
 
 
 addPublication(pub:any,id:any,image:File){
@@ -173,4 +185,6 @@ public updatePassword(form:any,cin:any){
           public deletePub(id:any): Observable<any> {
             return this.http.delete<any>('http://localhost:8090/deletePublication/'+`${id}`, { withCredentials: true })
           }
+
+      
 }
