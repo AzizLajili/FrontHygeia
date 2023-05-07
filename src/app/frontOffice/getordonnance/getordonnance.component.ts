@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
 import Swal from "sweetalert2";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-getordonnance',
@@ -9,9 +10,9 @@ import Swal from "sweetalert2";
   styleUrls: ['./getordonnance.component.css']
 })
 export class GetordonnanceComponent {
-  ordonnances: any[] = [];
+  ordonnances!: any[];
   headers :any = {
-    'Access-Control-Allow-Origin' : 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin' : 'http://localhost:8090/*',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -19,25 +20,22 @@ export class GetordonnanceComponent {
     headers:this.headers
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private http:HttpClient) {
     this.getOrdonnances();
   }
   getOrdonnances() {
-    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8090/Ordonnance/retrieveAll',{withCredentials : true} )
       .then(response => {
         this.ordonnances = response.data;
       })
-      .catch(error => {
-        console.log(error);
-        alert('Failed to retrieve Ordonnances');
-      });
+
   }
   getOrdonnanceImage(ordonnance:any): string {
     return `data:image/jpeg;base64,${ordonnance.data}`;
   }
   deleteOrdonnance(ordonnance:any){
     console.log('Selected ID:', ordonnance.id);
-    axios.delete(`http://localhost:8080/Ordonnance/delete/${ordonnance.id}`)
+    axios.delete(`http://localhost:8090/Ordonnance/delete/${ordonnance.id}`,{withCredentials : true})
       .then(response => {
         console.log(response);
 
@@ -58,13 +56,13 @@ export class GetordonnanceComponent {
   }
 
   navigatetoaddpage(){
-    this.router.navigate(['/ordonnance/ordonnance']);
+    this.router.navigate(['/ordonnance']);
   }
   navigatetoupdatepage(){
-    this.router.navigate(['/ordonnance/updateordonnance'])
+    this.router.navigate(['/updateordonnance'])
   }
   navigatetouploadpage(){
-    this.router.navigate(['/ordonnance/uploadimgOrd'])
+    this.router.navigate(['/uploadimgOrd'])
   }
 
 }

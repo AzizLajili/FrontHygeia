@@ -1,0 +1,51 @@
+
+
+h1{
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 16px;
+}
+
+
+
+
+
+.hh{
+    display: flex;
+    gap: 20px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 16px;
+    align-items:  flex-start;
+    font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 16px;
+}
+
+.hh h3{
+    color: #64635f;
+}
+
+#PostedBy{
+    color:#b8b8b8;
+}
+
+#text{
+    color: #757776;
+}
+
+#Avatar{
+    width: 50px;
+    height: 50px;
+}
+
+#Icon{
+    width: 25px;
+    height: 30px;
+}
+
+.ThirdPart{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+

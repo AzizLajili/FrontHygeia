@@ -12,8 +12,6 @@ import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-te
 import { BodyComponent } from './frontOffice/body/body.component';
 import { HeaderComponent } from './frontOffice/header/header.component';
 import { OrdonnanceComponent } from './frontOffice/ordonnance/ordonnance.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 import {DatePipe} from "@angular/common";
 import { DelordonnanceComponent } from './frontOffice/delordonnance/delordonnance.component';
 import { GetordonnanceComponent } from './frontOffice/getordonnance/getordonnance.component';
@@ -25,7 +23,18 @@ import { GerercommandeComponent } from './frontOffice/commande/gerercommande/ger
 import { AddcommandeComponent } from './frontOffice/commande/addcommande/addcommande.component';
 
 
+import { LoginComponent } from './frontOffice/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ListUsersComponent } from './backOffice/list-users/list-users.component';
+import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
+import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
+import { HomeComponent } from './frontOffice/home/home.component';
 
+import { PublicationsComponent } from './frontOffice/publications/publications.component';
+import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { UpdatePublicationComponent } from './backOffice/update-publication/update-publication.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +56,24 @@ import { AddcommandeComponent } from './frontOffice/commande/addcommande/addcomm
     UpdatecommandeComponent,
     GerercommandeComponent,
     AddcommandeComponent,
+    LoginComponent,
+    ListUsersComponent,
+    FullRegisterComponent,
+    NotFoundComponent,
+    HomeComponent,
+    PublicationsComponent,
+    PublicationbyidComponent,
+    UpdatePublicationComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
 
+    FormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    ReactiveFormsModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

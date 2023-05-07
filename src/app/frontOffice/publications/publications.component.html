@@ -1,0 +1,242 @@
+<div class="container py-4">
+    <hr style="background-color: blue;">
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <aside class="sidebar">
+                <form>
+                    <div class="input-group mb-3 pb-1">
+                        <input class="form-control text-1" placeholder="Search..." name="name" id="s" type="text"
+                            [(ngModel)]="name">
+                        <button type="submit" class="btn btn-dark text-1 p-2" (click)="recherchPub()"><i
+                                class="fas fa-search m-2"></i></button>
+                    </div>
+                </form>
+                <h5 class="font-weight-semi-bold pt-4">Categories</h5>
+                <div class="col-lg-4" style="width: 350px;">
+                    <div class="tabs tabs-vertical tabs-left tabs-navigation">
+                        <ul class="nav nav-tabs col-sm-3" role="tablist">
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab"
+                                    style="width: 100%;" (click)="tripub()"><i class="fas fa-user"></i> Tri</button>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tabs tabs-dark mb-4 pb-2">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link show active text-1 font-weight-bold text-uppercase"
+                                href="#popularPosts" data-bs-toggle="tab">Popular</a></li>
+                        <li class="nav-item"><a class="nav-link text-1 font-weight-bold text-uppercase"
+                                href="#recentPosts" data-bs-toggle="tab">Recent</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="popularPosts">
+                            <ul class="simple-post-list">
+                                <li *ngFor="let p of toppublications">
+                                    <div class="post-image">
+                                        <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                            <a href="blog-post.html">
+                                                <img src="img/blog/square/blog-42.jpg" width="50" height="50" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="post-info">
+                                        <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                        <div class="post-meta">
+                                            Nov 10, 2023
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="recentPosts">
+                            <ul class="simple-post-list">
+                                <li>
+                                    <div class="post-image">
+                                        <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                            <a href="blog-post.html">
+                                                <img src="img/blog/square/blog-24.jpg" width="50" height="50" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="post-info">
+                                        <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                        <div class="post-meta">
+                                            Nov 10, 2023
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="post-image">
+                                        <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                            <a href="blog-post.html">
+                                                <img src="img/blog/square/blog-42.jpg" width="50" height="50" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="post-info">
+                                        <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                        <div class="post-meta">
+                                            Nov 10, 2023
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="post-image">
+                                        <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                            <a href="blog-post.html">
+                                                <img src="img/blog/square/blog-11.jpg" width="50" height="50" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="post-info">
+                                        <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                        <div class="post-meta">
+                                            Nov 10, 2023
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+        <div class="col-lg-8">
+            <div class="blog-posts">
+                <div class="col-lg-7 appear-animation animated fadeIn appear-animation-visible"
+                    data-appear-animation="fadeIn" data-appear-animation-delay="650" style="animation-delay: 650ms;">
+
+                    <div class="offset-anchor" id="contact-sent"></div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-danger" (click)="toggle()">Add Publication</button>
+                        </div>
+
+                        <div class="col-3" *ngIf="element == true">
+                            <button class="btn btn-danger" (click)="toggle2()">Annuler</button>
+                        </div>
+
+                        <div class="col-3" style="margin-left: 500px;margin-top: -40px;">
+
+                            <select data-msg-required="Please enter the subject." [(ngModel)]="categ"
+                                style="border-color: red;height: 50px;width: 200px;"
+                                class="form-control text-3 h-auto py-2" name="type" id="subject" required=""
+                                (change)="getpubByType()">
+                                <option>all</option>
+                                <option>offre</option>
+                                <option>demande</option>
+                            </select>
+                        </div>
+
+
+
+                    </div>
+
+                    <div style="width: 900px;" id="mydiv" *ngIf="element == true">
+
+                        <h2 class="font-weight-bold text-7 mt-2 mb-0">Add Publication</h2>
+
+                        <form id="contactFormAdvanced" #fr="ngForm" (ngSubmit)="addPublication(fr)"
+                            enctype="multipart/form-data" novalidate="novalidate">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="form-label mb-1 text-2">Titre</label>
+                                    <input type="text" data-msg-required="Please enter your name." [(ngModel)]="nom"
+                                        class="form-control text-3 h-auto py-2" name="nom" id="name" required
+                                        pattern="^[a-zA-Z0-9]*$">
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="form-label mb-1 text-2">Type </label>
+                                    <select data-msg-required="Please enter the subject." [(ngModel)]="type"
+                                        class="form-control text-3 h-auto py-2" name="type" id="subject" required>
+                                        <option>...</option>
+                                        <option>offre</option>
+                                        <option>demande</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-12 mb-4">
+                                    <label class="form-label mb-1 text-2">Description</label>
+                                    <textarea data-msg-required="Please enter your message." [(ngModel)]="description"
+                                        rows="6" class="form-control text-3 h-auto py-2" name="description" id="message"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="form-label mb-1 text-2">Image</label>
+                                    <input class="form-control d-block" type="file" name="image" id="attachment"
+                                        (change)="onFileSelected($event)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12 mb-5">
+                                    <input type="submit" id="contactFormSubmit" value="Send Message"
+                                        [disabled]="fr.invalid" class="btn btn-primary btn-modern pull-right"
+                                        data-loading-text="Loading...">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <article class="post post-medium"
+                    *ngFor="let pub of publications | paginate: { itemsPerPage: 3, currentPage: p }">
+                    <div class="row mb-3">
+                        <div class="col-lg-5">
+                            <div class="post-image">
+                                <a href="blog-post.html">
+                                    <img src="http://localhost/img/{{pub.image}}.jpg"
+                                        class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="post-content">
+                                <h2 class="font-weight-semibold pt-4 pt-lg-0 text-5 line-height-4 mb-2">
+                                    <a>{{pub.titre}}</a>
+                                </h2>
+                                <br>Sujet :
+                                <p class="mb-0">{{pub.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar-alt"></i> {{pub.dateIni | date}}</span>
+                                <span><i class="far fa-folder"></i> <a href="#">{{pub.type}}</a> </span>
+                                <span><i class="far fa-comments"></i> <a [routerLink]="['/publications', pub.id]">commenter</a></span>
+                                <span class="d-block d-sm-inline-block float-sm-end mt-3 mt-sm-0"><button
+                                        [routerLink]="['/publications', pub.id]"
+                                        class="btn btn-xs btn-light text-1 text-uppercase">Read More</button></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </article>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -10,7 +10,7 @@ import Swal from "sweetalert2"
 export class GerercommandeComponent {
   commande: any[] = [];
   headers :any = {
-    'Access-Control-Allow-Origin' : 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin' : 'http://localhost:8090/*',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -23,7 +23,7 @@ export class GerercommandeComponent {
     this.getCommandes();
   }
   getCommandes() {
-    axios.get('http://localhost:8080/Commande/retrieveAll')
+    axios.get('http://localhost:8090/Commande/retrieveAll',{withCredentials : true})
       .then(response => {
         this.commande = response.data;
         console.log(response)
@@ -35,7 +35,7 @@ export class GerercommandeComponent {
   }
   deleteCommande(commande:any){
     console.log('Selected ID:', commande.id);
-    axios.delete(`http://localhost:8080/Commande/delete/${commande.id}`)
+    axios.delete(`http://localhost:8090/Commande/delete/${commande.id}`,{withCredentials : true})
       .then(response => {
         console.log(response);
         // alert('Commande Deleted Successfully');
@@ -50,7 +50,7 @@ export class GerercommandeComponent {
 
   getprice(commande:any){
     console.log('Selected ID:', commande.id);
-    axios.get(`http://localhost:8080/Commande/commandes/${commande.id}/prixtotal`)
+    axios.get(`http://localhost:8090/Commande/commandes/${commande.id}/prixtotal`,{withCredentials : true})
       .then(response => {
         console.log(response);
         this.getCommandes()
@@ -63,12 +63,12 @@ export class GerercommandeComponent {
   }
   approuved(commande:any){
     console.log('status', commande.status);
-    axios.put(`http://localhost:8080/Commande/updatestatus/${commande.id}`)
+    axios.put(`http://localhost:8090/Commande/updatestatus/${commande.id}`,{},{withCredentials : true})
       .then(response => {
         console.log(response);
         Swal.fire('Approved!! ','check your phone','success');
         this.getCommandes()
-        return axios.get(`/api/Hygeiaa/Commande/sendSMS/${commande.id}`)
+        return axios.get(`http://localhost:8090/Commande/sendSMS/${commande.id}`,{withCredentials : true})
       })
       .catch(error => {
         console.log(error);
@@ -77,7 +77,7 @@ export class GerercommandeComponent {
 
   }
   navigatetoaddpage(){
-    this.router.navigate(['/commande/Commande']);
+    this.router.navigate(['/Commande']);
   }
   navigatetoupdatepage(){
     this.router.navigate(['/updatecommande'])

@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 })
 export class UploadimgOrdComponent implements OnInit{
   headers: any = {
-    'Access-Control-Allow-Origin': 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin': 'http://localhost:8090/*',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -33,7 +33,7 @@ export class UploadimgOrdComponent implements OnInit{
   ordonnances: any[] = [];
   selectedOrdonnanceId!: number;
   getOrdonnances() {
-    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8090/Ordonnance/retrieveAll',{withCredentials : true})
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -47,7 +47,7 @@ export class UploadimgOrdComponent implements OnInit{
       console.log(this.fileInput)
       let formData=new FormData();
       formData.append("file",this.fileInput)
-      axios.post(`http://localhost:8080/Ordonnance/upload/${this.selectedOrdonnanceId}`,formData)
+      axios.post(`http://localhost:8090/Ordonnance/upload/${this.selectedOrdonnanceId}`,formData,{withCredentials : true})
         .then(response => {
           Swal.fire({
             icon: 'success',
@@ -65,8 +65,8 @@ export class UploadimgOrdComponent implements OnInit{
         alert('Please select an Ordonnance');
         return;
       }
-      axios.get(`http://localhost:8080/Ordonnance/download/${this.selectedOrdonnanceId}`, {
-        responseType: 'arraybuffer'
+      axios.get(`http://localhost:8090/Ordonnance/download/${this.selectedOrdonnanceId}`, {
+        responseType: 'arraybuffer' ,withCredentials : true
       })
         .then(response => {
           const url = window.URL.createObjectURL(new Blob([response.data]));

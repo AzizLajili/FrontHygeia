@@ -26,7 +26,7 @@ interface Ordonnance {
 export class OrdonnanceComponent {
   constructor(private datePipe: DatePipe, private router: Router) { }
   headers :any = {
-    'Access-Control-Allow-Origin' : 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin' : 'http://localhost:8090/*',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -50,7 +50,7 @@ export class OrdonnanceComponent {
     console.log(this.ordonnance)
     const ordonnaceMappedRequest: any = this.ordonnance
     ordonnaceMappedRequest.dateOrd=this.datePipe.transform(new Date(ordonnaceMappedRequest.dateOrd), 'dd/MM/yyyy');
-    axios.post('http://localhost:8080/Ordonnance/add', ordonnaceMappedRequest)
+    axios.post('http://localhost:8090/Ordonnance/add', ordonnaceMappedRequest,{withCredentials : true})
       .then(response => {
         // console.log('Ordonnance ajoutée avec succès', response);
         // Reset the form
@@ -72,7 +72,7 @@ export class OrdonnanceComponent {
           title: 'Add an image to this Ord',
           text: `with the ID  ${response.data.id}`
         });
-        this.router.navigate(['/ordonnance/uploadimgOrd',this.ordonnance.id])
+        this.router.navigate(['/uploadimgOrd',this.ordonnance.id])
       })
       .catch(error => {
         console.error('Erreur lors de l\'ajout de l\'ordonnance', error);

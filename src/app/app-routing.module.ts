@@ -11,41 +11,40 @@ import {UpdateOrdComponent} from "./frontOffice/update-ord/update-ord.component"
 import {GerercommandeComponent} from "./frontOffice/commande/gerercommande/gerercommande.component";
 import {UpdatecommandeComponent} from "./frontOffice/commande/updatecommande/updatecommande.component";
 import {AddcommandeComponent} from "./frontOffice/commande/addcommande/addcommande.component";
+import { LoginComponent } from './frontOffice/login/login.component';
+import { ListUsersComponent } from './backOffice/list-users/list-users.component';
+import { BodyComponent } from './frontOffice/body/body.component';
+import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
+import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
+import { HomeComponent } from './frontOffice/home/home.component';
+import { PublicationsComponent } from './frontOffice/publications/publications.component';
+import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
 
-const routes: Routes = [{
-  path:'admin',
-  component:AllTemplateAdminComponent,
-  children:[
-    {
-      path:'admin',
-      component:BodyAdminComponent
-    }
-  ]
 
-},
-  { path:'ordonnance', component:OrdonnanceComponent},
-  {path:'delordonnance',component:DelordonnanceComponent},
-  {path:'getordonnances',component:GetordonnanceComponent},
-  {path:'uploadimgOrd',component:UploadimgOrdComponent},
-  {path:'updateordonnance',component:UpdateOrdComponent},
-  { path:'getcommands', component:GerercommandeComponent},
-  {path:'updatecommande',component:UpdatecommandeComponent},
-  // {path:'Commande', component:AddcommandeComponent},
 
-  // {path:'Commande', component:AddcommandeComponent,
-  // children:[{
-  //    path:'getcommands', component:GerercommandeComponent
-  // }]},
 
+
+const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
+  children:[{path:'admin',component:BodyAdminComponent}
+
+]},
+  //
+  // { path:'ordonnance', component:OrdonnanceComponent},
+  // {path:'delordonnance',component:DelordonnanceComponent},
+  // {path:'getordonnances',component:GetordonnanceComponent},
+  // {path:'uploadimgOrd',component:UploadimgOrdComponent},
+  // {path:'updateordonnance',component:UpdateOrdComponent},
+  // { path:'getcommands', component:GerercommandeComponent},
+  // {path:'updatecommande',component:UpdatecommandeComponent},
   {
-    path: 'commande',
+    path: '',
     component: AllTemplateUserComponent,
     children: [
       {path: 'Commande', component: AddcommandeComponent},
       {path: 'getcommands', component: GerercommandeComponent}]
   },
   {
-    path: 'ordonnance',
+    path: '',
     component: AllTemplateUserComponent,
     children: [
 
@@ -54,10 +53,60 @@ const routes: Routes = [{
       {path:'getordonnances',component:GetordonnanceComponent},
       {path:'uploadimgOrd/:idord',component:UploadimgOrdComponent},
       {path:'updateordonnance/:id',component:UpdateOrdComponent}]
-  }
-  ]
+  },
 
 
+
+{  path:'login',  component:LoginComponent,},
+{  path:'', component:AllTemplateUserComponent,children:[{path:'home',component:HomeComponent},{path:'',component:HomeComponent}]},
+{  path:'profile',  component:AllTemplateAdminComponent,
+  children:[{ path:'listusers', component:ListUsersComponent}]},
+{  path:'profile',  component:AllTemplateAdminComponent,
+    children:[{ path:':param',component:BodyAdminComponent}]},
+{  path:'',  component:AllTemplateUserComponent,children:[{ path:'register', component:FullRegisterComponent},{ path:'', component:BodyComponent}]},
+
+
+{  path:'', component:AllTemplateUserComponent,},
+{
+  path:'profile',  component:AllTemplateAdminComponent,
+  children:[{
+      path:'listusers',
+      component:ListUsersComponent
+    }]},
+    {
+      path:'profile',  component:AllTemplateAdminComponent,
+      children:[{
+          path:':param',
+          component:BodyAdminComponent
+        },
+        {
+          path:':param/modifpublication/:id',
+          component:BodyAdminComponent
+        },
+      ]
+      },
+      {
+        path:'',  component:AllTemplateUserComponent,
+        children:[{
+            path:'register',
+            component:FullRegisterComponent
+          },
+          {
+            path:'publications',
+            component: PublicationsComponent
+          },
+          {
+            path:'publications/:id',
+            component: PublicationbyidComponent
+          }
+        ]
+        },
+        {  path:'**',  component:AllTemplateUserComponent, children:[{ path:'', component:NotFoundComponent}]
+      },
+
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

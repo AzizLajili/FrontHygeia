@@ -1,0 +1,117 @@
+<section role="main" class="content-body content-body-modern mt-0">
+    <header class="page-header page-header-left-inline-breadcrumb">
+        <h2 class="font-weight-bold text-6">Categories</h2>
+        <div class="right-wrapper">
+            <ol class="breadcrumbs">
+                <li><span>Home</span></li>
+                <li><span>eCommerce</span></li>
+                <li><span>Categories</span></li>
+            </ol>
+            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+        </div>
+    </header>
+    <!-- start: page -->
+    <div class="row">
+        <div class="col">
+            <div class="card card-modern">
+                <div class="card-body">
+                    <div class="datatables-header-footer-wrapper mt-2">
+                        <div class="datatable-header">
+                            <div class="row align-items-center mb-3">
+                                <div class="col-12 col-lg-auto mb-3 mb-lg-0">
+                                    <a href="ecommerce-category-form.html" class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+ Add Category</a>
+                                </div>
+                                <div class="col-8 col-lg-auto ms-auto ml-auto mb-3 mb-lg-0">
+                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
+                                        <label class="ws-nowrap me-3 mb-0">Filter By:</label>
+                                        <select class="form-control select-style-1 filter-by" name="filter-by">
+                                            <option value="all" selected>All</option>
+                                            <option value="1">CIN</option>
+                                            <option value="2">Name</option>
+                                            <option value="3">Email</option>
+                                            <option value="4">Adresse</option>
+                                            <option value="4">Role</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-auto ps-lg-1 mb-3 mb-lg-0">
+                                    <div class="d-flex align-items-lg-center flex-column flex-lg-row">
+                                        <label class="ws-nowrap me-3 mb-0">Show:</label>
+                                        <select class="form-control select-style-1 results-per-page" name="results-per-page">
+                                            <option value="12" selected>12</option>
+                                            <option value="24">24</option>
+                                            <option value="36">36</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-auto ps-lg-1">
+                                    <div class="search search-style-1 search-style-1-lg mx-lg-auto">
+                                        <div class="input-group">
+                                            <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Search Category">
+                                            <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-ecommerce-simple table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 1400px;">
+                            <thead>
+                                <tr>
+                                    <th width="30">Image</th>
+                                    <th width="15">ID</th>
+                                    <th width="20%">Name</th>
+                                    <th width="23%">Email</th>
+                                    <th width="23%">Adresse</th>
+                                    <th width="23%">Roles</th>
+                                    <th width="15%">Gerer</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of listUsers ">
+                                    <td width="30"><img style="max-width: 50px; max-height: 50px;" src="http://localhost/img/{{user.image}}.jpg" alt="Joseph Doe" data-lock-picture="/assets/BackOffice/img/%21logged-user.jpg" class="rounded-circle"></td>
+                                    <td width="15"><a href="ecommerce-category-form.html"><strong>{{user.cin}}</strong></a></td>
+                                    <td><a [routerLink]="['/profile/',user.cin]"><strong style="margin: 50px;color: black;">{{user.prenom}}  {{user.nom}}</strong></a></td>
+                                    <td>{{user.email}}</td>
+                                    <td>{{user.adresse}}</td>
+                                    <td>
+                                    <li *ngFor="let roless of user.roles"> {{roless.role}}</li>
+                                    </td>
+
+                                    <td>
+                                        <button type="button" class="mb-1 mt-1 me-1 btn btn-default">Update</button>
+                                        <button (click)="delete(user.cin)" type="button" class="mb-1 mt-1 me-1 btn btn-danger">Delete</button>                                        
+                                    </td>
+                            </tbody>
+                        </table>
+                        <hr class="solid mt-5 opacity-4">
+                        <div class="datatable-footer">
+                            <div class="row align-items-center justify-content-between mt-3">
+                                <div class="col-md-auto order-1 mb-3 mb-lg-0">
+                                    <div class="d-flex align-items-stretch">
+                                        <div class="d-grid gap-3 d-md-flex justify-content-md-end me-4">
+                                            <select class="form-control select-style-1 bulk-action" name="bulk-action" style="min-width: 170px;">
+                                                <option value="" selected>Bulk Actions</option>
+                                                <option value="delete">Delete</option>
+                                            </select>
+                                            <a href="#" class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-auto text-center order-3 order-lg-2">
+                                    <div class="results-info-wrapper"></div>
+                                </div>
+                                <div class="col-lg-auto order-2 order-lg-3 mb-3 mb-lg-0">
+                                    <div class="pagination-wrapper"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: page -->
+</section>

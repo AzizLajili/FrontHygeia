@@ -37,7 +37,7 @@ export class AddcommandeComponent implements OnInit {
 
 
   headers: any = {
-    'Access-Control-Allow-Origin': 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin': 'http://localhost:8090/*',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -63,7 +63,7 @@ export class AddcommandeComponent implements OnInit {
     console.log(this.displayedOrdonnances)
   }
   getOrdonnances() {
-    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8090/Ordonnance/retrieveAll',{withCredentials : true})
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -85,7 +85,7 @@ export class AddcommandeComponent implements OnInit {
     const commandeMappedRequest: any = this.commande
     commandeMappedRequest.orderDate = this.datePipe.transform(new Date(commandeMappedRequest.orderDate), 'dd/MM/yyyy');
     commandeMappedRequest.status="pas encore approuvé"
-    axios.post('http://localhost:8080/Commande/add', commandeMappedRequest)
+    axios.post('http://localhost:8090/Commande/add', commandeMappedRequest,{withCredentials : true})
       .then(response => {
         // console.log('Commande ajoutée avec succès', response);
         Swal.fire({

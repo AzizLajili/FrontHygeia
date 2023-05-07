@@ -1,7 +1,9 @@
 <!-- start: header -->
 <header class="header">
   <div class="logo-container">
-    <a href="https://www.okler.net/previews/porto-admin/4.1.0" class="logo">						<img src="/assets/BackOffice/img/logo.png" width="75" height="35" alt="Porto Admin" />
+
+    <a [routerLink]="['/home']" class="logo">						<img src="/assets/BackOffice/img/logo.png" width="75" height="35" alt="Porto Admin" />
+
     </a>
     <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
       <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
@@ -186,7 +188,7 @@
             <a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="bx bx-lock"></i> Lock Screen</a>
           </li>
           <li>
-            <a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="bx bx-power-off"></i> Logout</a>
+            <a (click)="logout()" role="menuitem" tabindex="-1"><i class="bx bx-power-off"></i> Logout</a>
           </li>
         </ul>
       </div>

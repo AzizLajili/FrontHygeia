@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 })
 export class DelordonnanceComponent {
   headers :any = {
-    'Access-Control-Allow-Origin' : 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin' : 'http://localhost:8090/*',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -22,7 +22,7 @@ export class DelordonnanceComponent {
     this.getOrdonnances();
   }
   getOrdonnances() {
-    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8090/Ordonnance/retrieveAll',{withCredentials : true})
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -33,7 +33,7 @@ export class DelordonnanceComponent {
   }
   deleteOrdonnance() {
     console.log('Selected ID:', this.selectedOrdonnanceId);
-    axios.delete(`http://localhost:8080/Ordonnance/delete/${this.selectedOrdonnanceId}`)
+    axios.delete(`http://localhost:8090/Ordonnance/delete/${this.selectedOrdonnanceId}`,{withCredentials : true})
       .then(response => {
         console.log(response);
         Swal.fire({

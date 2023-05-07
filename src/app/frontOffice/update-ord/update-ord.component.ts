@@ -34,7 +34,7 @@ export class UpdateOrdComponent implements OnInit{
   ordonnances: any[] = [];
   selectedOrdonnanceId: any;
   headers :any = {
-    'Access-Control-Allow-Origin' : 'http://localhost:8080/*',
+    'Access-Control-Allow-Origin' : 'http://localhost:8090/*',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
   }
@@ -56,7 +56,7 @@ export class UpdateOrdComponent implements OnInit{
     return new Date().toISOString().split('T')[0];
   }
   getOrdonnances() {
-    axios.get('http://localhost:8080/Ordonnance/retrieveAll')
+    axios.get('http://localhost:8090/Ordonnance/retrieveAll',{withCredentials : true})
       .then(response => {
         this.ordonnances = response.data;
       })
@@ -86,7 +86,7 @@ export class UpdateOrdComponent implements OnInit{
       const ordonnaceMappedRequest: any = this.ordonnance
       ordonnaceMappedRequest.dateOrd=this.datePipe.transform(new Date(ordonnaceMappedRequest.dateOrd), 'dd/MM/yyyy');
       console.log(ordonnaceMappedRequest)
-      axios.put(`http://localhost:8080/Ordonnance/update/${this.selectedOrdonnanceId}`,ordonnaceMappedRequest)
+      axios.put(`http://localhost:8090/Ordonnance/update/${this.selectedOrdonnanceId}`,ordonnaceMappedRequest,{withCredentials : true})
         .then(response => {
           console.log(response.data);
           // alert('Ordonnance updated successfully!');
