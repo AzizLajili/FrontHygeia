@@ -18,9 +18,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { MedicamentListComponent } from './frontOffice/medicament-list/medicament-list.component';
 import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
-import { PharamciedetailComponent } from './pharamciedetail/pharamciedetail.component';
 import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
 import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
+import { MedicamentdetailComponent } from './medicamentdetail/medicamentdetail.component';
+import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -38,10 +40,10 @@ import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.componen
     ListUsersComponent,
     MedicamentListComponent,
     PharmacieListComponent,
-    PharamciedetailComponent,
     MedicamentFormComponent,
     PharmacieFormComponent,
-    
+    MedicamentdetailComponent,
+    PharmacieDetailComponent,
   ],
   imports: [
     BrowserModule,

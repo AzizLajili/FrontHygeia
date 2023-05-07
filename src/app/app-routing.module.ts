@@ -10,6 +10,8 @@ import { MedicamentListComponent } from './frontOffice/medicament-list/medicamen
 import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
 import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
 import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
+import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.component';
+import { MedicamentdetailComponent } from './medicamentdetail/medicamentdetail.component';
 
 const routes: Routes = [{
   path: 'admin', component: AllTemplateAdminComponent,
@@ -20,26 +22,33 @@ const routes: Routes = [{
   {
     path: ':param', component: BodyAdminComponent
   },
-  { path: 'medicament', component: MedicamentListComponent, },
+  { path: 'medicament', component: MedicamentListComponent },
   ]
 },
 { path: 'login', component: LoginComponent, },
-
-
-
 {
   path: '', component: AllTemplateUserComponent,
   children: [{
     path: 'pharamcie',
     component: PharmacieListComponent
   },
+  
+  { path: 'medicament/:nom', component: MedicamentdetailComponent },
   {
     path: 'addmedic',
     component: MedicamentFormComponent
   },
   {
+    path: 'medics',
+    component: MedicamentListComponent
+  },
+  {
     path: 'addpharm',
     component: PharmacieFormComponent
+  },
+  {
+    path: 'pharmdet/:id',
+    component: PharmacieDetailComponent
   }
 ]
 },
@@ -50,12 +59,7 @@ const routes: Routes = [{
     component: ListUsersComponent
   }]
 },
-
 { path: '', component: AllTemplateUserComponent},
-
-
-
-
 ];
 
 @NgModule({

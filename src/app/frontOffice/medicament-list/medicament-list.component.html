@@ -10,29 +10,667 @@
           <article class="custom-post-event bg-color-light">
             <div class="post-event-content custom-margin-1">
               <h4 class="font-weight-bold text-color-dark">
+                <strong>Nom du produit:</strong>
                 {{medicament.nom}}
               </h4>
               <span class="custom-event-infos">
                 <ul>
                   <li>
                     <i class="fas fa-prescription-bottle-alt"></i>
+                    <strong>Categorie:</strong>
                     {{medicament.type}}
                   </li>
                   <li>
                     <i class="fas fa-dollar-sign"></i>
+                    <strong>Prix en DT:</strong>
                     {{medicament.prix}}
                   </li>
                   <li>
                     <i class="fas fa-boxes"></i>
+                    <strong>Quantité par paquet:</strong>
                     {{medicament.quantite}}
                   </li>
                 </ul>
               </span>
-              <img [src]="medicament.imageMedic" alt="{{medicament.nom}}" class="img-fluid">
+             <td width="30"><img style="max-width: 50px; max-height: 50px;" src="file:///C:/xamp/htdocs/img/adol.png"  data-lock-picture="/assets/FrontOffice/img/products/medicament.jpg" class="rounded-circle"></td>
+              <!--<img [src]="'src/assets/FrontOffice/img/products jpg;base64,'+medicament.imageMedic"  >-->
             </div>
           </article>
         </div>
       </div>
     </div>
-  </section>
-  
+  </section> 
+  <!--<div role="main" class="main shop pt-4">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3">
+                <aside class="sidebar">
+                    <form action="https://www.okler.net/previews/porto/9.9.2/page-search-results.html" method="get">
+                        <div class="input-group mb-3 pb-1">
+                            <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
+                            <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
+                        </div>
+                    </form>
+                    <h5 class="font-weight-semi-bold pt-3">Categories</h5>
+                    <ul class="nav nav-list flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#">Paracetamol</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Traitement Enfant</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Antinflammatoire</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Traitement grippe adulte</a></li>
+                       
+                    </ul>
+                    <h5 class="font-weight-semi-bold pt-5">Tags</h5>
+                    <div class="mb-3 pb-1">
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1"></span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Travel</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Sport</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">TV</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Books</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Tech</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Adidas</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Promo</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Reading</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Social</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Books</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Tech</span></a>
+                        <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">New</span></a>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-sm-4 col-lg-12">
+                            <h5 class="font-weight-semi-bold pt-5">Recent Products</h5>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-1.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">electronics</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Photo Camera</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$69,00</span>
+                                        <span class="amount">$59,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image product-thumb-info-image-effect">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-7.jpg">
+                                                    <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-7-2.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">accessories</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Porto Headphone</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$199,00</span>
+                                        <span class="amount">$99,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-2.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">sports</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Golf Bag</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$29,00</span>
+                                        <span class="amount">$19,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-12">
+                            <h5 class="font-weight-semi-bold pt-5">Last Viewed Products</h5>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-3.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">sports</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Workout</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$40,00</span>
+                                        <span class="amount">$30,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-4.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">accessories</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Luxury Bag</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$99,00</span>
+                                        <span class="amount">$79,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-5.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">accessories</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Styled Bag</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$199,00</span>
+                                        <span class="amount">$119,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-12">
+                            <h5 class="font-weight-semi-bold pt-5">Top Rated Products</h5>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-6.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">hat</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Blue Hat</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$299,00</span>
+                                        <span class="amount">$289,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/infla.JPG">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">Antinflammatoire</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Inflamyl</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">22.00DT</span>
+                                        <span class="amount"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product row row-gutter-sm align-items-center mb-4">
+                                <div class="col-5 col-lg-5">
+                                    <div class="product-thumb-info border-0">
+                                        <a href="shop-product-sidebar-left.html">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-9.jpg">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-7 col-lg-7 ms-md-0 ms-lg-0 ps-lg-1 pt-1">
+                                    <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-2">sports</a>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary text-decoration-none">Baseball Ball</a></h3>
+                                    <div title="Rated 5 out of 5">
+                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
+                                    </div>
+                                    <p class="price text-4 mb-0">
+                                        <span class="sale text-color-dark font-weight-semi-bold">$399,00</span>
+                                        <span class="amount">$299,00</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-lg-6">
+
+                <div class="masonry-loader masonry-loader-showing">
+                    <div class="row products product-thumb-info-list" data-plugin-masonry data-plugin-options="{'layoutMode': 'fitRows'}">
+                        
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="product-thumb-info-badges-wrapper">
+<span class="badge badge-ecommerce badge-success">NEW</span>
+
+                                    </div>
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/Adoll.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">PARACETAMOL</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Adol</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">6,00DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="product-thumb-info-badges-wrapper">
+<span class="badge badge-ecommerce badge-success"></span>
+<span class="badge badge-ecommerce badge-danger"></span>
+                                    </div>
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image product-thumb-info-image-effect">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/dolip.JPG">
+
+                                                <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/product-grey-7-2.jpg">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">PARACETAMOL</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Doliprane</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">5.5DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/transiton.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">Traitement Enfant</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Transiton</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">12.00dt</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="product-thumb-info-badges-wrapper">
+
+<span class="badge badge-ecommerce badge-danger"></span>
+                                    </div>
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                   
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/toumix.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">Traitement Enfant</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Toumix</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">9.5DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/fervex.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">Traitement grippe adulte</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Fervex</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">9,00DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/maxilase.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">Traitement grippe adulte</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Maxilase</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">13.00DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/pectolyse.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">Traitement grippe adulte</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Pectolyse</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">12.5DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="product mb-0">
+                                <div class="product-thumb-info border-0 mb-3">
+
+                                    <div class="addtocart-btn-wrapper">
+                                        <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                                            <i class="icons icon-bag"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                        QUICK VIEW
+                                    </a>
+                                    <a href="shop-product-sidebar-left.html">
+                                        <div class="product-thumb-info-image">
+                                            <img alt="" class="img-fluid" src="../../../assets/FrontOffice/img/products/infla.JPG">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">Antinflammatoire</a>
+                                        <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">Inflamyl</a></h3>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div title="Rated 5 out of 5">
+                                    <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                </div>
+                                <p class="price text-5 mb-3">
+                                    <span class="sale text-color-dark font-weight-semi-bold">22.00DT</span>
+                                    <span class="amount"></span>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <ul class="pagination float-end">
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <aside class="sidebar">
+                    <h5 class="font-weight-semi-bold">Contact Us</h5>
+                    <p>Contact us or give us a call to discover how we can help.</p>
+                    <form class="contact-form" action="https://www.okler.net/previews/porto/9.9.2/php/contact-form.php" method="POST">
+                        <div class="contact-form-success alert alert-success d-none mt-4">
+                            <strong>Success!</strong> Your message has been sent to us.
+                        </div>
+                        <div class="contact-form-error alert alert-danger d-none mt-4">
+                            <strong>Error!</strong> There was an error sending your message.
+                            <span class="mail-error-message text-1 d-block"></span>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label required text-1 mb-0">Full Name</label>
+                                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label required text-1 mb-0">Email Address</label>
+                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label required text-1 mb-0">Message</label>
+                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="message" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3 pb-1">
+                            <div class="form-group col">
+                                <input type="submit" value="Send Message" class="btn btn-primary btn-modern" data-loading-text="Loading...">
+                            </div>
+                        </div>
+                    </form>
+                    <h5 class="font-weight-semi-bold pt-4">Our Office</h5>
+                    <ul class="list list-icons list-icons-style-2 mt-2">
+                        <li><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> 1234 Street Name, City Name, United States</li>
+                        <li><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> (123) 456-789</li>
+                        <li><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="https://www.okler.net/cdn-cgi/l/email-protection#8de0ece4e1cde8f5ece0fde1e8a3eee2e0"><span class="__cf_email__" data-cfemail="127f737b7e52776a737f627e773c717d7f">[email&#160;protected]</span></a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+</div>
+-->

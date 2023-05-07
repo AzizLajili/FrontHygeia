@@ -1,56 +1,49 @@
-<!--<div id="examples" class="container py-2">
-<div id="examples" class="container py-2">
-
-    <div class="row">
-        <div class="col-lg-3 order-2 order-lg-1">
-
-
-           
-        </div>
-        <div class="col-lg-9 order-1 order-lg-2">
-            
-            <div class="overflow-hidden mb-1">
-                <h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">Ajouter pharmacie</strong> Ici</h2>
+<section class="section section-no-border">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="font-weight-bold text-color-dark mb-3">Ajouter Pharamcie ici </h2>
             </div>
-            <div class="overflow-hidden mb-4 pb-3">
-                <p class="mb-0"></p>
-            </div>
-
+     
+      
            
-              <form #form="ngForm" class="contact-form" (ngSubmit)="onSubmit()">
 
+       
+
+            <form #form="ngForm" class="contact-form" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="form-label mb-1 text-2">Responsable</label>
-                        <input type="string" name="pharmacienResp" [(ngModel)]="pharmacienResp" class="form-control text-3 h-auto py-2" required>
+                        <label class="form-label mb-1 text-2">Pharmacien Responsable</label>
+                        <input type="string" name="nom" [(ngModel)]="pharmacienResp" class="form-control text-3 h-auto py-2"  required>
                     </div>
                     <div class="form-group col-lg-6">
+                        <label class="form-label mb-1 text-2">Ouverture</label>
+                        <input type="datetime"  name="Ouverture" [ngModel] ="dateOuverture" class="form-control text-3 h-auto py-2" name="type" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2">Fermeture</label>
+                        <input type="datetime" name="Fermeture" [(ngModel)] ="dateFermeture"  class="form-control text-3 h-auto py-2" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
                         <label class="form-label mb-1 text-2">Adresse</label>
-                        <input type="string" [ngModel]="adresse" class="form-control text-3 h-auto py-2" name="adresse" required>
+                        <input type="string" name="Adresse" [(ngModel)] ="adresse"  class="form-control text-3 h-auto py-2" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col">
-                        <label class="form-label mb-1 text-2">Statut</label>
-                        <input type="string" name="status" [(ngModel)]="status" class="form-control text-3 h-auto py-2" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label class="form-label mb-1 text-2">Date d'ouverture</label>
-                        <input type="date" name="dateOuverture" [(ngModel)]="dateOuverture" class="form-control text-3 h-auto py-2" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col">
-                        <label class="form-label mb-1 text-2">Date de fermeture</label>
-                        <input type="date" name="dateFermeture" [(ngModel)]="dateFermeture" class="form-control text-3 h-auto py-2" required>
+                        <label class="form-label mb-1 text-2">Status</label>
+                        <input type="string" name="Status"[(ngModel)] ="status"  class="form-control text-3 h-auto py-2"  required>
     
                     </div>
                 </div>
+             
             
             <div class="form-row">
-             <button class="btn btn-danger">Ajouter</button>
+             <button class="btn btn-danger">add</button>
              
             </div>
             </form>
@@ -58,6 +51,5 @@
         </div>
     </div>
 
-</div>
 
--->
+</section><div id="examples" class="container py-2">

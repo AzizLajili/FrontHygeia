@@ -11,7 +11,8 @@ export class PharmacieService {
 
   private baseUrl = 'http://localhost:8090/SpringMVC';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) 
+  { }
 
   getAllPharmacies(): Observable<Pharmacie[]> {
     return this.http.get<Pharmacie[]>(`${this.baseUrl}/getAllPharmacies`);

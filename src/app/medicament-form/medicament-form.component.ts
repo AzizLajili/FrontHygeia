@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { HygeiaService } from '../hygeia.service';
-import { MediacamentService } from '../medicament.service';
+import { MedicamentService } from '../medicament.service';
+import { Medicament } from '../medicament';
 
 @Component({
   selector: 'app-medicament-form',
@@ -9,10 +10,11 @@ import { MediacamentService } from '../medicament.service';
   styleUrls: ['./medicament-form.component.css']
 })
 export class MedicamentFormComponent {
-
+  medicament: Medicament = new Medicament();
   previewImage:any
   uploadImage:any
-  constructor(private http: HttpClient,private hygServ: MediacamentService,) {}
+
+  constructor(private http: HttpClient,private hygServ: MedicamentService) {}
   id!: number;
     nom!: string;
     type!: string;
@@ -26,6 +28,10 @@ export class MedicamentFormComponent {
     }
   }
     onSubmit(Form:any) {
+      const formData = new FormData();
+      formData.append('medicament', JSON.stringify(this.medicament));
+      formData.append('image', this.uploadImage);
+    
       const medicament = Form.value;
       console.log(Form.value)
 

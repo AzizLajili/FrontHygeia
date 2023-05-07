@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class HygeiaService {
 
-  
   constructor(private http:HttpClient ) { }
   options = { withCredentials: true };
  public Login(data : any): Observable<any> {
