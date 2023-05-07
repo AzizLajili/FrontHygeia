@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderAdminComponent } from './backOffice/header-admin/header-admin.component';
@@ -16,6 +15,10 @@ import { LoginComponent } from './frontOffice/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
+import { CreateTreatmentComponent } from './create-treatment/create-treatment.component';
+import { UpdateTreatmentComponent } from './update-treatment/update-treatment.component';
+import { TreatmentDetailsComponent } from './treatment-details/treatment-details.component';
+import { TreatmentListComponent } from './treatment-list/treatment-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,11 @@ import { ListUsersComponent } from './backOffice/list-users/list-users.component
     HeaderComponent,
     LoginComponent,
     ListUsersComponent,
-    
+    CreateTreatmentComponent,
+    UpdateTreatmentComponent,
+    TreatmentDetailsComponent,
+    TreatmentListComponent,
+
   ],
   imports: [
     BrowserModule,

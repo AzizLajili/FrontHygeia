@@ -1,0 +1,31 @@
+<div class = "row">
+  <h2> Treatment List</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> Dosage </th>
+    <th> Fréquence </th>
+    <th> Date Début </th>
+    <th> Date Fin </th>
+    <th> Etat </th>
+    <th> Quantité </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let treatment of treatments" >
+    <td> {{ treatment.dosage }} </td>
+    <td> {{ treatment.frequence }} </td>
+    <td> {{ treatment.dateDeb }} </td>
+    <td> {{ treatment.dateFin }} </td>
+    <td> {{ treatment.status }} </td>
+    <td> {{ treatment.pillCount }} </td>
+    <td>
+      <button (click) = "updateTreatment(treatment.id)" class = "btn btn-primary"> Update</button>
+      <button (click) = "deleteTreatment(treatment.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+      <button (click) = "treatmentDetails(treatment.id)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
