@@ -19,10 +19,18 @@
           </div>
 
           <div class="form-group">
+            <label> Date Début</label>
+            <input type="date" class="form-control" id="dateDeb" [(ngModel)]="treatment.dateDeb"
+                   name="dateDeb">
+          </div>
+
+          <div class="form-group">
             <label> Date Fin</label>
-            <input type="text" class="form-control" id="dateFin" [(ngModel)]="treatment.dateFin"
+            <input type="date" class="form-control" id="dateFin" [(ngModel)]="treatment.dateFin"
                    name="dateFin">
           </div>
+
+
 
           <div class="form-group">
             <label> Etat</label>
