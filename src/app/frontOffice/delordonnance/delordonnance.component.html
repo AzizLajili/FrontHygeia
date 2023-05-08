@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="logo">Hygeiaa</div>
+
+  <!-- NAVIGATION MENU -->
+  <ul class="nav-links">
+
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/ordonnance">Add Ordonnance</a></li>
+      <li >
+        <a href="/uploadimgOrd">Upload/download img</a>
+      </li>
+      <li><a href="/getordonnances">Gérer Ordonnances</a></li>
+      <li><a href="/updateordonnance">Update Ordonnance</a></li>
+    </div>
+  </ul>
+</nav>
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="idOrdonnance">Select Ordonnance to Delete</label>
+      <select class="form-control" id="idOrdonnance" [(ngModel)]="selectedOrdonnanceId" [ngModelOptions]="{standalone: true}" >
+        <option value="">-- Select an Ordonnance --</option>
+        <option *ngFor="let ordonnance of ordonnances" [value]="ordonnance.id">{{ ordonnance.id }}</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-danger" (click)="deleteOrdonnance()">Delete Ord</button>
+  </form>
+</div>
+

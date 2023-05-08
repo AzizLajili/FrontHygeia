@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HygeiaService } from 'src/app/hygeia.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-header-admin',
@@ -8,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderAdminComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private http: HttpClient,private hygeiaService:HygeiaService,private cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
@@ -18,4 +22,18 @@ export class HeaderAdminComponent implements OnInit {
     this.router.navigate(['/profile', userId]);
   }
 
+ 
+  logout(): void {
+    // delete all cookies
+    this.cookieService.deleteAll;
+    const cookies: string[] = Object.keys(this.cookieService.getAll());
+    cookies.forEach((cookie: string) => {
+      console.log(cookie)
+      this.cookieService.deleteAll;
+    });
+
+    // clear local storage
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
 }

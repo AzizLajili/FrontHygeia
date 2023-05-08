@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -7,11 +7,33 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
-  constructor(private router: Router){}
+  id!:number
+  iduser!:number
+  Connected : any
+
+  constructor(private router: Router,){}
+  ngOnInit(): void {
+    
+    if (localStorage.getItem('session') == null){
+      this.Connected = false;
+    }else{
+      this.Connected = true;
+    }
+
+    const userId = localStorage.getItem('session');
+    if (userId != null){
+      this.id= Number(userId);
+
+    }  }
+  
   redirectToProfilePage(): void {
-    const userId = localStorage.getItem('userId');
-    this.router.navigate(['/profile', userId]);
+    const userId = localStorage.getItem('session');
+    if (userId != null){
+      this.iduser= Number(userId);
+
+    }
   }
+  
 }
