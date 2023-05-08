@@ -19,6 +19,10 @@ import { CreateTreatmentComponent } from './create-treatment/create-treatment.co
 import { UpdateTreatmentComponent } from './update-treatment/update-treatment.component';
 import { TreatmentDetailsComponent } from './treatment-details/treatment-details.component';
 import { TreatmentListComponent } from './treatment-list/treatment-list.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {Component} from '@angular/core';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -45,6 +49,9 @@ import { TreatmentListComponent } from './treatment-list/treatment-list.componen
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

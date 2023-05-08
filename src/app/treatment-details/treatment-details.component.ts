@@ -22,4 +22,15 @@ export class TreatmentDetailsComponent implements OnInit {
       this.treatment = data;
     });
   }
+
+  get remainingDays(): number {
+    const now = new Date();
+    const end = this.treatment.dateFin;
+    const diffInMs = end.getTime() - now.getTime();
+    const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+    console.log(diffInDays);
+    return diffInDays;
+  }
+
+  value: number = this.remainingDays;
 }

@@ -18,7 +18,7 @@ export class CreateTreatmentComponent implements OnInit {
   }
 
   saveTreatment(){
-    this.treatmentService.createTreatment(this.treatment).subscribe( data =>{
+    this.treatmentService.createTreatment(this.treatment).subscribe(data =>{
         console.log(data);
         this.goToTreatmentList();
       },

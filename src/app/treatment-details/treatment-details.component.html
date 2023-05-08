@@ -1,3 +1,4 @@
+<!--
 <h3> View Treatment Details</h3>
 <div>
   <div>
@@ -19,4 +20,32 @@
     <label> <b> Quantité: </b></label> {{treatment.pillCount}}
   </div>
 
+</div> -->
+<div>
+  <mat-card>
+    <mat-card-content>Dosage</mat-card-content> {{treatment.dosage}}
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-content><b>Fréquence</b></mat-card-content> {{treatment.frequence}}
+  </mat-card><br>
+  <mat-card>
+    <mat-card-content><b>Date Début</b></mat-card-content> {{treatment.dateDeb | date:'EEEE, MMMM d, y' }}
+  </mat-card><br>
+  <mat-card>
+    <mat-card-content><b>Date Fin</b></mat-card-content> {{treatment.dateFin| date:'EEEE, MMMM d, y'}}
+  </mat-card><br>
+  <mat-card>
+    <mat-card-content><b>Etat</b></mat-card-content> {{treatment.status}}
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-content><b>Quantité de médicament</b></mat-card-content> {{treatment.pillCount}}
+  </mat-card>
 </div>
+<br><br><br><br><br>
+
+<div>
+  <mat-spinner mode="determinate" [value]="value">hey</mat-spinner>
+</div>
+
