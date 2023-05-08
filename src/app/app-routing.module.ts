@@ -6,10 +6,10 @@ import { AllTemplateUserComponent } from './frontOffice/all-template-user/all-te
 import { LoginComponent } from './frontOffice/login/login.component';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { BodyComponent } from './frontOffice/body/body.component';
-import { TreatmentListComponent } from './treatment-list/treatment-list.component';
-import { CreateTreatmentComponent } from './create-treatment/create-treatment.component';
-import { UpdateTreatmentComponent } from './update-treatment/update-treatment.component';
-import { TreatmentDetailsComponent } from './treatment-details/treatment-details.component';
+import { TreatmentListComponent } from './frontOffice/treatment-list/treatment-list.component';
+import { CreateTreatmentComponent } from './frontOffice/create-treatment/create-treatment.component';
+import { UpdateTreatmentComponent } from './frontOffice/update-treatment/update-treatment.component';
+import { TreatmentDetailsComponent } from './frontOffice/treatment-details/treatment-details.component';
 
 const routes: Routes = [{
   path:'admin',  component:AllTemplateAdminComponent,

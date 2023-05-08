@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Treatment } from '../treatment';
+import { Treatment } from '../../treatment';
 import { ActivatedRoute } from '@angular/router';
-import { TreatmentService } from '../treatment.service';
+import { TreatmentService } from '../../treatment.service';
 
 @Component({
   selector: 'app-treatment-details',
