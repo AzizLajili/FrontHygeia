@@ -19,6 +19,7 @@ import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
 import { HomeComponent } from './frontOffice/home/home.component';
 import { PublicationsComponent } from './frontOffice/publications/publications.component';
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
+import { UpdatePublicationComponent } from './backOffice/update-publication/update-publication.component';
 
 
 
@@ -72,7 +73,8 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
   children:[{
       path:'listusers',
       component:ListUsersComponent
-    }]},
+    },
+  ]},
     {
       path:'profile',  component:AllTemplateAdminComponent,
       children:[{
@@ -80,8 +82,8 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
           component:BodyAdminComponent
         },
         {
-          path:':param/modifpublication/:id',
-          component:BodyAdminComponent
+          path:'modifpublication/:idPub',
+          component:UpdatePublicationComponent
         },
       ]
       },
