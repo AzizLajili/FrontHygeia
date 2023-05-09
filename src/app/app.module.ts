@@ -27,9 +27,21 @@ import { LoginComponent } from './frontOffice/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
+
+import { MedicamentListComponent } from './frontOffice/medicament-list/medicament-list.component';
+import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
+import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
+import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
+import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.component';
+import { MedicamentDetailComponent } from './medicament-detail/medicament-detail.component';
+import { MapComponent } from './map/map.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
 import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
 import { HomeComponent } from './frontOffice/home/home.component';
+
 
 import { PublicationsComponent } from './frontOffice/publications/publications.component';
 import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
@@ -58,12 +70,22 @@ import { UpdatePublicationComponent } from './backOffice/update-publication/upda
     AddcommandeComponent,
     LoginComponent,
     ListUsersComponent,
+
+    MedicamentListComponent,
+    PharmacieListComponent,
+    MedicamentFormComponent,
+    PharmacieFormComponent,
+    PharmacieDetailComponent,
+    MedicamentDetailComponent,
+    MapComponent,
+
     FullRegisterComponent,
     NotFoundComponent,
     HomeComponent,
     PublicationsComponent,
     PublicationbyidComponent,
     UpdatePublicationComponent
+
 
   ],
   imports: [
@@ -72,8 +94,10 @@ import { UpdatePublicationComponent } from './backOffice/update-publication/upda
 
     FormsModule,
     HttpClientModule,
+
     NgxPaginationModule,
     ReactiveFormsModule,
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

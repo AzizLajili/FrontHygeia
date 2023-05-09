@@ -1,0 +1,53 @@
+<section class="section section-no-border">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="font-weight-bold text-color-dark mb-3">Ajouter medicament ici </h2>
+            </div>
+            <form #form="ngForm" class="contact-form" (ngSubmit)="onSubmit(form)">
+                <div class="row">
+                  
+                    <div class="form-group col-lg-6">
+                        <label class="form-label mb-1 text-2">Category</label>
+                        <input type="string" [ngModel] ="type" class="form-control text-3 h-auto py-2" name="type" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2">Price</label>
+                        <input type="number" name="prix" [(ngModel)] ="prix"  class="form-control text-3 h-auto py-2" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2">Quantity</label>
+                        <input type="number" name="quantite"[(ngModel)] ="quantite"  class="form-control text-3 h-auto py-2"  required>
+    
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Image</label>
+                        <input  type="file"  id="attachment" (change)="onFileSelected($event)">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="form-label mb-1 text-2">Pharmacie ID</label>
+                    <input type="number" name="pharmacieId" [(ngModel)]="pharmacieId" class="form-control text-3 h-auto py-2" required>
+                  </div>
+                  
+            
+            <div class="form-row">
+             <button class="btn btn-danger">add</button>
+             
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+
+</section><div id="examples" class="container py-2">
+
+ 
+

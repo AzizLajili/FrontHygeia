@@ -1,0 +1,58 @@
+
+<section role="main" class="content-body content-body-modern mt-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          
+          <div class="form-group col-lg-6">
+            <label class="form-label mb-1 text-2">Name</label>
+          <input type="string" name="nom"  class="form-control text-3 h-auto py-2"  required>
+        </div>
+          <div *ngIf="medicament">
+            <h2 class="my-3">{{ medicament.nom }}</h2>
+            <div class="my-3">
+              <strong>Type:</strong> {{ medicament.type }}
+            </div>
+            <div class="my-3">
+              <strong>Price:</strong> {{ medicament.prix }}
+            </div>
+            <div class="my-3">
+              <strong>Quantity:</strong> {{ medicament.quantite }}
+            </div>
+            <div class="my-3">
+              <img [src]="'data:image/jpg;base64,'+medicament.imageMedic"  >
+            </div>
+            <div class="mt-5">
+              <button class="btn btn-primary mr-3" (click)="isEditMode = true" *ngIf="!isEditMode">Edit</button>
+              <button class="btn btn-danger" (click)="deleteMedicament()">Delete</button>
+            </div>
+          </div>
+          <form *ngIf="isEditMode">
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="medicament.nom">
+            </div>
+            <div class="form-group">
+              <label for="type">Type</label>
+              <input type="text" class="form-control" id="type" name="type" [(ngModel)]="medicament.type">
+            </div>
+            <div class="form-group">
+              <label for="prix">Prix</label>
+              <input type="text" class="form-control" id="prix" name="prix" [(ngModel)]="medicament.prix">
+            </div>
+            <div class="form-group">
+              <label for="quantite">Quantite</label>
+              <input type="text" class="form-control" id="quantite" name="quantite" [(ngModel)]="medicament.quantite">
+            </div>
+            <div class="form-group">
+              <label for="imageMedic">Image</label>
+              <input type="file" class="form-control" id="imageMedic" name="imageMedic" (change)="onFileSelected($event)">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-danger ml-3" (click)="cancel()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  

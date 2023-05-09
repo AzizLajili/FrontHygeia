@@ -14,6 +14,49 @@ import {AddcommandeComponent} from "./frontOffice/commande/addcommande/addcomman
 import { LoginComponent } from './frontOffice/login/login.component';
 import { ListUsersComponent } from './backOffice/list-users/list-users.component';
 import { BodyComponent } from './frontOffice/body/body.component';
+
+import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
+import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
+import { HomeComponent } from './frontOffice/home/home.component';
+import { PublicationsComponent } from './frontOffice/publications/publications.component';
+import { PublicationbyidComponent } from './frontOffice/publicationbyid/publicationbyid.component';
+import { UpdatePublicationComponent } from './backOffice/update-publication/update-publication.component';
+
+
+import { MedicamentListComponent } from './frontOffice/medicament-list/medicament-list.component';
+import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
+import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
+import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
+import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.component';
+import { MedicamentDetailComponent } from './medicament-detail/medicament-detail.component';
+import { MapComponent } from './map/map.component';
+
+const routes: Routes = [{
+  path: 'admin', component: AllTemplateAdminComponent,
+  children: [{
+    path: 'admin', component: BodyAdminComponent,
+
+  },
+  {
+    path: ':param', component: BodyAdminComponent
+  },
+  { path: 'medicament', component: MedicamentListComponent },
+ 
+  ]
+},
+{ path: 'login', component: LoginComponent, },
+{
+  path: '', component: AllTemplateUserComponent,
+  children: [{
+    path: 'pharmacie',
+    component: PharmacieListComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  
+
 import { FullRegisterComponent } from './frontOffice/full-register/full-register.component';
 import { NotFoundComponent } from './frontOffice/not-found/not-found.component';
 import { HomeComponent } from './frontOffice/home/home.component';
@@ -108,6 +151,34 @@ const routes: Routes = [{path:'admin',  component:AllTemplateAdminComponent,
 
 
 
+  {
+    path: 'addmedic',
+    component: MedicamentFormComponent
+  },
+  {
+    path: 'medics',
+    component: MedicamentListComponent
+  },
+  {
+    path: 'addpharm',
+    component: PharmacieFormComponent
+  },
+  {
+    path: 'pharmdet/:id',
+    component: PharmacieDetailComponent
+  },
+  { path: 'medicament/:nom', component: MedicamentDetailComponent },
+]
+},
+{
+  path: 'admin', component: AllTemplateAdminComponent,
+  children: [{
+    path: 'listusers',
+    component: ListUsersComponent,
+    
+  }]
+},
+{ path: '', component: AllTemplateUserComponent},
 ];
 
 @NgModule({

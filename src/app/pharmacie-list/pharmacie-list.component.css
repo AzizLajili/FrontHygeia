@@ -1,0 +1,147 @@
+.section-no-border {
+    border: none;
+  }
+  
+  .bg-color-light {
+    background-color: #3f6a96;
+  }
+  
+  .text-color-dark {
+    color: #176a90;
+  }
+  
+  .custom-post-event {
+    background-color: #88b9e4;
+    border: 1px solid #9fbcdc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .bg-color-primary {
+    background-color: #2c6cd4;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .month {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 5px;
+    color: #2faccf;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  
+  .custom-secondary-font {
+    font-family: Arial, sans-serif;
+  }
+  
+  .custom-event-infos {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .custom-event-infos ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .custom-event-infos li {
+    margin-bottom: 5px;
+  }
+  
+  .custom-event-infos li i {
+    margin-right: 5px;
+    color: #674f4f;
+  }
+  
+  .font-weight-bold {
+    font-weight: bold;
+  }
+  
+  .font-weight-semi-bold {
+    font-weight: 600;
+  }
+  
+  .text-decoration-none {
+    text-decoration: none;
+  }
+  
+  .contact-form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #237ba1;
+    border-radius: 3px;
+    background-color: #aea7a7;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .contact-form textarea {
+    height: 120px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px;
+  }
+  
+  .btn-primary {
+    background-color: #2c6cd4;
+    color: #ffffff;
+  }
+  
+  .btn-modern {
+    padding: 10px 25px;
+  }
+  
+  .list-icons li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    list-style: none;
+    line-height: 1.5;
+    color: #6b5f5f;
+  }
+  
+  .list-icons i {
+    position: absolute;
+    left: 0;
+    top: 6px;
+  }
+  
+  .top-6 {
+    top: 3px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .col-lg-6 {
+      width: 100% !important;
+    }
+  }
+  

@@ -1,0 +1,93 @@
+ <!--<section role="main" class="content-body content-body-modern mt-0">
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div *ngIf="pharmacie">
+          <h2 class="my-3">{{ pharmacie.pharmacienResp }}</h2>
+          <div class="my-3">
+            <strong>Address:</strong> {{ pharmacie.adresse }}
+          </div>
+          <div class="my-3">
+            <strong>Status:</strong> {{ pharmacie.status }}
+          </div>
+          <div class="my-3">
+            <strong>Opening Date:</strong> {{ pharmacie.dateOuverture | date: 'mediumDate' }}
+          </div>
+          <div class="my-3">
+            <strong>Closing Date:</strong> {{ pharmacie.dateFermeture | date: 'mediumDate' }}
+          </div>
+          <div class="mt-5">
+            <button class="btn btn-primary mr-3" (click)="isEditMode = true" *ngIf="!isEditMode">Edit</button>
+            <button class="btn btn-danger" (click)="deletePharmacieById()">Delete</button>
+          </div>
+        </div>
+        <form *ngIf="isEditMode" (ngSubmit)="updatePharmacie()">
+          <div class="form-group">
+            <label for="pharmacienResp">Pharmacist Name</label>
+            <input type="text" class="form-control" id="pharmacienResp" name="pharmacienResp" [(ngModel)]="pharmacie.pharmacienResp">
+          </div>
+          <div class="form-group">
+            <label for="adresse">Address</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="pharmacie.adresse">
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" name="status" [(ngModel)]="pharmacie.status">
+          </div>
+          </form>>
+          </div>
+</section>  -->
+<section role="main" class="content-body content-body-modern mt-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          
+          <div *ngIf="pharmacie">
+            <h2 class="my-3">{{ pharmacie.pharmacienResp }}</h2>
+            <div class="my-3">
+          
+              <strong>Address:</strong> {{ pharmacie.adresse }}
+            </div>
+            <div class="my-3">
+              <strong>Status:</strong> {{ pharmacie.status }}
+            </div>
+            <div class="my-3">
+              <strong>Ouverture:20:00</strong> {{ pharmacie.dateOuverture | date: 'mediumDate' }}
+            </div>
+            <div class="my-3">
+              <strong>Fermeture Date:08:00</strong> {{ pharmacie.dateFermeture | date: 'mediumDate' }}
+            </div>
+            <div class="mt-5">
+              <button class="btn btn-primary mr-3" (click)="isEditMode = true" *ngIf="!isEditMode">Edit</button>
+              <button class="btn btn-danger" (click)="deletePharmacieById()">Delete</button>
+            </div>
+          </div>
+          <form *ngIf="isEditMode" >
+            <div class="form-group">
+              <label for="pharmacienResp">Pharmacist Name</label>
+              <input type="text" class="form-control" id="pharmacienResp" name="pharmacienResp" [(ngModel)]="pharmacie.pharmacienResp">
+            </div>
+            <div class="form-group">
+              <label for="adresse">Address</label>
+              <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="pharmacie.adresse">
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <input type="text" class="form-control" id="status" name="status" [(ngModel)]="pharmacie.status">
+            </div>
+            <div class="form-group">
+              <label for="status">date de</label>
+              <input type="text" class="form-control" id="status" name="dateOuverture" [(ngModel)]="pharmacie.dateOuverture">
+            </div>
+            <div class="form-group">
+              <label for="status">date fin</label>
+              <input type="text" class="form-control" id="status" name="dateFermeture" [(ngModel)]="pharmacie.dateFermeture">
+            </div>
+
+            <button type="submit" (click)="update(pharmacie.id,pharmacie)" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

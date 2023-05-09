@@ -10,6 +10,7 @@ export class HygeiaService {
 
   
   constructor(private http:HttpClient ,private route: ActivatedRoute) { }
+
   options = { withCredentials: true };
 
   httpOptions = {
