@@ -63,7 +63,7 @@
               <button class="btn btn-danger" (click)="deletePharmacieById()">Delete</button>
             </div>
           </div>
-          <form *ngIf="isEditMode" (ngSubmit)="updatePharmacie()">
+          <form *ngIf="isEditMode" >
             <div class="form-group">
               <label for="pharmacienResp">Pharmacist Name</label>
               <input type="text" class="form-control" id="pharmacienResp" name="pharmacienResp" [(ngModel)]="pharmacie.pharmacienResp">
@@ -76,7 +76,16 @@
               <label for="status">Status</label>
               <input type="text" class="form-control" id="status" name="status" [(ngModel)]="pharmacie.status">
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <div class="form-group">
+              <label for="status">date de</label>
+              <input type="text" class="form-control" id="status" name="dateOuverture" [(ngModel)]="pharmacie.dateOuverture">
+            </div>
+            <div class="form-group">
+              <label for="status">date fin</label>
+              <input type="text" class="form-control" id="status" name="dateFermeture" [(ngModel)]="pharmacie.dateFermeture">
+            </div>
+
+            <button type="submit" (click)="update(pharmacie.id,pharmacie)" class="btn btn-primary">Update</button>
           </form>
         </div>
       </div>

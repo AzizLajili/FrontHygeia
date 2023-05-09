@@ -10,33 +10,33 @@
 
        
 
-            <form #form="ngForm" class="contact-form" (ngSubmit)="onSubmit()">
+            <form #form="ngForm" class="contact-form" (ngSubmit)="onSubmit(phare)">
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <label class="form-label mb-1 text-2">Pharmacien Responsable</label>
-                        <input type="string" name="nom" [(ngModel)]="pharmacienResp" class="form-control text-3 h-auto py-2"  required>
+                        <input type="string" name="nom" [(ngModel)]="phare.pharmacienResp" class="form-control text-3 h-auto py-2"  required>
                     </div>
                     <div class="form-group col-lg-6">
                         <label class="form-label mb-1 text-2">Ouverture</label>
-                        <input type="datetime"  name="Ouverture" [ngModel] ="dateOuverture" class="form-control text-3 h-auto py-2" name="type" required>
+                        <input type="datetime"  name="Ouverture" [(ngModel)] ="phare.dateOuverture" class="form-control text-3 h-auto py-2" name="type" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label mb-1 text-2">Fermeture</label>
-                        <input type="datetime" name="Fermeture" [(ngModel)] ="dateFermeture"  class="form-control text-3 h-auto py-2" required>
+                        <input type="datetime" name="Fermeture" [(ngModel)] ="phare.dateFermeture"  class="form-control text-3 h-auto py-2" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label mb-1 text-2">Adresse</label>
-                        <input type="string" name="Adresse" [(ngModel)] ="adresse"  class="form-control text-3 h-auto py-2" required>
+                        <input type="string" name="Adresse" [(ngModel)] ="phare.adresse"  class="form-control text-3 h-auto py-2" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label mb-1 text-2">Status</label>
-                        <input type="string" name="Status"[(ngModel)] ="status"  class="form-control text-3 h-auto py-2"  required>
+                        <input type="string" name="Status"[(ngModel)] ="phare.status"  class="form-control text-3 h-auto py-2"  required>
     
                     </div>
                 </div>

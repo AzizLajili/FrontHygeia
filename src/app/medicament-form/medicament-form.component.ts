@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { HygeiaService } from '../hygeia.service';
 import { MedicamentService } from '../medicament.service';
 import { Medicament } from '../medicament';
+import { PharmacieService } from '../pharmacie.service';
+import { Pharmacie } from '../pharmacie';
 
 @Component({
   selector: 'app-medicament-form',
@@ -13,8 +15,9 @@ export class MedicamentFormComponent {
   medicament: Medicament = new Medicament();
   previewImage:any
   uploadImage:any
+  pharmacieId:any
 
-  constructor(private http: HttpClient,private hygServ: MedicamentService) {}
+  constructor(private http: HttpClient,private hygServ: MedicamentService, private Pharmserv:PharmacieService) {}
   id!: number;
     nom!: string;
     type!: string;
@@ -27,17 +30,19 @@ export class MedicamentFormComponent {
       console.log(f);
     }
   }
-    onSubmit(Form:any) {
+   onSubmit(Form:any) {
       const formData = new FormData();
       formData.append('medicament', JSON.stringify(this.medicament));
       formData.append('image', this.uploadImage);
     
       const medicament = Form.value;
-      console.log(Form.value)
+      console.log(Form.value["nom"])
 
       const image = this.previewImage;
       this.hygServ.addMedicament(Form.value, image).subscribe(
         (response) => {
+          this.Pharmserv.assignMedicamentToPharmacy(this.pharmacieId,Form.value["nom"]).subscribe(res => console.log(res));
+          
           console.log('medicament added:', response);
         },
         (error) => {

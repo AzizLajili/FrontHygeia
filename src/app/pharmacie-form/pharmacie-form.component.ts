@@ -69,6 +69,8 @@ import { PharmacieService } from '../pharmacie.service';
 })
 export class PharmacieFormComponent {
   pharmacieForm!: FormGroup;
+  phar:Pharmacie[]=[]
+  phare=new Pharmacie()
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private pharmacieService: PharmacieService) { }
@@ -89,15 +91,15 @@ export class PharmacieFormComponent {
     });
   }
 
-  onSubmit() {
-    const pharmacie: Pharmacie = {
-      id: 0,
-      pharmacienResp: this.pharmacieForm.controls['pharmacienResp'].value,
-      adresse: this.pharmacieForm.controls['adresse'].value,
-      status: this.pharmacieForm.controls['status'].value,
-      dateOuverture: this.pharmacieForm.controls['dateOuverture'].value,
-      dateFermeture: this.pharmacieForm.controls['dateFermeture'].value
-    };
+  onSubmit(pharmacie:Pharmacie) {
+    // const pharmacie: Pharmacie = {
+    //   id: 0,
+    //   pharmacienResp: this.pharmacieForm.controls['pharmacienResp'].value,
+    //   adresse: this.pharmacieForm.controls['adresse'].value,
+    //   status: this.pharmacieForm.controls['status'].value,
+    //   dateOuverture: this.pharmacieForm.controls['dateOuverture'].value,
+    //   dateFermeture: this.pharmacieForm.controls['dateFermeture'].value
+    // };
 
     this.pharmacieService.addPharmacie(pharmacie).subscribe(
       (response) => {

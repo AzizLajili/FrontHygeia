@@ -20,8 +20,10 @@ import { MedicamentListComponent } from './frontOffice/medicament-list/medicamen
 import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.component';
 import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
 import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
-import { MedicamentdetailComponent } from './medicamentdetail/medicamentdetail.component';
 import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.component';
+import { MedicamentDetailComponent } from './medicament-detail/medicament-detail.component';
+import { MapComponent } from './map/map.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,14 +44,17 @@ import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.co
     PharmacieListComponent,
     MedicamentFormComponent,
     PharmacieFormComponent,
-    MedicamentdetailComponent,
     PharmacieDetailComponent,
+    MedicamentDetailComponent,
+    MapComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,7 +15,7 @@ export class MedicamentService  {
     return this.http.get<any[]> ('http://localhost:8090/SpringMVC/medicament/medicaments/sortedByPrice');
   }
   getMedicamentByName(nom: string): Observable<Medicament> {
-    return this.http.get<Medicament>(`http://localhost:8090/SpringMVC/medicament/medicaments/getByMedicamentName/${nom}`);
+    return this.http.get<Medicament>(`http://localhost:8090/SpringMVC/medicament/getByMedicamentName/${nom}`);
   }
 
   addMedicament(medicament: Medicament, file: File): Observable<Medicament> {
@@ -27,11 +27,11 @@ export class MedicamentService  {
   }
 
   updateMedicament(nom: string, medicament: Medicament): Observable<any> {
-    return this.http.put(`http://localhost:8090/SpringMVC/medicaments/updateMedicament/${nom}`, medicament);
+    return this.http.put(`http://localhost:8090/SpringMVC/medicament/updateMedicament/${nom}`, medicament);
   }
 
   deleteMedicament(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:8090/SpringMVC/medicaments/deleteMedicament/${id}`);
+    return this.http.delete(`http://localhost:8090/SpringMVC/medicament/deleteMedicament/${id}`);
   }
 
   getMedicamentsByType(type: string): Observable<Medicament[]> {
@@ -45,6 +45,8 @@ export class MedicamentService  {
   getMedicamentsSortedByPrice(): Observable<Medicament[]> {
     return this.http.get<Medicament[]>(`http://localhost:8090/SpringMVC/medicaments/medicaments/sortedByPrice`);
   }
+  
+  
 }
 
 

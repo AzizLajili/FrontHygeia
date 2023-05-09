@@ -1,0 +1,71 @@
+.section-no-border {
+    border: none;
+  }
+  
+  .bg-color-light {
+    background-color: #f2f5f8;
+  }
+  
+  .text-color-dark {
+    color: #333333;
+  }
+  
+  .custom-post-event {
+    background-color: #cbe9f7;
+    border: 1px solid #9fbcdc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .custom-margin-1 {
+    margin-top: 20px;
+  }
+  
+  .font-weight-bold {
+    font-weight: bold;
+  }
+  
+  .custom-event-infos {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .custom-event-infos ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .custom-event-infos li {
+    margin-bottom: 5px;
+  }
+  
+  .custom-event-infos li i {
+    margin-right: 5px;
+    color: #999999;
+  }
+  
+  .fa-prescription-bottle-alt {
+    color: #2c6cd4;
+  }
+  
+  .fa-dollar-sign {
+    color: #2c6cd4;
+  }
+  
+  .fa-boxes {
+    color: #2c6cd4;
+  }
+  
+  .rounded-circle {
+    border-radius: 50%;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .col-lg-6 {
+      width: 100% !important;
+    }
+  }
+  

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2 class="font-weight-bold text-color-dark mb-3">Nos Pharamcies</h2>
+                <h2 class="font-weight-bold text-color-dark mb-3">Nos Pharmacies</h2>
             </div>
         </div>
      
@@ -46,5 +46,49 @@
                 </article>
             </div>
         </div>
+       
+        
+        <aside class="sidebar">
+            <h5 class="font-weight-semi-bold">Contact Us</h5>
+            <p>Contact us or give us a call to discover how we can help.</p>
+            <form class="contact-form" action="https://www.okler.net/previews/porto/9.9.2/php/contact-form.php" method="POST">
+                <div class="contact-form-success alert alert-success d-none mt-4">
+                    <strong>Success!</strong> Your message has been sent to us.
+                </div>
+                <div class="contact-form-error alert alert-danger d-none mt-4">
+                    <strong>Error!</strong> There was an error sending your message.
+                    <span class="mail-error-message text-1 d-block"></span>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label required text-1 mb-0">Full Name</label>
+                        <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label required text-1 mb-0">Email Address</label>
+                        <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label required text-1 mb-0">Message</label>
+                        <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="message" required></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3 pb-1">
+                    <div class="form-group col">
+                        <input type="submit" value="Send Message" class="btn btn-primary btn-modern" data-loading-text="Loading...">
+                    </div>
+                </div>
+            </form>
+            <h5 class="font-weight-semi-bold pt-4">Our Office</h5>
+            <ul class="list list-icons list-icons-style-2 mt-2">
+                <li><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> Esprit</li>
+                <li><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> 58 888 888</li>
+                <li><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="https://www.okler.net/cdn-cgi/l/email-protection#8de0ece4e1cde8f5ece0fde1e8a3eee2e0"><span class="__cf_email__" data-cfemail="127f737b7e52776a737f627e773c717d7f">[email&#160;protected]</span></a></li>
+            </ul>
+        </aside>
     </div>
 </section>

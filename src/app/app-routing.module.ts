@@ -11,7 +11,8 @@ import { PharmacieListComponent } from './pharmacie-list/pharmacie-list.componen
 import { MedicamentFormComponent } from './medicament-form/medicament-form.component';
 import { PharmacieFormComponent } from './pharmacie-form/pharmacie-form.component';
 import { PharmacieDetailComponent } from './pharmacie-detail/pharmacie-detail.component';
-import { MedicamentdetailComponent } from './medicamentdetail/medicamentdetail.component';
+import { MedicamentDetailComponent } from './medicament-detail/medicament-detail.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [{
   path: 'admin', component: AllTemplateAdminComponent,
@@ -23,17 +24,22 @@ const routes: Routes = [{
     path: ':param', component: BodyAdminComponent
   },
   { path: 'medicament', component: MedicamentListComponent },
+ 
   ]
 },
 { path: 'login', component: LoginComponent, },
 {
   path: '', component: AllTemplateUserComponent,
   children: [{
-    path: 'pharamcie',
+    path: 'pharmacie',
     component: PharmacieListComponent
   },
+  {
+    path: 'map',
+    component: MapComponent
+  },
   
-  { path: 'medicament/:nom', component: MedicamentdetailComponent },
+
   {
     path: 'addmedic',
     component: MedicamentFormComponent
@@ -49,14 +55,16 @@ const routes: Routes = [{
   {
     path: 'pharmdet/:id',
     component: PharmacieDetailComponent
-  }
+  },
+  { path: 'medicament/:nom', component: MedicamentDetailComponent },
 ]
 },
 {
   path: 'admin', component: AllTemplateAdminComponent,
   children: [{
     path: 'listusers',
-    component: ListUsersComponent
+    component: ListUsersComponent,
+    
   }]
 },
 { path: '', component: AllTemplateUserComponent},

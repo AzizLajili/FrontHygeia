@@ -10,7 +10,7 @@ import { Pharmacie } from '../pharmacie';
 })
 export class PharmacieDetailComponent implements OnInit {
 id!: number;
-pharmacie!: Pharmacie;
+pharmacie=new Pharmacie();
 isEditMode = false;
 constructor(
 private route: ActivatedRoute,
@@ -34,7 +34,14 @@ console.log(pharmacie)
 updatePharmacie() {
 this.router.navigate(['/pharmacies', this.id, 'edit']);
 }
+update(id:any,pharamcie:Pharmacie){
+  this.pharmacieService.updatePharmacie(id,pharamcie)
+.subscribe(data=>{
+  console.log("testttt",data);
+})
 
+
+}
 deletePharmacieById() {
 if (confirm('Are you sure you want to delete this pharmacy?')) {
 this.pharmacieService.deletePharmacieById(this.id)

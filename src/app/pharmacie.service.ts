@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, forkJoin, map, switchMap } from 'rxjs';
 import { Pharmacie } from './pharmacie';
 import { Medicament } from './medicament';
@@ -49,5 +49,12 @@ export class PharmacieService {
       })
     );
   }***/
-  
+  assignMedicamentToPharmacy(pharmacyId: number, medicamentName: string): Observable<string> {
+    console.log(medicamentName);
+    
+    const url = `${this.baseUrl}/${pharmacyId}/medicaments`;
+    const params = new HttpParams().set('medicamentName', medicamentName);
+
+    return this.http.post<string>(url,params);
+  }  
 }
