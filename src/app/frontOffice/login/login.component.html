@@ -5,32 +5,26 @@
     </div>
     <!-- Log In Form Section -->
     <section>
-        <div class="container" id="container">
-            <div class="form-container sign-up-container">
-                <form action="#">
+        <div class="container" id="container" >
+            <div class="form-container sign-up-container" >
+                <form #formReg="ngForm" (ngSubmit)="onSubmitReg(formReg)">
                     <h1>Sign Up</h1>
                     
                     <span>Or use your Email for registration</span>
                     <label>
-                      <input type="nom" placeholder="nom"/>
-                  </label>
-                    <label>
-                        <input type="email" placeholder="Email"/>
+                        <input type="email" placeholder="Email" name="emailRef"[(ngModel)]="emailReg"/>
                     </label>
                     <label>
-                        <input type="password" placeholder="Password"/>
-                    </label>
-                    <label>
-                      <select class="form-select" aria-label="Default select example">
-                        <option value="">-- Sélectionner une option --</option>
-                      <option *ngFor="let a of roles" value="a.role">{{ a.role }} </option>
+                      <select class="form-select" aria-label="Default select example" name="roleReg"[(ngModel)]="roleReg">
+                        <option value="" style="color: gray;">-- Sélectionner une role --</option>
+                      <option *ngFor="let a of roles" >{{ a.role }}  </option>
                       </select>
                     </label>
                     <button style="margin-top: 9px">Sign Up</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form action="#"  #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <form  #form="ngForm" (ngSubmit)="onSubmit(form)">
                     <h1>Sign in</h1>
                     <div class="social-container">
                         <a href="https://Github.com/YasinDehfuli" target="_blank" class="social"><i class="fab fa-github"></i></a>

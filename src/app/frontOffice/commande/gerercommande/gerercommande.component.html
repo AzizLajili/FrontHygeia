@@ -1,0 +1,114 @@
+<div  role="main" class="main shop pb-4" >
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="breadcrumb font-weight-bold text-6 justify-content-center my-5">
+          <li class="text-transform-none me-2">
+            <a href="shop-cart.html" class="text-decoration-none text-color-primary" >Shopping Cart</a>
+          </li>
+          <li class="text-transform-none text-color-grey-lighten me-2">
+            <a href="shop-checkout.html" class="text-decoration-none text-color-grey-lighten text-color-hover-primary">Checkout</a>
+          </li>
+          <li class="text-transform-none text-color-grey-lighten">
+            <a href="shop-order-complete.html" class="text-decoration-none text-color-grey-lighten text-color-hover-primary">Order Complete</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row pb-4 mb-5">
+      <div class="col-lg-8 mb-5 mb-lg-0">
+        <form method="post" action="#">
+          <div class="table-responsive">
+            <table class="shop_table cart">
+              <thead>
+              <tr class="text-color-dark">
+                <th class="product-thumbnail" width="15%">
+                  orderDate
+                </th>
+                <th class="product-name text-uppercase" width="30%">
+                  status
+                </th>
+                <th class="product-price text-uppercase" width="15%">
+                  Medicaments
+                </th>
+                <th class="product-quantity text-uppercase" width="20%">
+                  Ordonnances
+                </th>
+                <th class="product-quantity text-uppercase" width="20%">
+                  Patient
+                </th>
+                <th class="product-quantity text-uppercase" width="20%">
+                  Subtotal
+                </th>
+                <th class="product-subtotal text-uppercase text-end" width="20%">
+                  Subtotal
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="cart_table_item" *ngFor="let commande of commande" >
+<!--                <td class="product-thumbnail">-->
+<!--                  {{commande.id}}-->
+<!--                </td>-->
+                <td class="product-name">
+                  {{commande.orderDate}}
+                </td>
+                <td class="product-name">
+                  {{commande.status}}
+                </td>
+                <td class="product-name">
+                        <ul>
+                          <li *ngFor="let medicament of commande.medicaments">
+                            {{medicament.nom}}
+                          </li>
+                        </ul>
+                </td>
+                <td class="product-name">
+                      <ul>
+                        <ng-container *ngFor="let ordonnances of commande.ordonnances">
+                        <li *ngFor="let medicamentt of ordonnances.medicamentList">
+                          {{medicamentt.nom}}
+                        </li>
+                        </ng-container>
+                      </ul>
+                </td>
+                <td class="product-name">
+                  {{commande.commandepatient.nom}}  {{commande.commandepatient.prenom}}
+                </td>
+                <td class="product-price" (click)="getprice(commande)">
+                  <span class="amount text-color-dark font-weight-bold text-4" >{{commande.prixtotal| currency}}</span>
+                </td>
+
+                <td class="product-subtotal text-end">
+                 <button type="button" class="btn btn-danger"  (click)="deleteCommande(commande)" >Delete Commande</button>
+<!--                  <button type="button" class="btn btn-light btn btn-success btn-modern text-color-dark bg-color-light-scale-2 text-color-hover-light bg-color-hover-primary text-uppercase text-3 font-weight-bold border-0 border-radius-0 ws-nowrap btn-px-4 py-3 ms-2" (click)="getprice(commande)"  >Get price!</button>-->
+                  <button type="button" class="btn btn-light btn btn-success btn-modern text-color-dark bg-color-light-scale-2 text-color-hover-light bg-color-hover-primary text-uppercase text-3 font-weight-bold border-0 border-radius-0 ws-nowrap btn-px-4 py-3 ms-2"  (click)="approuved(commande)" >approve</button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <div class="row justify-content-between mx-0">
+                    <div class="col-md-auto px-0 mb-3 mb-md-0">
+                      <div class="d-flex align-items-center">
+                        <button type="button" class="btn btn-light btn-modern text-color-dark bg-color-light-scale-2 text-color-hover-light bg-color-hover-primary text-uppercase text-3 font-weight-bold border-0 border-radius-0 ws-nowrap btn-px-4 py-3 ms-2" (click)="navigatetoaddpage()">Add Commande</button>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-4 position-relative">
+        <div class="pin-wrapper" style="height: 462px;"><div class="card border-width-3 border-radius-0 border-color-hover-dark" data-plugin-sticky="" data-plugin-options="{'minWidth': 991, 'containerSelector': '.row', 'padding': {'top': 85}}" style="width: 356px;">
+          <img src="assets/FrontOffice/img/clients/istockphoto-1373659740-612x612.jpg">
+          <img src="assets/FrontOffice/img/clients/New-York-Same-Day-Delivery-img-panorama.jpg">
+          <img src="assets/FrontOffice/img/clients/images%20(1).jpg">
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+

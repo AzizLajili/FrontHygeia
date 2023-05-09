@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
   }
   username!: string;
   password!: string;
+  emailReg:any
+  roleReg:any
   users!: any[];
   roles!: any[];
   access_token!: string;
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
     )
   }
   ngOnInit() {
-    const signUpButton = document.getElementById('signUp');
+const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
@@ -55,8 +57,6 @@ signUpButton?.addEventListener('click', () =>
 
 signInButton?.addEventListener('click', () =>
     container?.classList.remove('right-panel-active'));
-
-    
     this.getRoles();
     console.log(this.getRoles)
   }
@@ -83,9 +83,15 @@ signInButton?.addEventListener('click', () =>
     },(error: HttpErrorResponse) => {
       console.log(error.error.text); 
     });
-    this.router.navigate(['/'])
+    if (localStorage.getItem("token") !=null){
+    this.router.navigate(['/home'])}
   }
+  onSubmitReg(form:any){
+    this.hygeiaService.emailReg = this.emailReg,
+    this.hygeiaService.roleReg = this.roleReg,
+    this.router.navigate(['/register'])
 
+  }
   
   
   

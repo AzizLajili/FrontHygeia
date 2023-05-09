@@ -1,6 +1,7 @@
 
 
 
+
 <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 70}">
     <div class="header-body border-top-0 box-shadow-none">
         <div class="header-container header-container-md container">
@@ -12,7 +13,8 @@
                         </div>
                     </div>
                 </div>
-                <nav>
+
+              <!--  <nav>
                     <ul>
                       <li><a routerLink="/addmedic">Add Medicament</a></li>
                       <li><a routerLink="/addpharm">Add Pharmacie</a></li>
@@ -23,8 +25,74 @@
     <li><a routerLink="/pharmdet/:id">Pharmacie Detail</a></li>
   
                     </ul>
-                  </nav>
+                  </nav> -->
                   
+
+                <div class="header-column justify-content-end">
+                    <div class="header-row">
+                        <div class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-no-transform header-nav-bottom-line-active-text-dark header-nav-bottom-line-effect-1 order-2 order-lg-1">
+                            <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                <nav class="collapse">
+                                    <ul class="nav nav-pills" id="mainNav">
+                                      <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" [routerLink]="['/getordonnances']">
+                                          Liste Ordonnances
+                                        </a>
+
+                                      </li>
+                                        <li class="dropdown dropdown-mega">
+                                            <a class="dropdown-item dropdown-toggle" [routerLink]="['/publications']">
+                                                Liste publication
+                                            </a>
+
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                      <div class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-no-transform header-nav-bottom-line-active-text-dark header-nav-bottom-line-effect-1 order-2 order-lg-1">
+                        <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                          <nav class="collapse">
+                            <ul class="nav nav-pills" id="">
+                              <li class="dropdown dropdown-mega">
+                                <a class="dropdown-item dropdown-toggle" [routerLink]="['/getcommands']">
+                                  Liste commandes
+                                </a>
+
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                        <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                          <i class="fas fa-bars"></i>
+                        </button>
+                      </div>
+
+                      <div class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2">
+                            <div class="header-nav-feature header-nav-features-search d-inline-flex">
+                                <a href="#" class="header-nav-features-toggle text-decoration-none" data-focus="headerSearch" aria-label="Search"><i class="fas fa-search header-nav-top-icon"></i></a>
+                                <div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed" id="headerTopSearchDropdown">
+                                    <form role="search" action="https://www.okler.net/previews/porto/9.9.2/page-search-results.html" method="get">
+                                        <div class="simple-search input-group">
+                                            <input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Search...">
+                                            <button class="btn" type="submit" aria-label="Search">
+                                                <i class="fas fa-search header-nav-top-icon text-color-dark"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <a *ngIf="!Connected" [routerLink]="['/login']"> login </a>
+                            <div class="header-nav-feature d-inline-flex ms-2">
+
+                                <a *ngIf="Connected" [routerLink]="['profile',id]" class="header-nav-features-toggle" aria-label="">
+                                    <img src="/assets/FrontOffice/img/icons/icon-user.svg" width="14" alt="" class="header-nav-top-icon-img">
+
+                                </a>
+
 
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="feature-cursor-effect.html">Cursor Effect</a></li>
@@ -41,7 +109,14 @@
                             </div>
                         </div>
                     </div>
+
                 
         
     
+
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
+
